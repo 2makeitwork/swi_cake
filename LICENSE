@@ -1,0 +1,47 @@
+# License for the swi_iceberg specification and documentation (design content)
+
+Copyright (c) 2026 Sven Pauline. Associated with Sheer Will Industry (SWI).
+
+This work — the **swi_iceberg** design specification and its accompanying
+documentation (text, diagrams, and notation) — is licensed under the
+**Creative Commons Attribution 4.0 International Public License (CC BY 4.0)**.
+
+The full legal text of the license is available at:
+
+- License deed (human readable): https://creativecommons.org/licenses/by/4.0/
+- Legal code (authoritative):      https://creativecommons.org/licenses/by/4.0/legalcode
+
+## You are free to
+
+- **Share** — copy and redistribute the material in any medium or format.
+- **Adapt** — remix, transform, and build upon the material for any purpose,
+  including commercially.
+
+under the following terms:
+
+## Attribution (TASL)
+
+- **Title:** swi_iceberg: A Robust Six-Band MADN Glyph with Population-Width Encoding and Global Context
+- **Author:** Sven Pauline (associated with Sheer Will Industry, SWI)
+- **Source:** https://github.com/2makeitwork/swi_cake (and the version's DOI)
+- **License:** CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+
+Suggested attribution string:
+
+> swi_iceberg — © 2026 Sven Pauline (copyright owner), associated with Sheer Will
+> Industry (SWI). Used under CC BY 4.0.
+
+If you remix, transform, or build upon the material, you must indicate what
+changes were made. You must not imply that the licensor endorses your use.
+
+## Scope note (copyright vs patent)
+
+CC BY 4.0 governs the copyright in the specification text and figures. It does
+not grant any patent right. Any patent position on the swi_iceberg mechanism is
+separate from this copyright license.
+
+## Software code
+
+The executable source under `src/`, `examples/`, `tests/`, and the `verify/`
+harness is offered under the separate Apache License, Version 2.0 in
+`LICENSE-CODE`. The specification documents under `docs/` remain under CC BY 4.0.

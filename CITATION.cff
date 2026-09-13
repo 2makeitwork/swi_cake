@@ -1,0 +1,23 @@
+# Canonical citation for the swi_iceberg design specification.
+# The `doi` field is filled in after the Zenodo record is published.
+cff-version: 1.2.0
+message: "If you use the swi_iceberg specification, please cite it as below."
+title: "swi_iceberg: A Robust Six-Band MADN Glyph with Population-Width Encoding and Global Context"
+authors:
+  - family-names: "Pauline"
+    given-names: "Sven"
+    affiliation: "Sheer Will Industry (SWI)"
+type: document
+version: "1.0"
+date-released: "2026-09-13"
+year: 2026
+license: CC-BY-4.0
+repository-code: "https://github.com/2makeitwork/swi_cake"
+url: "https://github.com/2makeitwork/swi_cake"
+# doi: "10.5281/zenodo.<REPLACE_AFTER_PUBLISH>"
+keywords:
+  - statistical visualization
+  - robust statistics
+  - median absolute deviation
+  - distribution
+  - data graphics

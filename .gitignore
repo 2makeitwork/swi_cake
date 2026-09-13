@@ -1,0 +1,30 @@
+# ---------------------------------------------------------------------------
+# Safety model: everything that is NOT part of the published artifact lives in
+# `private/` and is ignored wholesale, so new local/tooling files default to
+# untracked. Add publishable items explicitly with `git add -f <path>` if ever
+# needed.
+# ---------------------------------------------------------------------------
+private/
+
+# Consuming-project spec: kept locally, references the external design, not published.
+SWI_Communication_Analysis_Design_Spec.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+
+# Virtual envs
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Editor / OS
+.DS_Store
+*.swp
