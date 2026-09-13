@@ -11,7 +11,7 @@
 **Status:** Canonical design specification (language-agnostic, publishable)
 **Companion document:** *swi_iceberg User Manual* (`docs/swi_iceberg_User_Manual.md`) — software package usage
 **Document split:** this specification defines the **iceberg fleet** design (language-agnostic); the User Manual defines how to use the software package.
-**DOI:** _10.5281/zenodo.<FILL_AFTER_PUBLISH>_
+**DOI:** _10.5281/zenodo.22736442_
 
 ---
 
@@ -42,7 +42,7 @@ citation line (§0.3), not in the name.
 
 > Pauline, Sven. (2026). *swi_iceberg: A Robust Six-Band MADN Visualization for
 > the Iceberg Fleet* (Version 1.0). Zenodo.
-> https://doi.org/10.5281/zenodo.<FILL_AFTER_PUBLISH>
+> https://doi.org/10.5281/zenodo.22736442
 
 ### 0.4 Attribution
 

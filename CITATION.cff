@@ -14,7 +14,7 @@ year: 2026
 license: CC-BY-4.0
 repository-code: "https://github.com/2makeitwork/swi_cake"
 url: "https://github.com/2makeitwork/swi_cake"
-# doi: "10.5281/zenodo.<FILL_AFTER_PUBLISH>"   # uncomment + fill after the Zenodo record is published
+doi: "10.5281/zenodo.22736442"
 keywords:
   - statistical visualization
   - robust statistics
