@@ -6,13 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "swi_iceberg"
 version = "1.0.0"
 description = "swi_iceberg: a median-centered, MADN-scaled six-band robust distribution glyph for comparing distributions across categories."
+readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Apache-2.0 (code) / CC-BY-4.0 (specification)" }
 authors = [{ name = "Sven Pauline" }]
 keywords = ["statistical visualization", "robust statistics", "median absolute deviation", "distribution comparison"]
 dependencies = [
     "numpy>=1.24",
-    "pandas>=2.0",
 ]
 
 [project.optional-dependencies]

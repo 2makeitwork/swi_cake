@@ -6,9 +6,6 @@
 # ---------------------------------------------------------------------------
 private/
 
-# Consuming-project spec: kept locally, references the external design, not published.
-SWI_Communication_Analysis_Design_Spec.md
-
 # Python
 __pycache__/
 *.py[cod]

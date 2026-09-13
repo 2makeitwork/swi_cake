@@ -1,6 +1,6 @@
 # swi_iceberg
 
-## A Robust Six-Band MADN Glyph with Population-Width Encoding and Global Context
+## A Robust Six-Band MADN Visualization for the Iceberg Fleet
 
 **Design specification — version 1.0**
 
@@ -9,8 +9,9 @@
 **Copyright:** © 2026 Sven Pauline. Associated with Sheer Will Industry (SWI).
 **License:** Creative Commons Attribution 4.0 International (CC BY 4.0)
 **Status:** Canonical design specification (language-agnostic, publishable)
-**Companion document:** *swi_iceberg Implementation Specification* (project binding)
-**DOI:** _10.5281/zenodo.<reserved — filled at publication>_
+**Companion document:** *swi_iceberg User Manual* (`docs/swi_iceberg_User_Manual.md`) — software package usage
+**Document split:** this specification defines the **iceberg fleet** design (language-agnostic); the User Manual defines how to use the software package.
+**DOI:** _10.5281/zenodo.<FILL_AFTER_PUBLISH>_
 
 ---
 
@@ -18,9 +19,12 @@
 
 ### 0.1 Name
 
-We propose and name this composite visualization the **swi_iceberg glyph** — a
-robust, median-centered, MADN-scaled band glyph, pronounced **"sweet iceberg."**
-The `swi` prefix associates the glyph with **Sheer Will Industry (SWI)**; the
+The individual mark — one object's distribution — is called **a swi_iceberg**,
+pronounced **"sweet iceberg."** A chart that lines up many swi_icebergs on one
+shared value axis is called **the iceberg fleet**; it is the iceberg fleet that
+makes comparison across objects readable.
+
+The `swi` prefix associates the swi_iceberg with **Sheer Will Industry (SWI)**; the
 **iceberg** metaphor names its core idea — a compact visible hull whose submerged
 tail mass is still accounted for rather than allowed to dominate the view. The
 underlying statistic is **MADN** (defined in §3). Authorship is carried in the
@@ -30,15 +34,15 @@ citation line (§0.3), not in the name.
 
 - **Originator / copyright holder:** Sven Pauline.
 - **Association / brand:** Sheer Will Industry (SWI).
-- **Introduced concept:** the swi_iceberg glyph.
+- **Introduced concept:** the swi_iceberg.
 - **Content license:** CC BY 4.0 — anyone may reuse the specification with attribution.
 - **Scholarly provenance:** a permanent DOI identifies each published version.
 
 ### 0.3 Canonical citation
 
-> Pauline, Sven. (2026). *swi_iceberg: A Robust Six-Band MADN Glyph with
-> Population-Width Encoding and Global Context* (Version 1.0). Zenodo.
-> https://doi.org/10.5281/zenodo.<reserved>
+> Pauline, Sven. (2026). *swi_iceberg: A Robust Six-Band MADN Visualization for
+> the Iceberg Fleet* (Version 1.0). Zenodo.
+> https://doi.org/10.5281/zenodo.<FILL_AFTER_PUBLISH>
 
 ### 0.4 Attribution
 
@@ -53,11 +57,11 @@ whether changes were made. Suggested string:
 
 ## 1. Abstract
 
-The **swi_iceberg glyph** is a categorical distribution mark for comparing groups
+The **swi_iceberg** is a categorical distribution mark for comparing groups
 of observations (devices, servers, cohorts) whose distributions may differ in
 location, spread, skewness, tail weight, and sample size.
 
-Each category is rendered as a vertically stacked **six-band glyph** centered on
+Each category is rendered as a vertically stacked **six-band swi_iceberg** centered on
 its median and scaled by the **Median Absolute Deviation Normalized** (MADN). All
 bands share one horizontal population scale: **a band's width is proportional to
 the fraction of that category's samples falling within it.** A band's **height is
@@ -66,7 +70,7 @@ silhouette reflects where the data actually sits rather than a fixed theoretical
 block.
 
 The six body bands cover the interval from \(-3\) to \(+3\) MADN about the median.
-Observations beyond that robust envelope do not stretch the glyph toward the raw
+Observations beyond that robust envelope do not stretch the swi_iceberg toward the raw
 minimum or maximum; their population is instead carried by two additional tail
 regions — **bottoming** (below \(-3\)) and **topping** (above \(+3\)) — drawn at a
 fixed symbolic height and encoded by width alone.
@@ -87,10 +91,10 @@ questions at once. The table below notes where common marks fall short.
 | Where does the center lie? | The mean is distorted by outliers; the median needs an explicit mark. |
 | How wide is the robust core? | The standard deviation is inflated by tails; box plots use the interquartile range but hide multi-modality. |
 | Is there heavy-tail mass? | Box-plot whiskers stretch to extremes and destroy the vertical scale; violin plots show density but obscure tail *mass*. |
-| Do categories have different counts? | Variable-width glyphs can conflate width-as-sampling-noise with width-as-uncertainty. |
+| Do categories have different counts? | Variable-width swi_icebergs can conflate width-as-sampling-noise with width-as-uncertainty. |
 | What is the global reference? | Backgrounds often differ visually from foregrounds, forcing a second legend. |
 
-The swi_iceberg glyph resolves these through a unified band architecture in which
+The swi_iceberg resolves these through a unified band architecture in which
 location and scale use robust estimators (median and MADN), occupied value range
 is carried by band **height**, population is carried uniformly by band **width**,
 tails never hide (they become width-only regions that do not pull the vertical
@@ -118,8 +122,8 @@ beforehand), with sample count \(N_i = |X_i|\).
 m_i = \operatorname{median}(X_i)
 \]
 
-The median is the center of the glyph and is rendered as a **solid horizontal
-rule** across the glyph footprint (§8).
+The median is the center of the swi_iceberg and is rendered as a **solid horizontal
+rule** across the swi_iceberg footprint (§8).
 
 ### 3.3 Robust scale (MADN)
 
@@ -159,7 +163,7 @@ L_i \equiv m_i - 3\hat{\sigma}_i, \qquad U_i \equiv m_i + 3\hat{\sigma}_i.
 
 These limits are the iceberg's waterline: observations inside are placed by their
 actual value; observations outside are accounted for by the tail regions but do
-not dictate the glyph's vertical extent (§7).
+not dictate the swi_iceberg's vertical extent (§7).
 
 ---
 
@@ -228,7 +232,7 @@ Consequences:
   x_{i,k}^{\text{left}} = x_i - \tfrac{w_{i,k}}{2}, \qquad
   x_{i,k}^{\text{right}} = x_i + \tfrac{w_{i,k}}{2},
   \]
-  so changes in width never shift the glyph's visual center.
+  so changes in width never shift the swi_iceberg's visual center.
 - If a region is empty (\(n_{i,k}=0\)), its width is zero and it is not drawn
   (optionally shown as a gap marker).
 
@@ -258,7 +262,7 @@ R_{i,k} = \bigl[x_i - \tfrac{w_{i,k}}{2},\; x_i + \tfrac{w_{i,k}}{2}\bigr]
         \times \bigl[\,y^{\min}_{i,k},\; y^{\max}_{i,k}\bigr].
 \]
 
-This yields the glyph's core bivariate read:
+This yields the swi_iceberg's core bivariate read:
 
 \[
 \boxed{\text{height} = \text{occupied value range}}, \qquad
@@ -274,7 +278,7 @@ samples, but scattered across a wide value range in this MADN floor."
 
 ## 7. Display clipping at ±3 MADN (not winsorization)
 
-An individual glyph does **not** extend its body to the raw sample minimum or
+An individual swi_iceberg does **not** extend its body to the raw sample minimum or
 maximum; the body is bounded by \([L_i, U_i]\). An observation \(x \gg U_i\) does
 not produce an arbitrarily tall upper band, and \(x \ll L_i\) does not produce an
 arbitrarily tall lower band.
@@ -301,17 +305,17 @@ scale. If a tail region's population is zero, it need not be drawn.
 
 ## 8. Medians — object and global
 
-- **Object median** \(m_i\): a **solid** horizontal line across the glyph. It is
+- **Object median** \(m_i\): a **solid** horizontal line across the swi_iceberg. It is
   not a band and its width encodes no population.
 - **Global median** \(M\): a **dashed** horizontal line spanning the plot (§10).
 
 | Indicator | Statistic | Rendering |
 |---|---|---|
-| Object median | \(m_i\) | Solid line within each glyph |
+| Object median | \(m_i\) | Solid line within each swi_iceberg |
 | Global median | \(M\) | Dashed horizontal reference line |
 
 Together they give simultaneous local and global location: "where is this device's
-center, and how does it sit against the fleet's center?"
+center, and how does it sit against the iceberg fleet's center?"
 
 ---
 
@@ -333,7 +337,7 @@ constraints):
 
 Colors follow a continuous green → yellow → orange → red progression from bottom
 to top. Color must never be the sole carrier of meaning: band **position** provides
-a redundant encoding, so the glyph stays readable in grayscale or for a
+a redundant encoding, so the swi_iceberg stays readable in grayscale or for a
 color-blind viewer.
 
 ---
@@ -351,10 +355,10 @@ M = \operatorname{median}(X_G), \qquad
 \]
 
 The background uses the **same band construction and the same signed color
-semantics** as the object glyphs — it is itself one swi_iceberg glyph of the pooled
+semantics** as the object swi_icebergs — it is itself one swi_iceberg of the pooled
 sample, drawn at low opacity and centered on the plot, with a dashed line at \(M\).
 Because it is the *same algorithm on a different sample base*, its band widths are
-the pooled population fractions and are therefore **non-equal wherever the fleet's
+the pooled population fractions and are therefore **non-equal wherever the iceberg fleet's
 distribution is uneven** (a fleet concentrated near its median shows one wide band;
 a heavy-tailed fleet shows a fat topping). This self-similarity means a reader
 learns one statistical grammar and applies it to both layers.
@@ -365,21 +369,21 @@ There is exactly **one intentional asymmetry** between foreground and background
 |---|---|---|
 | Opacity | Opaque / near-opaque | Faint (\(\alpha \approx 0.08\)–\(0.15\)) |
 | Width | Per-category, centered at \(x_i\) | Pooled population fraction, centered on the plot (same encoding, own scale) |
-| Tail regions | Clipped to fixed stub height (§7) | Not clipped at \(\pm3\) MADN, but bounded by a **global sky/ground envelope** \(=\min(10\,M,\ \max X_G)\) / \(\max(-10\,M,\ \min X_G)\); pooled tails bleed to that envelope and the plot border turns red where samples exceed it |
+| Tail regions | Clipped to fixed stub height (§7) | Not clipped at \(\pm3\) MADN, but bounded by a **global sky/ground envelope** \(=\min(3\,M,\ \max X_G)\) / \(\max(-3\,M,\ \min X_G)\); pooled tails bleed to that envelope and the plot border turns red where samples exceed it |
 | Median | Solid, per-category | Dashed, spanning the plot |
 
 The background is not clipped at \(M \pm 3\hat{\Sigma}\): its outer color regions
 continue past \(\pm3\hat{\Sigma}\) so the background remains a complete global
-reference even though individual glyph bodies are robustly clipped. It is,
-however, bounded by a **global sky/ground envelope** — the smaller of \(10\,M\) and
-the pooled maximum (and symmetrically the larger of \(-10\,M\) and the pooled
+reference even though individual swi_iceberg bodies are robustly clipped. It is,
+however, bounded by a **global sky/ground envelope** — the smaller of \(3\,M\) and
+the pooled maximum (and symmetrically the larger of \(-3\,M\) and the pooled
 minimum) — so a single extreme cannot shoot through the plot. Where pooled samples
 lie beyond that envelope, the corresponding plot border edge is drawn in a warning
 color to signal the shoot-through. The **visible vertical axis is bounded by this
-sky/ground envelope and the per-glyph \(\pm3\) MADN envelopes** so that a single
-extreme cannot stretch the scale and squash every glyph.
+sky/ground envelope and the per-object \(\pm3\) MADN envelopes** so that a single
+extreme cannot stretch the scale and squash every swi_iceberg.
 
-**Why the asymmetry is deliberate:** an individual glyph is an object to be
+**Why the asymmetry is deliberate:** an individual swi_iceberg is an object to be
 compared with neighbors, so its body clips vertical tail extent while preserving
 tail population in width; the background is a reference frame, so it preserves the
 MADN boundaries but does not terminate them.
@@ -420,11 +424,11 @@ the primary implementation invariant (§14).
 
 ## 13. Interpretation guide
 
-To read one glyph, then the fleet:
+To read one swi_iceberg, then the iceberg fleet:
 
 1. **Level** — where the solid median sits on the absolute axis, and relative to
    the dashed global median (a category centered inside the red global bands is
-   high for the fleet).
+   high for the iceberg fleet).
 2. **Silhouette** — is the building taller above or below the median? (skew)
 3. **Band widths** — are the inner bands wider than the outer ones (mass near the
    median)? Is the topping disproportionately thick (heavy upper tail)? The
@@ -439,7 +443,7 @@ To read one glyph, then the fleet:
 
 ## 14. Statistical invariants
 
-1. The median is always the center of a glyph.
+1. The median is always the center of a swi_iceberg.
 2. MADN is \(1.4826 \times \operatorname{median}(|x - \operatorname{median}(x)|)\).
 3. The default envelope is \(\pm 3\) MADN; it is configurable.
 4. The body is partitioned into equal-width MADN bands (default six over \(\pm3\));
@@ -447,13 +451,13 @@ To read one glyph, then the fleet:
    observed value range of the samples in it.
 5. The body is clipped to the envelope; out-of-envelope observations are retained
    as bottoming/topping, never discarded.
-6. Bands are positioned at absolute value \(m_i + z\hat{\sigma}_i\), so glyphs
+6. Bands are positioned at absolute value \(m_i + z\hat{\sigma}_i\), so swi_icebergs
    float on a shared axis.
 7. All widths use one shared \(W_{\max}\) and are normalized by \(N_i\).
 8. Region populations sum to \(N_i\) (equivalently, proportions sum to 1).
-9. The minimum sample size is 100; below that no glyph is produced and the user is
+9. The minimum sample size is 100; below that no swi_iceberg is produced and the user is
    prompted.
-10. Zero MAD collapses the glyph to a single line at the median (no artificial
+10. Zero MAD collapses the swi_iceberg to a single line at the median (no artificial
     spread).
 11. Signed value domains are supported; the default latency view clamps the visible
     lower bound at zero.
@@ -479,10 +483,10 @@ To read one glyph, then the fleet:
   would lose.
 - **Tail mass without tail-dominated scale.** Drawing raw extremes preserves
   severity but destroys vertical resolution; deleting them preserves scale but hides
-  them. The glyph takes a third path — clip vertical tail magnitude, keep tail
+  them. The swi_iceberg takes a third path — clip vertical tail magnitude, keep tail
   population in width.
 - **Self-similar focus and context.** One construction, one zone scheme, one color
-  scale for glyph and background; the only differences are rendering (opacity,
+  scale for swi_iceberg and background; the only differences are rendering (opacity,
   clipping, solid vs dashed).
 
 ---
@@ -492,11 +496,11 @@ To read one glyph, then the fleet:
 | Situation | Behavior |
 |---|---|
 | \(N_i = 0\) (empty category) | Draw nothing or a placeholder; never divide by zero. |
-| \(N_i < 100\) | Below the canonical minimum: no glyph, prompt the user (MADN is unstable for small \(n\)). |
+| \(N_i < 100\) | Below the canonical minimum: no swi_iceberg, prompt the user (MADN is unstable for small \(n\)). |
 | \(\hat{\sigma}_i = 0\) (over half the samples identical) | Collapse to a single line at the median; do not inject an artificial epsilon. |
 | Empty body band | \(p=0\), width \(0\), not drawn (optionally a gap marker). |
 | All mass in one tail | e.g. \(p_{\text{top}}=1\): a wide topping at the roof anchor, the rest of the building absent — correctly signaling an entirely out-of-envelope category. |
-| Strongly multimodal data | A band stores population and occupied range but not internal gaps; two clusters at opposite ends of a band read the same as continuous fill there. The glyph is a robust summary, not a full density estimate. |
+| Strongly multimodal data | A band stores population and occupied range but not internal gaps; two clusters at opposite ends of a band read the same as continuous fill there. The swi_iceberg is a robust summary, not a full density estimate. |
 | Very large \(W_{\max}\) | Choose \(W_{\max}\) so the widest expected band fills roughly 70–80% of the inter-column space; opaque mode requires \(W_{\max}\) ≤ column spacing. |
 
 ---
@@ -504,17 +508,17 @@ To read one glyph, then the fleet:
 ## 17. Relation to existing visualization families
 
 - **Box plots** partition by quantiles and typically an interquartile range; the
-  swi_iceberg glyph partitions by median-centered MADN regions and encodes
+  swi_iceberg partitions by median-centered MADN regions and encodes
   normalized population in width — it is not a conventional box plot.
 - **Variable-width box plots** vary the width of a whole box by total count; here
   width varies **independently per band** by that band's population fraction.
 - **Violin and density plots** use continuously varying width (a kernel-density
-  estimate); this glyph uses a small number of discrete robust zones and direct
+  estimate); this swi_iceberg uses a small number of discrete robust zones and direct
   population fractions.
 - **Candlestick charts** may resemble the silhouette but encode open/high/low/close;
-  this glyph does not.
+  this swi_iceberg does not.
 - **Statistical process-control zone charts** share the deviation-region idea but
-  draw horizontal reference lines on a run chart; this glyph uses robust MADN
+  draw horizontal reference lines on a run chart; this swi_iceberg uses robust MADN
   scale, per-category population-width bands, observed-range heights, explicit tail
   regions, and a self-similar background bounded by a global sky/ground envelope.
 
@@ -526,7 +530,7 @@ We propose and name this composite visualization; we do **not** claim that no
 visually similar encoding has ever existed. A conservative statement of the
 candidate differentiation is:
 
-> The swi_iceberg glyph combines median/MADN robust bands, observed value range in
+> The swi_iceberg combines median/MADN robust bands, observed value range in
 > each band's height, normalized per-band population width, a body clipped to
 > \(\pm3\) MADN with tail population preserved as bottoming/topping, and a
 > self-similar globally-bounded background. To the author's knowledge this exact
@@ -540,7 +544,7 @@ formal literature and patent search should accompany any strong novelty claim.
 ## 19. Recommended figure legend
 
 > **Figure X.** swi_iceberg comparison of latency distributions across \(K\)
-> categories. Each vertical stack is a six-band glyph centered on its category
+> categories. Each vertical stack is a six-band swi_iceberg centered on its category
 > median (solid black line). Bands are signed deviations in units of MADN
 > (\(\hat\sigma\)): **bottoming** (\(<-3\)), **lower outer / mid / inner**
 > (\(-3\) to \(0\)), **upper inner / mid / outer** (\(0\) to \(+3\)), **topping**
@@ -549,7 +553,7 @@ formal literature and patent search should accompany any strong novelty claim.
 > the observed value range those samples occupy. The body is clipped to \(\pm3\)
 > MADN so outliers cannot distort the silhouette; bottoming and topping carry the
 > clipped tail population as fixed-height, width-encoded stubs. The faint
-> background is the fleet-wide distribution built from the same rules (dashed line
+> background is the iceberg fleet-wide distribution built from the same rules (dashed line
 > = global median), with its outer regions bounded by the global sky/ground
 > envelope (red border edge where pooled samples exceed it).
 
@@ -557,7 +561,7 @@ formal literature and patent search should accompany any strong novelty claim.
 
 ## 20. Terminology
 
-- **swi_iceberg glyph** — the complete per-category mark (six body bands plus
+- **swi_iceberg** — the complete per-category mark (six body bands plus
   bottoming/topping).
 - **Body** — the six central bands from \(-3\) to \(+3\) MADN.
 - **Bottoming / Topping** — the optional tail regions below \(-3\) / above \(+3\)
@@ -573,14 +577,18 @@ formal literature and patent search should accompany any strong novelty claim.
 
 ## 21. File metadata for deposit
 
-- **Title:** swi_iceberg: A Robust Six-Band MADN Glyph with Population-Width Encoding and Global Context
+- **Title:** swi_iceberg: A Robust Six-Band MADN Visualization for the Iceberg Fleet
 - **Creators:** Sven Pauline (Sheer Will Industry / SWI)
-- **Description:** Specification of a categorical distribution glyph — its statistical foundation (median / MADN), six-band geometry, population-width and occupied-range-height encoding, tail preservation, and self-similar global context layer.
-- **Keywords:** visualization; distribution comparison; robust statistics; median absolute deviation; MADN; outlier visualization; latency; categorical data; glyph
+- **Description:** Specification of a categorical distribution swi_iceberg — its statistical foundation (median / MADN), six-band geometry, population-width and occupied-range-height encoding, tail preservation, and self-similar global context layer.
+- **Keywords:** visualization; distribution comparison; robust statistics; median absolute deviation; MADN; outlier visualization; latency; categorical data; swi_iceberg
 - **License:** CC BY 4.0 (text and figures)
 - **Related identifiers:** implementation repository — https://github.com/2makeitwork/swi_cake
 - **Publisher:** Zenodo
 - **Publication date:** _[ISO-8601, set at deposit]_
+
+The operational deposit steps (record creation, upload, and filling the minted DOI
+into the three placeholder lines) are maintained locally together with the deposit
+metadata, and are intentionally not part of this published document.
 
 ---
 

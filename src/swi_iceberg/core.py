@@ -1,6 +1,6 @@
 """swi_iceberg statistical layer.
 
-Implements the swi_iceberg glyph (see swi_iceberg.md): a median-centered,
+Implements the swi_iceberg glyph (see specification_swi_iceberg.md): a median-centered,
 MADN-scaled distribution. MADN = 1.4826 * median(|x - median|) is the normalized
 median absolute deviation (the robust scale, historically also called "SWI sigma").
 
@@ -19,6 +19,7 @@ specification is CC BY 4.0 (LICENSE).
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from typing import Optional, Sequence
 
@@ -28,6 +29,7 @@ __all__ = [
     "InsufficientDataError",
     "IcebergGlyph",
     "build_iceberg",
+    "global_zone_index",
     "MIN_SAMPLES",
     "MADN_CALIBRATION",
 ]
@@ -77,6 +79,22 @@ class IcebergGlyph:
         if self.n <= 0:
             return np.zeros_like(self.population, dtype=np.float64)
         return self.population.astype(np.float64) / float(self.n)
+
+
+def global_zone_index(value: float, median: float, madn: float) -> Optional[int]:
+    """Index (0..5) of the global MADN zone that ``value`` falls in, or ``None``.
+
+    Zones are the six pooled bands [-3,-2), [-2,-1), [-1,0), [0,+1), [+1,+2),
+    [+2,+3] relative to the global median/MADN. Values beyond +/-3 (the tail
+    regions) return ``None``. Renderers use this to implement the per-zone
+    show/hide toggle; it is pure statistics and mutates nothing.
+    """
+    if madn <= 0:
+        return None
+    z = (value - median) / madn
+    if z < -3 or z >= 3:
+        return None
+    return min(5, max(0, math.floor(z + 3)))
 
 
 def _float_safe_edges(z_min: float, z_max: float, resolution: float) -> np.ndarray:
