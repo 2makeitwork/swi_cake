@@ -1,0 +1,77 @@
+[
+  {
+    "file": "fleet-1.json",
+    "seed": 1,
+    "objects": 12
+  },
+  {
+    "file": "fleet-10.json",
+    "seed": 10,
+    "objects": 12
+  },
+  {
+    "file": "fleet-101.json",
+    "seed": 101,
+    "objects": 48
+  },
+  {
+    "file": "fleet-102.json",
+    "seed": 102,
+    "objects": 48
+  },
+  {
+    "file": "fleet-103.json",
+    "seed": 103,
+    "objects": 48
+  },
+  {
+    "file": "fleet-11.json",
+    "seed": 11,
+    "objects": 12
+  },
+  {
+    "file": "fleet-12.json",
+    "seed": 12,
+    "objects": 12
+  },
+  {
+    "file": "fleet-2.json",
+    "seed": 2,
+    "objects": 12
+  },
+  {
+    "file": "fleet-3.json",
+    "seed": 3,
+    "objects": 12
+  },
+  {
+    "file": "fleet-4.json",
+    "seed": 4,
+    "objects": 12
+  },
+  {
+    "file": "fleet-5.json",
+    "seed": 5,
+    "objects": 12
+  },
+  {
+    "file": "fleet-6.json",
+    "seed": 6,
+    "objects": 12
+  },
+  {
+    "file": "fleet-7.json",
+    "seed": 7,
+    "objects": 12
+  },
+  {
+    "file": "fleet-8.json",
+    "seed": 8,
+    "objects": 12
+  },
+  {
+    "file": "fleet-9.json",
+    "seed": 9,
+    "objects": 12
+  }
+]

@@ -7,7 +7,8 @@
 **Design specification:** [specification_swi_iceberg.md](../specification_swi_iceberg.md)
 (CC BY 4.0) — the *iceberg fleet* design lives there; this manual covers only how to
 use the software.
-**Verification harness:** `private/verify` (local tooling, not published).
+**Verification harness:** `private/verify` (harness source is local tooling; the page
+it builds is published — see section 7).
 
 ---
 
@@ -131,14 +132,29 @@ Used by the harness for the per-zone show/hide toggles.
 
 ## 7. The verification harness (iceberg fleet viewer)
 
-Local tooling under `private/verify` (Vite + TypeScript + Tailwind, SVG output).
+The harness source is local tooling under `private/verify` (Vite + TypeScript +
+Tailwind, SVG output). Its built page is published in
+[`fleet/`](fleet/) and served by GitHub Pages at
+<https://2makeitwork.github.io/swi_cake/fleet/>.
 
 ```bash
-conda run -n pktbuild python private/examples/gen_devices.py            # 12-object set
+conda run -n pktbuild python private/examples/gen_devices.py                               # default 12-object payload
+conda run -n pktbuild python private/examples/gen_devices.py --seed=1 --fleets=12           # "Random fleet" pool
+conda run -n pktbuild python private/examples/gen_devices.py --seed=101 --count=48 --fleets=3
 conda run -n pktbuild python private/examples/gen_devices.py --count=300 --out=devices300.json
 cd private/verify && npm install && npm run dev        # http://localhost:5178
+npm run typecheck && npm run build                     # static bundle in private/verify/dist
 # alternate dataset:  http://localhost:5178/?data=devices300.json
+# republish the page: cp -r private/verify/dist/. docs/fleet/ && git add docs/fleet
 ```
+
+The four rendering-contract invariants are still asserted on every load, but the
+page no longer draws the pass/fail list (it is shared as a demo): the results go to
+one console line and to `window.__SWI_VERIFY__`, which is what the browser
+verification step reads. The **Random fleet** button picks another payload from
+`fleets/index.json` — the pool is pre-generated here, because a static host cannot
+run `gen_devices.py`; each pooled fleet is real reference-implementation output, and
+its seed is shown next to the button.
 
 ### 7.1 Default iceberg fleet (12 objects)
 
@@ -175,9 +191,12 @@ markers.
 ### 7.5 Ultra compact view (large fleets)
 
 The **px per object** slider (1–18) sets horizontal density; the normal
-width-encoded rendering scales to the slot — 18 px equals the compact view, 1 px
-degenerates to spines (~18× denser). Shift+wheel = horizontal zoom; the horizontal
-scrollbar pans.
+width-encoded rendering scales to the slot — 18 px gives every object exactly the
+compact slot width, 1 px degenerates to spines (~18× denser). The number beside the
+slider states the density actually drawn: the auto-fit slot (18–56 px) while ultra
+compact is off, the slider value when it is on, and `slider × zoom` after a horizontal
+zoom. Shift+wheel = horizontal zoom in either mode (ceiling 160 px per object); the
+horizontal scrollbar pans, and the lineup re-fits itself when the window is resized.
 
 ![300 objects, ultra compact view](figures/manual_fleet_300_ultra.png)
 
