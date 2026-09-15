@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>swi_iceberg — the iceberg fleet</title>
+    <meta
+      name="description"
+      content="swi_iceberg: a robust six-band MADN visualization for comparing many distributions side by side. Interactive fleet page, user manual and figures."
+    />
+    <style>
+      /* Self-contained on purpose: this page has no build step and must render the
+         same from the custom domain and from the github.io project URL. */
+      :root {
+        color-scheme: light;
+        --ink: #0f172a;
+        --muted: #475569;
+        --faint: #94a3b8;
+        --line: #e2e8f0;
+      }
+      body {
+        margin: 0;
+        background: #f1f5f9;
+        color: var(--ink);
+        font: 15px/1.55 ui-sans-serif, system-ui, sans-serif;
+      }
+      main {
+        max-width: 46rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 3rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin: 0 0 0.35rem;
+      }
+      .lede {
+        color: var(--muted);
+        margin: 0 0 2rem;
+      }
+      h2 {
+        font-size: 0.8rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--faint);
+        margin: 2rem 0 0.6rem;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding: 0.7rem 0.9rem;
+      }
+      a {
+        color: #0369a1;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .what {
+        display: block;
+        color: var(--muted);
+        font-size: 0.875rem;
+        margin-top: 0.15rem;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.85em;
+      }
+      footer {
+        margin-top: 2.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--line);
+        color: var(--faint);
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>swi_iceberg</h1>
+      <p class="lede">
+        Compare many distributions side by side. Each object's samples are summarized
+        around their median, scaled by MADN (the median absolute deviation times
+        1.4826, a robust stand-in for the standard deviation) into six bands from
+        −3 to +3; a band's width is how many samples fall in it, its height is the
+        value range those samples span.
+      </p>
+
+      <h2>Explore</h2>
+      <ul>
+        <li>
+          <a href="fleet/">Interactive fleet page</a>
+          <span class="what"
+            >Twelve example objects, pan and zoom, per-band tooltips, view toggles,
+            and a "Random fleet" button that swaps in another pre-computed fleet.</span
+          >
+        </li>
+        <li>
+          <a href="fleet/?data=devices300.json&amp;ultra=1&amp;slot=2">Large fleet, ultra compact view</a>
+          <span class="what">300 objects drawn as one-pixel-wide spines per band.</span>
+        </li>
+      </ul>
+
+      <h2>Read</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/2makeitwork/swi_cake/blob/main/docs/swi_iceberg_User_Manual.md"
+            >User manual</a
+          >
+          <span class="what"
+            >Package application programming interface, streaming feed, wait-out
+            pipeline, and the fleet page above, with screenshots. A plain copy is
+            served here at <a href="swi_iceberg_User_Manual.md"><code>swi_iceberg_User_Manual.md</code></a>.</span
+          >
+        </li>
+        <li>
+          <a href="https://github.com/2makeitwork/swi_cake/blob/main/specification_swi_iceberg.md"
+            >Design specification</a
+          >
+          <span class="what"
+            >The language-agnostic formal treatment: zone definitions, conservation
+            invariants, clipping rules, degenerate cases, relation to prior work.</span
+          >
+        </li>
+      </ul>
+
+      <h2>Figures</h2>
+      <ul>
+        <li>
+          <a href="figures/swi_iceberg_example.svg">Twelve objects, one shared axis</a>
+          <span class="what">Scalable vector graphic, the image used at the top of the README.</span>
+        </li>
+        <li>
+          <a href="figures/swi_iceberg_vs_distribution.svg">Each object's histogram beside its swi_iceberg</a>
+          <span class="what">How each distribution shape maps onto the glyph.</span>
+        </li>
+        <li>
+          <a href="https://github.com/2makeitwork/swi_cake/tree/main/docs/figures"
+            >Manual screenshots</a
+          >
+          <span class="what">Fleet view, tooltips, vertical zoom, curves only, large fleet.</span>
+        </li>
+      </ul>
+
+      <h2>Code, license, citation</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/2makeitwork/swi_cake">Repository <code>2makeitwork/swi_cake</code></a>
+          <span class="what"
+            >Reference implementation in <code>src/swi_iceberg/</code> (Python 3.10+,
+            NumPy as the only runtime dependency), the specification, and this
+            site's sources under <code>docs/</code>.</span
+          >
+        </li>
+        <li>
+          <a href="https://github.com/2makeitwork/swi_cake/blob/main/CITATION.cff">Citation</a>
+          <span class="what"
+            >Pauline, Sven (2026). <em>swi_iceberg: A Robust Six-Band MADN
+            Visualization for the Iceberg Fleet</em>, v1.0. DOI
+            10.5281/zenodo.22736442.</span
+          >
+        </li>
+        <li>
+          Licensing
+          <span class="what"
+            >Specification text and figures: CC BY 4.0. Executable code:
+            Apache-2.0.</span
+          >
+        </li>
+      </ul>
+
+      <footer>
+        swi_iceberg · © 2026 Sven Pauline, associated with Sheer Will Industry (SWI)
+        · CC BY 4.0 (specification) / Apache-2.0 (code)
+      </footer>
+    </main>
+  </body>
+</html>

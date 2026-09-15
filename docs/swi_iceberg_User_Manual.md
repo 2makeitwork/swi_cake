@@ -132,8 +132,10 @@ Used by the harness for the per-zone show/hide toggles.
 
 The harness source is local tooling — a Vite + TypeScript + Tailwind application that
 renders inline SVG — and is not part of this repository. Its built page is published
-in [`fleet/`](fleet/) and served by GitHub Pages at
-<https://2makeitwork.github.io/swi_cake/fleet/>.
+in [`fleet/`](fleet/). GitHub Pages serves this whole `docs/` folder as the site root,
+so the landing page is <https://swi-iceberg.swi-energy.com/> and the fleet page is
+<https://swi-iceberg.swi-energy.com/fleet/>; the `github.io` address
+<https://2makeitwork.github.io/swi_cake/fleet/> keeps serving the same files.
 
 The commands below describe the maintainer steps; where they run and their exact
 paths are recorded in the harness's own (local) README.
@@ -148,6 +150,16 @@ npm run typecheck && npm run build   # static bundle in the harness's dist/ dire
 # alternate dataset:  http://localhost:5178/?data=devices300.json
 # republish: copy the built bundle into docs/fleet/ and commit it
 ```
+
+Hosting: the publishing source is branch `main`, folder `/docs`, and
+[`docs/.nojekyll`](.nojekyll) keeps the Jekyll step out of the build. The custom
+hostname lives in [`docs/CNAME`](CNAME) as `swi-iceberg.swi-energy.com`, which is a
+`CNAME` record to `2makeitwork.github.io` in the `swi-energy.com` zone (Cloudflare
+name servers). Only that one label is pointed at this site — `swi-energy.com` and
+`www.swi-energy.com` serve the company site and must keep their own records. When the
+record is proxied through Cloudflare, set SSL/TLS to "Full (strict)" and enable
+"Always Use HTTPS"; GitHub issues its own certificate for the hostname, so leave the
+record un-proxied until that certificate exists.
 
 The four rendering-contract invariants are still asserted on every load, but the
 page no longer draws the pass/fail list (it is shared as a demo): the results go to

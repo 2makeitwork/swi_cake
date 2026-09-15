@@ -9,7 +9,7 @@ one swi_iceberg; the faint shape behind them is every object pooled together.*
 
 **Same fleet, interactive:** pan, vertical zoom, per-band tooltips, view toggles,
 and a "Random fleet" button that swaps in another pre-computed fleet —
-<https://2makeitwork.github.io/swi_cake/fleet/>
+<https://swi-iceberg.swi-energy.com/fleet/>
 
 ---
 
@@ -117,7 +117,7 @@ inventing spread.
 | [`docs/swi_iceberg_User_Manual.md`](docs/swi_iceberg_User_Manual.md) | **User manual**: package API, streaming feed, wait-out pipeline, and the verification harness, with screenshots. |
 | [`src/swi_iceberg/`](src/swi_iceberg/) | Reference implementation (Apache-2.0): statistical + rendering layers. |
 | [`docs/figures/`](docs/figures/) | Example graphics. |
-| [`docs/fleet/`](docs/fleet/) | The interactive fleet page as published to GitHub Pages (built, self-contained static files; the harness source that generates it is local tooling). |
+| [`docs/fleet/`](docs/fleet/) | The interactive fleet page as published to GitHub Pages (built, self-contained static files; the harness source that generates it is local tooling). Live at <https://swi-iceberg.swi-energy.com/fleet/>, with a landing page over [`docs/`](docs/) at <https://swi-iceberg.swi-energy.com/>. |
 | [`CITATION.cff`](CITATION.cff) | Canonical citation (DOI reserved until Zenodo publication). |
 
 Tests, the browser verification harness source, and the sample-data generators are
