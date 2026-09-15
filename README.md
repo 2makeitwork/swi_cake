@@ -44,6 +44,8 @@ The design uses robust statistical coordinates based on the median and MADN, whi
 
 ## How to read the picture
 
+### (Using communication devices' latency as an example)
+
 | What you see | What it means |
 |---|---|
 | Vertical position | Absolute value (ms). Objects float at their own level. |
