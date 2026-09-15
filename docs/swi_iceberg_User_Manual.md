@@ -152,8 +152,11 @@ npm run typecheck && npm run build   # static bundle in the harness's dist/ dire
 ```
 
 Hosting: the publishing source is branch `main`, folder `/docs`, and
-[`docs/.nojekyll`](.nojekyll) keeps the Jekyll step out of the build. The custom
-hostname lives in [`docs/CNAME`](CNAME) as `swi-iceberg.swi-energy.com`, which is a
+[`docs/.nojekyll`](.nojekyll) keeps the Jekyll step out of the build. The site root,
+[`index.html`](index.html), is **generated from the repository README** by the harness
+build — edit the README and rebuild rather than editing that HTML, or the landing page
+and the repository front door will drift apart. The custom hostname lives in
+[`CNAME`](CNAME) as `swi-iceberg.swi-energy.com`, which is a
 `CNAME` record to `2makeitwork.github.io` in the `swi-energy.com` zone (Cloudflare
 name servers). Only that one label is pointed at this site — `swi-energy.com` and
 `www.swi-energy.com` serve the company site and must keep their own records. When the
