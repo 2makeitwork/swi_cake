@@ -13,16 +13,34 @@ and a "Random fleet" button that swaps in another pre-computed fleet —
 
 ---
 
-## The idea in one paragraph
+## Why swi_iceberg?
 
-Each object's samples are summarized around their **median**, scaled by **MADN**
-(the median absolute deviation, ×1.4826 so it reads like a robust "sigma"). That
-gives six horizontal bands from −3 to +3 MADN. A band's **width** tells you *how
-many* of the object's samples fall in it; its **height** tells you *what value
-range* those samples occupy. Samples beyond ±3 MADN are not thrown away — they are
-kept as small **topping / bottoming** caps so outliers stay visible without
-stretching the picture. Everything floats on one shared absolute axis, so you can
-line up a whole fleet and compare level, spread, skew, and tail weight at a glance.
+A histogram is excellent for understanding the distribution of a single object. But when you need to compare many objects at once, the picture quickly becomes crowded: five histograms may still be manageable, but with dozens or hundreds of distributions, you lose the overview.
+
+**swi_iceberg is designed for the fleet, not just the individual object.**
+
+Each `swi_iceberg` is a compact graphical representation of one distribution. Multiple objects can then be arranged side by side on a shared value axis to form an **iceberg fleet**.
+
+The real power of swi_iceberg appears at this level.
+
+A fleet can display **dozens or hundreds of distributions simultaneously**, while preserving a common statistical scale and an immediate view of how each object relates to the others. A pooled **sky** provides the baseline — a visual representation of the overall population against which every individual iceberg can be compared.
+
+Instead of asking the reader to inspect one histogram after another, the fleet makes patterns visible at a glance:
+
+* Where is each object's center relative to the fleet baseline?
+* Which objects are systematically higher or lower?
+* Which distributions are concentrated or widely spread?
+* Where are the heavy tails?
+* Which objects behave differently from the rest of the fleet?
+* Are there groups or outliers that would be difficult to notice when viewing distributions individually?
+
+The individual `swi_iceberg` is therefore only the basic building block. **The fleet is the visualization. The sky provides the reference.**
+
+This makes swi_iceberg particularly suited to problems where the question is not simply *"What does this distribution look like?"*, but rather:
+
+> **"How do hundreds of distributions compare with each other, and where does each one sit relative to the overall population?"**
+
+The design uses robust statistical coordinates based on the median and MADN, while preserving the observed distribution through separate visual encodings for population and occupied value range.
 
 ## How to read the picture
 
