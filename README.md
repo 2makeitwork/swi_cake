@@ -139,8 +139,9 @@ page they build is published, under [`docs/fleet/`](docs/fleet/).
 ## Provenance, license, citation
 
 - Introduced by **Sven Pauline**, 2026; associated with **Sheer Will Industry (SWI)**.
-- Specification text and figures: **CC BY 4.0** ([LICENSE](LICENSE)).
+- Specification text and figures: **CC BY 4.0** ([LICENSE-SPEC](LICENSE-SPEC)).
 - Executable code: **Apache-2.0** ([LICENSE-CODE](LICENSE-CODE)).
+- License index (which file falls under which license): [LICENSE](LICENSE).
 - Suggested attribution: *swi_iceberg — © 2026 Sven Pauline (copyright owner),
   associated with Sheer Will Industry (SWI). Used under CC BY 4.0.*
 - Cite as: Pauline, Sven (2026). *swi_iceberg: A Robust Six-Band MADN Visualization

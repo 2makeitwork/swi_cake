@@ -270,4 +270,6 @@ incremental equality, reset).
 ## 9. License
 
 Executable code: **Apache-2.0** ([LICENSE-CODE](../LICENSE-CODE)).
-Specification text and figures: **CC BY 4.0** ([LICENSE](../LICENSE)).
+Specification text and figures: **CC BY 4.0** ([LICENSE-SPEC](../LICENSE-SPEC)).
+The [LICENSE](../LICENSE) file at the repository root is the index naming which
+path falls under which license.

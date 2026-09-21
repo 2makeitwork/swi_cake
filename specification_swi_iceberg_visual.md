@@ -496,8 +496,9 @@ is still byte-identical to v1.0. This is a display-model patch only.
 
 ## 18. License
 
-Specification text and figures: **CC BY 4.0** ([LICENSE](LICENSE)). Executable reference
-code: **Apache-2.0** ([LICENSE-CODE](LICENSE-CODE)).
+Specification text and figures: **CC BY 4.0** ([LICENSE-SPEC](LICENSE-SPEC)). Executable reference
+code: **Apache-2.0** ([LICENSE-CODE](LICENSE-CODE)). The [LICENSE](LICENSE) file is the index
+naming which path falls under which license.
 
 > swi_iceberg Visual Specification — © 2026 Sven Pauline (copyright owner), associated with
 > Sheer Will Industry (SWI). Used under CC BY 4.0. Version 1.1 revises and extends version
