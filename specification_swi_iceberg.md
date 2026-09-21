@@ -2,16 +2,22 @@
 
 ## A Robust Six-Band MADN Visualization for the Iceberg Fleet
 
-**Design specification — version 1.0**
+**Design specification — version 1.1 (statistical model)**
 
 **Introduced by:** Sven Pauline
 **Year:** 2026
 **Copyright:** © 2026 Sven Pauline. Associated with Sheer Will Industry (SWI).
 **License:** Creative Commons Attribution 4.0 International (CC BY 4.0)
-**Status:** Canonical design specification (language-agnostic, publishable)
-**Companion document:** *swi_iceberg User Manual* (`docs/swi_iceberg_User_Manual.md`) — software package usage
-**Document split:** this specification defines the **iceberg fleet** design (language-agnostic); the User Manual defines how to use the software package.
-**DOI:** _10.5281/zenodo.22736442_
+**Status:** Canonical **statistical** specification (language-agnostic, publishable)
+**Companion documents:**
+- [specification_swi_iceberg_visual.md](specification_swi_iceberg_visual.md) — the **display model**
+  (geometry, colour, clipping, roof marking, background, interaction). Version 1.1 moved every
+  rendering-normative section out of this document and into that one.
+- *swi_iceberg User Manual* (`docs/swi_iceberg_User_Manual.md`) — software package usage
+**Document split:** this specification defines the **statistical model** — the numbers and the
+invariants that must hold. The visual specification defines how those numbers are **drawn**. The
+`to_json` payload is the handoff contract between them.
+**DOI:** _reserved — the v1.1 version DOI is minted at the next Zenodo deposit (v1.0: 10.5281/zenodo.22736442)_
 
 ---
 
@@ -41,8 +47,8 @@ citation line (§0.3), not in the name.
 ### 0.3 Canonical citation
 
 > Pauline, Sven. (2026). *swi_iceberg: A Robust Six-Band MADN Visualization for
-> the Iceberg Fleet* (Version 1.0). Zenodo.
-> https://doi.org/10.5281/zenodo.22736442
+> the Iceberg Fleet* (Version 1.1). Zenodo. DOI reserved for the v1.1 deposit
+> (the v1.0 record is https://doi.org/10.5281/zenodo.22736442).
 
 ### 0.4 Attribution
 
@@ -204,7 +210,7 @@ n_{i,k} = |Z_{i,k}|, \qquad N_i = \sum_{k} n_{i,k}.
 
 ---
 
-## 5. Population encoding by horizontal width
+## 5. Normalized population (the width source)
 
 The **normalized population proportion** of region \(k\) is
 
@@ -212,139 +218,68 @@ The **normalized population proportion** of region \(k\) is
 p_{i,k} = \frac{n_{i,k}}{N_i} \in [0,1], \qquad P_{i,k} = 100\,p_{i,k}\,\%,
 \]
 
-and the proportions sum to unity, \(\sum_k p_{i,k} = 1\).
-
-Let \(W_{\max}\) be a single reference width **shared by every category and every
-region**. The width of region \(k\) is
-
-\[
-\boxed{\,w_{i,k} = W_{\max} \cdot p_{i,k}\,} \qquad\text{so}\qquad w_{i,k} \propto \frac{n_{i,k}}{N_i}.
-\]
-
-Consequences:
-
-- A region holding 50% of a category's samples is twice as wide as one holding 25%.
-- Widths are comparable across categories because each is normalized by that
-  category's own \(N_i\); a category with a huge \(N_i\) does not automatically
-  print wider marks than a tiny-\(N_i\) category.
-- Each region is centered on the category's nominal x-coordinate \(x_i\):
-  \[
-  x_{i,k}^{\text{left}} = x_i - \tfrac{w_{i,k}}{2}, \qquad
-  x_{i,k}^{\text{right}} = x_i + \tfrac{w_{i,k}}{2},
-  \]
-  so changes in width never shift the swi_iceberg's visual center.
-- If a region is empty (\(n_{i,k}=0\)), its width is zero and it is not drawn
-  (optionally shown as a gap marker).
-
-Width therefore represents **normalized population**, not absolute count.
+and the proportions sum to unity, \(\sum_k p_{i,k} = 1\). These proportions are the
+statistical quantity; **how** they are drawn — width proportional to \(p_{i,k}\) on one
+shared scale, centered on the object, an empty region as a gap — is specified in the display
+model, [§3 of the visual specification](specification_swi_iceberg_visual.md).
 
 ---
 
-## 6. Vertical encoding — occupied range in height
+## 6. Observed value range in height (the height source)
 
-The six **body bands** encode, on the vertical axis, the value range their samples
-actually occupy. For a non-empty body band \(Z_{i,k}\),
-
-\[
-y^{\min}_{i,k} = \min(Z_{i,k}), \qquad y^{\max}_{i,k} = \max(Z_{i,k}), \qquad
-h_{i,k} = y^{\max}_{i,k} - y^{\min}_{i,k}.
-\]
-
-Because band membership is already constrained by the band's MADN boundaries, these
-extremes cannot leave the band; an implementation may additionally intersect the
-observed range with the band's absolute limits \([\,m_i + z^{lo}_k\hat{\sigma}_i,\;
-m_i + z^{hi}_k\hat{\sigma}_i\,]\) to guard against boundary rounding.
-
-The band is drawn as the axis-aligned rectangle
+For a non-empty body band \(Z_{i,k}\) the glyph retains the **observed value range** of
+the samples inside it:
 
 \[
-R_{i,k} = \bigl[x_i - \tfrac{w_{i,k}}{2},\; x_i + \tfrac{w_{i,k}}{2}\bigr]
-        \times \bigl[\,y^{\min}_{i,k},\; y^{\max}_{i,k}\bigr].
+y^{\min}_{i,k} = \min(Z_{i,k}), \qquad y^{\max}_{i,k} = \max(Z_{i,k}),
 \]
 
-This yields the swi_iceberg's core bivariate read:
-
-\[
-\boxed{\text{height} = \text{occupied value range}}, \qquad
-\boxed{\text{width} = \text{normalized population}},
-\]
-
-which are independent encodings. Two categories may share a band width (equal
-population fraction) yet differ in band height (that population spread over a
-wider or narrower value range); a band that is tall and thin means "few of my
-samples, but scattered across a wide value range in this MADN floor."
+carried in the handoff payload as `band_lo[k]` / `band_hi[k]` (`null` for an empty band).
+Because band membership is constrained by the band's MADN boundaries, these extremes
+cannot leave the band. That the drawn **height** equals this occupied range — and that an
+empty band therefore reads as a gap — is the display model's rule,
+[§3 of the visual specification](specification_swi_iceberg_visual.md).
 
 ---
 
 ## 7. Display clipping at ±3 MADN (not winsorization)
 
 An individual swi_iceberg does **not** extend its body to the raw sample minimum or
-maximum; the body is bounded by \([L_i, U_i]\). An observation \(x \gg U_i\) does
-not produce an arbitrarily tall upper band, and \(x \ll L_i\) does not produce an
-arbitrarily tall lower band.
+maximum; the body is bounded by \([L_i, U_i]\). This is **display clipping**, not
+statistical deletion and not winsorization: the original observations are **not** replaced
+by boundary values — they remain in the distribution and are retained as the
+**bottoming** (\(z < -3\)) and **topping** (\(z > +3\)) counts, so population stays
+conserved (§12).
 
-This is **display clipping**, not statistical deletion and not statistical
-winsorization: the original observations are **not** replaced by boundary values.
-They remain part of the distribution and are represented by the **bottoming** and
-**topping** regions.
-
-The bottoming and topping are drawn as fixed symbolic-height stubs anchored at the
-\(-3\) and \(+3\) boundaries. Their vertical thickness is a rendering parameter and
-encodes nothing; their quantitative encoding is horizontal width:
-
-\[
-w_{i,\text{bot}} = W_{\max}\,p_{i,\text{bot}}, \qquad
-w_{i,\text{top}} = W_{\max}\,p_{i,\text{top}}.
-\]
-
-A wide topping therefore means "a large fraction of this category's samples are
-catastrophically slow," without a single extreme value destroying the vertical
-scale. If a tail region's population is zero, it need not be drawn.
+How the retained tails are drawn — fixed symbolic-height stubs at the ∓3 boundaries,
+quantitative meaning carried by width alone — is the display model's rule,
+[§6 of the visual specification](specification_swi_iceberg_visual.md).
 
 ---
 
 ## 8. Medians — object and global
 
-- **Object median** \(m_i\): a **solid** horizontal line across the swi_iceberg. It is
-  not a band and its width encodes no population.
-- **Global median** \(M\): a **dashed** horizontal line spanning the plot (§10).
-
-| Indicator | Statistic | Rendering |
-|---|---|---|
-| Object median | \(m_i\) | Solid line within each swi_iceberg |
-| Global median | \(M\) | Dashed horizontal reference line |
-
-Together they give simultaneous local and global location: "where is this device's
-center, and how does it sit against the iceberg fleet's center?"
+The two location statistics are the **object median** \(m_i\) (§3.2) and the **global
+(pooled) median** \(M\) (§10). Both are centers, not bands, and carry no population width.
+Their rendering — solid for the object, dashed spanning the plot for the global — is in the
+display model, [§5 of the visual specification](specification_swi_iceberg_visual.md).
 
 ---
 
 ## 9. Color semantics
 
-A diverging palette keyed to band position (adjust hue to brand and accessibility
-constraints):
-
-| Region | Signed deviation | Suggested fill | Comment |
-|---|---|---|---|
-| Bottoming | \(< -3\hat{\sigma}\) | deep forest green | out-of-envelope low tail |
-| \(Z_{i,1}\) | \([-3,-2)\) | green | well below median |
-| \(Z_{i,2}\) | \([-2,-1)\) | green | below median |
-| \(Z_{i,3}\) | \([-1,0)\) | pale green | slightly below median |
-| \(Z_{i,4}\) | \([0,+1)\) | amber | slightly above median |
-| \(Z_{i,5}\) | \([+1,+2)\) | orange | above median |
-| \(Z_{i,6}\) | \([+2,+3]\) | red-orange | well above median |
-| Topping | \(> +3\hat{\sigma}\) | dark red | out-of-envelope high tail |
-
-Colors follow a continuous green → yellow → orange → red progression from bottom
-to top. Color must never be the sole carrier of meaning: band **position** provides
-a redundant encoding, so the swi_iceberg stays readable in grayscale or for a
-color-blind viewer.
+Color keys to signed MADN region and follows a continuous green → amber → orange → red
+progression from bottom to top; the exact palette, the tail-cap tones, and the redundancy
+invariant (position carries the same meaning, so the mark survives grayscale and
+colour-blindness) are specified in the display model,
+[§4 of the visual specification](specification_swi_iceberg_visual.md). The statistics impose
+no colour.
 
 ---
 
-## 10. Global reference background
+## 10. Global (pooled) reference statistics
 
-The plot carries a global contextual distribution from the pooled sample
+The fleet has one pooled sample and one pooled center/scale:
 
 \[
 X_G = \bigcup_{i=1}^{K} X_i, \qquad N_G = |X_G|,
@@ -354,56 +289,32 @@ M = \operatorname{median}(X_G), \qquad
 \hat{\Sigma} = 1.4826 \cdot \operatorname{median}_{x \in X_G}|x - M|.
 \]
 
-The background uses the **same band construction and the same signed color
-semantics** as the object swi_icebergs — it is itself one swi_iceberg of the pooled
-sample, drawn at low opacity and centered on the plot, with a dashed line at \(M\).
-Because it is the *same algorithm on a different sample base*, its band widths are
-the pooled population fractions and are therefore **non-equal wherever the iceberg fleet's
-distribution is uneven** (a fleet concentrated near its median shows one wide band;
-a heavy-tailed fleet shows a fat topping). This self-similarity means a reader
-learns one statistical grammar and applies it to both layers.
+The **global sky/ground envelope** bounds the visible value domain so a single extreme
+cannot stretch it:
 
-There is exactly **one intentional asymmetry** between foreground and background:
+\[
+\text{sky} = \min(c\,M,\ \max X_G), \qquad \text{ground} = \max(-c\,M,\ \min X_G),
+\]
 
-| Property | Foreground (per-category) | Global background |
-|---|---|---|
-| Opacity | Opaque / near-opaque | Faint (\(\alpha \approx 0.08\)–\(0.15\)) |
-| Width | Per-category, centered at \(x_i\) | Pooled population fraction, centered on the plot (same encoding, own scale) |
-| Tail regions | Clipped to fixed stub height (§7) | Not clipped at \(\pm3\) MADN, but bounded by a **global sky/ground envelope** \(=\min(3\,M,\ \max X_G)\) / \(\max(-3\,M,\ \min X_G)\); pooled tails bleed to that envelope and the plot border turns red where samples exceed it |
-| Median | Solid, per-category | Dashed, spanning the plot |
+with \(c\) a clip multiple (default \(c = 3\)). The pooled raw extremes \(\min X_G\),
+\(\max X_G\) and each object's own \(\min\), \(\max\) are carried in the handoff payload
+(visual spec §2) so the clip and the shoot-through tests can be evaluated without
+recomputation.
 
-The background is not clipped at \(M \pm 3\hat{\Sigma}\): its outer color regions
-continue past \(\pm3\hat{\Sigma}\) so the background remains a complete global
-reference even though individual swi_iceberg bodies are robustly clipped. It is,
-however, bounded by a **global sky/ground envelope** — the smaller of \(3\,M\) and
-the pooled maximum (and symmetrically the larger of \(-3\,M\) and the pooled
-minimum) — so a single extreme cannot shoot through the plot. Where pooled samples
-lie beyond that envelope, the corresponding plot border edge is drawn in a warning
-color to signal the shoot-through. The **visible vertical axis is bounded by this
-sky/ground envelope and the per-object \(\pm3\) MADN envelopes** so that a single
-extreme cannot stretch the scale and squash every swi_iceberg.
-
-**Why the asymmetry is deliberate:** an individual swi_iceberg is an object to be
-compared with neighbors, so its body clips vertical tail extent while preserving
-tail population in width; the background is a reference frame, so it preserves the
-MADN boundaries but does not terminate them.
+How the pooled reference is **drawn** — a faint self-similar swi_iceberg of \(X_G\) at low
+opacity, the one intentional foreground/background asymmetry, the raisable clip multiple,
+the red border on shoot-through, and the roof-breach markers — is the display model,
+[§7 and §10 of the visual specification](specification_swi_iceberg_visual.md).
 
 ---
 
 ## 11. Complete visual encoding
 
-| Visual property | Statistical meaning |
-|---|---|
-| x-position | Category |
-| y-position | Absolute measured value |
-| Body-band height | Observed value range occupied within that band |
-| Region width | Fraction of the category's samples in that region |
-| Band color | Signed MADN region |
-| Bottoming width | Fraction below \(-3\) object MADN |
-| Topping width | Fraction above \(+3\) object MADN |
-| Solid line | Object median |
-| Faint background bands | Pooled / global MADN context (bounded by the global sky/ground envelope) |
-| Dashed line | Global median |
+The full visual-encoding table — every channel (position, height, width, colour, medians,
+background, and the v1.1 roof/overshoot/placeholder markers) mapped to its statistical
+meaning — now lives in the display model,
+[§14 of the visual specification](specification_swi_iceberg_visual.md). This document states
+only the quantities those channels encode.
 
 ---
 
@@ -442,6 +353,9 @@ To read one swi_iceberg, then the iceberg fleet:
 ---
 
 ## 14. Statistical invariants
+
+These are the invariants of the **statistical model**; the invariants a conforming
+*renderer* must satisfy are in the display model, [§15 of the visual specification](specification_swi_iceberg_visual.md).
 
 1. The median is always the center of a swi_iceberg.
 2. MADN is \(1.4826 \times \operatorname{median}(|x - \operatorname{median}(x)|)\).
@@ -638,6 +552,9 @@ Version 2.0 (see `LICENSE-CODE`).
 9. Minimum \(N = 100\); zero MAD collapses to a median line.
 
 The result separates **location**, **occupied range**, **population**, **robust
-deviation**, and **global context** into distinct but coordinated visual channels.
+deviation**, and **global context** into distinct but coordinated channels. The channels
+themselves — how each is drawn, and the v1.1 roof-breach, overshoot, and placeholder
+markers — are specified in the display model,
+[specification_swi_iceberg_visual.md](specification_swi_iceberg_visual.md).
 
-**End of specification v1.0**
+**End of statistical specification v1.1**

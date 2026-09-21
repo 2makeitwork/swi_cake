@@ -216,7 +216,26 @@ horizontal scrollbar pans, and the lineup re-fits itself when the window is resi
 
 ![300 objects, ultra compact view](figures/manual_fleet_300_ultra.png)
 
-### 7.6 Exporting figures
+### 7.6 Overshoot and roof-breach example (v1.1)
+
+Open <https://swi-iceberg.swi-energy.com/fleet/?data=overshoot.json&curve=median> (or
+`?data=overshoot.json` and tick **median curve**). The fleet is a tight normal cluster plus
+three objects whose medians sit above the pooled sky/ground clip. It exercises the three
+v1.1 display rules together:
+
+- **Roof-breach (visual spec §9):** the red carets at the roof, each labelled with that
+  object's raw maximum (e.g. `9467`), mark objects whose samples pass the clip; the coloured
+  stub shows the column continues past the ceiling.
+- **Median overshoot (visual spec §8):** the blue median curve rises above the roof line at
+  the overshooting objects. A run of consecutive overshoots stays above until it ends, and
+  the final object leaves the top edge open-ended rather than pinning flat to the roof.
+- **Pooled-clip axis (visual spec §7):** the vertical axis is bounded by the clip, so the
+  normal cluster fills the frame instead of being squashed by the tall objects.
+
+The **roof clip** slider (3–10) raises the sky clip as a multiple of the pooled median; the
+**max curve** toggle overlays each object's raw maximum so the overshoot is easier to trace.
+
+### 7.7 Exporting figures
 
 ```bash
 node <figure-script> <payload>.json out.svg \

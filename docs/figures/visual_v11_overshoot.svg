@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="500" viewBox="0 0 760 500" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect x="0" y="0" width="760" height="500" fill="#ffffff"/>
+  <text x="24" y="26" font-size="16" font-weight="700" fill="#0f172a">§8 drawing rule — median-curve overshoot beyond the roof</text>
+  <text x="24" y="46" font-size="12" fill="#475569">One smoothed line (Catmull-Rom) links consecutive medians. An isolated median above the roof pokes up and comes back down.</text>
+
+  <!-- ===================== LEFT: wrong ===================== -->
+  <text x="178" y="70" font-size="12.5" font-weight="600" fill="#b91c1c" text-anchor="middle">Wrong — clamped flat to the ceiling</text>
+  <rect x="48" y="150" width="260" height="280" fill="none" stroke="#94a3b8"/>
+  <line x1="48" y1="150" x2="308" y2="150" stroke="#dc2626" stroke-width="2"/>
+  <path d="M 86 360 L 140 335 L 200 150 L 258 150" fill="none" stroke="#0284c7" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="86" cy="360" r="3.5" fill="#0284c7"/>
+  <circle cx="140" cy="335" r="3.5" fill="#0284c7"/>
+  <circle cx="200" cy="150" r="3.5" fill="#0284c7"/>
+  <circle cx="258" cy="150" r="3.5" fill="#0284c7"/>
+  <text x="178" y="452" font-size="10.5" fill="#b91c1c" text-anchor="middle">flat run along the ceiling</text>
+  <text x="178" y="468" font-size="10.5" fill="#b91c1c" text-anchor="middle">falsely reads as “= roof value”</text>
+
+  <!-- ===================== RIGHT: correct ===================== -->
+  <text x="582" y="70" font-size="12.5" font-weight="600" fill="#15803d" text-anchor="middle">Correct — peak closes; last object leaves open</text>
+  <rect x="452" y="150" width="260" height="280" fill="none" stroke="#94a3b8"/>
+  <line x1="452" y1="150" x2="712" y2="150" stroke="#dc2626" stroke-width="2"/>
+  <text x="456" y="144" font-size="10" fill="#dc2626">roof / visible ceiling</text>
+
+  <!-- smoothed Catmull-Rom median curve: P1 low, P2 low, P3 peak above roof, P4 back below (closes), P5 last object above roof (open) -->
+  <path d="M 486 360 C 495 355.8, 521.7 378.3, 540 335 C 558.3 291.7, 577.7 97.5, 596 100 C 614.3 102.5, 633.7 349, 650 350 C 666.3 351, 686.7 146.7, 694 106"
+        fill="none" stroke="#0284c7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- open-ended continuation on the last object: nothing brings the line back -->
+  <path d="M 694 106 L 701 86" fill="none" stroke="#0284c7" stroke-width="2.4" stroke-dasharray="3 3" stroke-linecap="round"/>
+
+  <!-- ordinary in-range medians: small dots -->
+  <circle cx="486" cy="360" r="3.5" fill="#0284c7"/>
+  <circle cx="540" cy="335" r="3.5" fill="#0284c7"/>
+  <circle cx="650" cy="350" r="3.5" fill="#0284c7"/>
+  <!-- overshooting peaks: marked with a point (ringed, larger) per §8.4 -->
+  <circle cx="596" cy="100" r="6" fill="#0369a1" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="694" cy="106" r="6" fill="#0369a1" stroke="#ffffff" stroke-width="2"/>
+
+  <!-- peak value labels, just above each peak dot, clear of the panel title -->
+  <text x="596" y="86" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">412</text>
+  <text x="672" y="92" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">690</text>
+
+  <text x="582" y="452" font-size="10.5" fill="#15803d" text-anchor="middle">isolated peak closes back down;</text>
+  <text x="582" y="468" font-size="10.5" fill="#64748b" text-anchor="middle">last object leaves open ( ● marks each peak )</text>
+
+  <text x="24" y="492" font-size="10" fill="#94a3b8">swi_iceberg Visual Specification v1.1 · §8 Median overshoot · CC BY 4.0</text>
+</svg>

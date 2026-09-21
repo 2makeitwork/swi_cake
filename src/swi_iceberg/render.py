@@ -12,7 +12,7 @@ Code is licensed under the Apache License, Version 2.0 (see LICENSE-CODE).
 from __future__ import annotations
 
 import math
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 import numpy as np
 
@@ -74,8 +74,21 @@ def to_raster(glyph: IcebergGlyph, height_px: int, width_px: int, min_visible_px
     return raster
 
 
-def to_json(glyph: IcebergGlyph) -> Dict[str, Any]:
-    """Canonical JSON payload (statistics only; no pixels)."""
+def to_json(
+    glyph: IcebergGlyph,
+    *,
+    data_min: Optional[float] = None,
+    data_max: Optional[float] = None,
+) -> Dict[str, Any]:
+    """Canonical JSON payload (statistics only; no pixels).
+
+    ``data_min`` / ``data_max`` are the object's raw sample extremes, supplied by the
+    caller (they are ``min(values)`` / ``max(values)``). They are not part of the
+    :class:`IcebergGlyph` because they change no statistic, but the display model needs
+    them to flag a shoot-through the pooled summary cannot express, so the handoff
+    contract carries them (visual specification §2, §9). When omitted they serialize to
+    ``null`` and the renderer simply has no roof marker to draw.
+    """
     population = [int(c) for c in glyph.population.tolist()]
     n = int(glyph.n)
     normalized = [pop / n if n else 0.0 for pop in population]
@@ -98,5 +111,8 @@ def to_json(glyph: IcebergGlyph) -> Dict[str, Any]:
         "topping": int(glyph.topping),
         "bottoming": int(glyph.bottoming),
         "value": glyph.value,
-        "spec_version": "1.0",
+        # Raw sample extremes (v1.1 handoff contract): caller-supplied, null if unknown.
+        "min": _json_float(data_min),
+        "max": _json_float(data_max),
+        "spec_version": "1.1",
     }

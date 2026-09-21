@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect x="0" y="0" width="760" height="420" fill="#ffffff"/>
+  <text x="20" y="28" font-size="16" font-weight="700" fill="#0f172a">Roof-breach marking — v1.0 caret vs v1.1 quantified</text>
+  <text x="20" y="48" font-size="12" fill="#475569">An object whose raw max exceeds the sky clip. The clip hides the value; the marker must not hide it too.</text>
+
+  <!-- panel frames -->
+  <g>
+    <!-- LEFT: v1.0 -->
+    <text x="150" y="78" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">v1.0 — caret only</text>
+    <rect x="60" y="92" width="180" height="270" fill="none" stroke="#94a3b8"/>
+    <!-- roof / sky clip line -->
+    <line x1="60" y1="110" x2="240" y2="110" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="244" y="114" font-size="10" fill="#dc2626">sky clip</text>
+    <!-- column body clipped flat at roof -->
+    <rect x="120" y="150" width="60" height="150" fill="#ca8a04"/>
+    <rect x="120" y="150" width="60" height="26" fill="#ea580c"/>
+    <rect x="120" y="150" width="60" height="10" fill="#dc2626"/>
+    <!-- caret -->
+    <path d="M 150 112 l -5 9 l 10 0 z" fill="#dc2626"/>
+    <text x="150" y="392" font-size="11" fill="#64748b" text-anchor="middle">reads as "data ends at the roof"</text>
+  </g>
+
+  <g>
+    <!-- RIGHT: v1.1 -->
+    <text x="520" y="78" font-size="13" font-weight="600" fill="#0f172a" text-anchor="middle">v1.1 — caret + numeric max + coloured stub</text>
+    <rect x="400" y="92" width="240" height="270" fill="none" stroke="#94a3b8"/>
+    <!-- roof / sky clip line -->
+    <line x1="400" y1="110" x2="640" y2="110" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="644" y="114" font-size="10" fill="#dc2626">sky clip</text>
+    <!-- column body clipped at roof -->
+    <rect x="490" y="150" width="60" height="150" fill="#ca8a04"/>
+    <rect x="490" y="150" width="60" height="26" fill="#ea580c"/>
+    <rect x="490" y="150" width="60" height="10" fill="#dc2626"/>
+    <!-- coloured continuation stub protruding ABOVE the roof, in the topmost band colour -->
+    <rect x="490" y="102" width="60" height="8" fill="#dc2626"/>
+    <!-- caret -->
+    <path d="M 520 112 l -5 9 l 10 0 z" fill="#dc2626"/>
+    <!-- numeric raw-max label above the roof -->
+    <text x="520" y="96" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">1882</text>
+    <text x="520" y="392" font-size="11" fill="#16a34a" text-anchor="middle">"continues past the ceiling, up to 1882 ms"</text>
+  </g>
+
+  <!-- annotations -->
+  <g font-size="11" fill="#334155">
+    <line x1="556" y1="96" x2="600" y2="70" stroke="#cbd5e1"/>
+    <text x="602" y="66">numeric max = contract field <tspan font-family="monospace">max</tspan></text>
+    <line x1="556" y1="106" x2="612" y2="128" stroke="#cbd5e1"/>
+    <text x="614" y="132">stub colour = topmost drawn band</text>
+  </g>
+  <text x="20" y="410" font-size="10" fill="#94a3b8">swi_iceberg Visual Specification v1.1 · §9 Roof-breach marking · CC BY 4.0</text>
+</svg>

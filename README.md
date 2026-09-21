@@ -113,7 +113,8 @@ inventing spread.
 
 | Path | Contents |
 |---|---|
-| [`specification_swi_iceberg.md`](specification_swi_iceberg.md) | The **strict, publishable design specification** of the iceberg fleet (CC BY 4.0). All formal definitions, invariants, and edge cases live here. |
+| [`specification_swi_iceberg.md`](specification_swi_iceberg.md) | The **statistical design specification** of the iceberg fleet (CC BY 4.0): the numbers, formal definitions, invariants, and edge cases. |
+| [`specification_swi_iceberg_visual.md`](specification_swi_iceberg_visual.md) | The **visual (display) specification** (CC BY 4.0): how those numbers are drawn — geometry, colour, clipping, roof marking, background, interaction. |
 | [`docs/swi_iceberg_User_Manual.md`](docs/swi_iceberg_User_Manual.md) | **User manual**: package API, streaming feed, wait-out pipeline, and the verification harness, with screenshots. |
 | [`src/swi_iceberg/`](src/swi_iceberg/) | Reference implementation (Apache-2.0): statistical + rendering layers. |
 | [`docs/figures/`](docs/figures/) | Example graphics. |
@@ -132,11 +133,14 @@ page they build is published, under [`docs/fleet/`](docs/fleet/).
 - Suggested attribution: *swi_iceberg — © 2026 Sven Pauline (copyright owner),
   associated with Sheer Will Industry (SWI). Used under CC BY 4.0.*
 - Cite as: Pauline, Sven (2026). *swi_iceberg: A Robust Six-Band MADN Visualization
-  for the Iceberg Fleet*, v1.0 — see [CITATION.cff](CITATION.cff).
+  for the Iceberg Fleet*, v1.1 — see [CITATION.cff](CITATION.cff).
 
-Two documents, deliberately separate: the [specification](specification_swi_iceberg.md)
-defines the **iceberg fleet** design (language-agnostic), and the
-[user manual](docs/swi_iceberg_User_Manual.md) defines how to use the software
-package. For the full formal treatment — zone definitions, conservation invariants,
-clipping rules, degenerate cases, and relation to prior work — read the
-specification. This README is only a friendly front door.
+Three documents, deliberately separate: the
+[statistical specification](specification_swi_iceberg.md) defines the numbers and
+invariants (language-agnostic), the
+[visual specification](specification_swi_iceberg_visual.md) defines how they are
+**drawn** (geometry, colour, clipping, roof marking, background, interaction), and the
+[user manual](docs/swi_iceberg_User_Manual.md) defines how to use the software package.
+For the full formal treatment — zone definitions, conservation invariants, clipping
+rules, degenerate cases, and relation to prior work — read the specifications. This
+README is only a friendly front door.
