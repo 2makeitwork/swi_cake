@@ -9,8 +9,9 @@ and rendered horizontally: a band's WIDTH is its population. Each band's drawn
 HEIGHT is the OBSERVED value range of the samples inside that band (clipped to the
 band by construction), so the vertical silhouette carries the occupied range, not
 just the fixed theoretical band. The glyph body is bounded to the +/-3 MADN
-envelope; observations beyond it are retained as Topping (above) and Bottoming
-(below), never discarded. This module owns statistics only; presentation lives in
+envelope; observations beyond it are retained as topping (above, the high tail) and
+the seat pad (below, the low tail; the field is ``bottoming``), never discarded. This
+module owns statistics only; presentation lives in
 swi_iceberg.render.
 
 Code is licensed under the Apache License, Version 2.0 (see LICENSE-CODE); the

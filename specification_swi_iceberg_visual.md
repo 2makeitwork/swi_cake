@@ -2,7 +2,7 @@
 
 ## A Normative Rendering and Interaction Contract for the Iceberg Fleet
 
-**Design specification — version 1.1 (display model)**
+**Design specification — version 1.1.1 (display model)**
 
 **Introduced by:** Sven Pauline
 **Year:** 2026
@@ -88,7 +88,8 @@ Fields at v1.1:
 | `topping`, `bottoming` | retained counts beyond `+z_max` / below `z_min` |
 | `value` | collapsed-mode single value (equals `median`) |
 | **`min`, `max`** | **NEW v1.1** — the object's raw sample extremes, retained so the renderer can detect a shoot-through the pooled summary cannot express (§9) |
-| `spec_version` | the contract version the payload conforms to (`"1.1"`) |
+| `spec_version` | the **handoff-contract (schema)** edition the payload conforms to (`"1.1"`) — bumps only when a data field changes |
+| `display_version` | the **display-model** edition the payload is tagged for (`"1.1.1"`) — bumps when a rendering rule changes; a renderer pins the edition it implements |
 
 > **`mode: "normal"` is not the Gaussian normal distribution.** "Normal" here means only
 > the general case — a spread with a non-zero MADN — as opposed to `"collapsed"` (every
@@ -107,6 +108,16 @@ marker (§9) be defined purely from the contract.
 `spec_version` is a **lockstep guard**: a renderer or bridge that pins a version SHALL
 refuse to draw a payload whose `spec_version` disagrees, rather than silently rendering a
 contract it does not understand.
+
+**Two version axes.** `spec_version` guards the *schema* — whether a renderer can read the
+fields at all. `display_version` guards the *drawing rules* — whether the renderer's
+geometry, colour, roof marking, curve annotation and overshoot behaviour match the edition
+the data was produced for. They move independently: a display-rule change bumps
+`display_version` and leaves `spec_version` (and the frozen statistics) untouched. A
+conforming renderer pins **both** and refuses — or visibly warns on — a payload whose
+`display_version` differs from the edition it implements, so a rendering change can never
+be silently drawn by a stale interpretation. This is why the display model is patched
+(1.1 → 1.1.1) here with no contract or data change.
 
 ---
 
@@ -144,7 +155,7 @@ A diverging green → amber → orange → red ramp keyed to band position, low 
  -3σ̂     -2σ̂      -1σ̂      +1σ̂      +2σ̂      +3σ̂
 ```
 
-Tail caps use dedicated deep tones: `#14532d` (bottoming), `#7f1d1d` (topping).
+Tail caps use dedicated deep tones: `#14532d` (seat pad), `#7f1d1d` (topping).
 
 **The palette is open.** The hues above are the reference choice; the *profiling* of each
 zone — where a colour starts and ends, how many steps there are, and the exact values — is a
@@ -170,14 +181,25 @@ to a colour-blind reader.
 ## 6. Display clipping and the tail caps (relocated from statistical §7)
 
 The body is bounded by the ±3 MADN envelope. Observations beyond it do **not** stretch the
-body; they are retained as **bottoming** (below) and **topping** (above).
+body; they are retained as **topping** (above, the high tail) and **seat pad** (below, the
+low tail; the handoff field is `bottoming`).
 
-- Each tail SHALL be drawn as a **fixed symbolic-height stub** anchored at the ∓3 boundary
-  (the reference uses a 4-pixel cap just outside the envelope). Its vertical thickness is a
-  rendering parameter and encodes nothing.
-- The tail's quantitative encoding is **width alone** — `count / n`, same shared scale as
-  the body bands. A wide topping therefore means "a large fraction of this object's samples
-  sit far above the centre" without any single extreme value destroying the vertical scale.
+Terminology used throughout these documents and the code comments: **topping** = the high
+tail beyond +3 MADN; **seat pad** = the low tail beyond −3 MADN (field `bottoming`);
+**roof carpet** = the topping's continuation drawn above the roof when the raw maximum
+passes the pooled clip (§9).
+
+- Each tail SHALL be drawn as a **fixed symbolic-height cap** anchored at its own ±3
+  boundary — the seat pad at the −3 boundary (below the body), the topping at the +3
+  boundary (above the body). The reference uses a 4-pixel cap just outside the envelope.
+  Its vertical thickness is a rendering parameter and encodes nothing.
+- **Width is the one shared encoding for every population region.** Topping, seat pad and
+  the roof carpet use exactly the same width scale as the six body bands (`count / n` on the
+  shared reference width). The ONLY difference between a body band and a tail / roof region
+  is **height**: a body band's height is the observed value range of its samples, while a
+  tail / roof region's height is fixed and symbolic. A wide topping or seat pad therefore
+  means "a large fraction of this object's samples sit far above / below the centre" without
+  any single extreme value destroying the vertical scale.
 - A tail region with zero population MAY be omitted.
 
 This is **display clipping**, not deletion and not winsorization: the samples are neither
@@ -221,8 +243,8 @@ is one continuous **smoothed** line (Catmull-Rom through the medians, exactly as
 reference draws it) over a shared axis, an object whose median sits **above the visible
 window's roof** does not float off on its own — the line rises past the roof at that object
 and **comes back down** toward the next median that lies below it. The honest drawing is
-therefore a **peak that pokes above the roof and closes back down**, never a stub pinned
-flat along the roof (which would falsely claim the median equals the roof value).
+therefore a **peak that pokes above the roof and closes back down**, never a flat top
+pinned along the roof (which would falsely claim the median equals the roof value).
 
 Only two situations keep the line above the roof instead of closing it back down:
 
@@ -237,7 +259,7 @@ Normative points:
    window maps above the plot top), while the axis labels and ordinary in-range geometry use
    the clamped mapping. The two mappings SHALL NOT be the same function.
 2. The curve SHALL be clipped by a region that is **open at the top** (so a peak, or an
-   end-of-fleet stub, may run past the roof) and **closed at the floor**.
+   end-of-fleet open end, may run past the roof) and **closed at the floor**.
 3. Because the line returns below the roof on its own except in cases a/b, an isolated
    overshoot reads as a **peak** — the eye sees it leave and re-enter the visible band, so it
    is never mistaken for the roof value.
@@ -249,9 +271,15 @@ Normative points:
    the point. Neighbouring labels that would overprint **SHOULD** stagger into stacked rows
    above the roof; a further neighbour that still cannot fit keeps its point and defers its
    number to the tooltip.
-6. A roof marker for a *raw sample* overshoot (§9) and a *median-curve* overshoot (this
-   section) are different things and SHALL be drawn by different code paths: the first
-   describes data beyond the clip, the second describes a connecting line beyond the window.
+6. Every overlay curve (median / max / min) is drawn open-ended, so a value above the
+   visible window sends its line off the top edge rather than pinning it flat to the roof.
+   A curve annotates its overshoot peak with a dot and its value (points 4–5) — **except the
+   max curve**. The max curve's value is the per-iceberg maximum that the §9 roof marker
+   already labels, so the max curve adds no dot and no number: printing it would show the
+   same maximum twice, once by §9 and once by the curve. The §9 "label the value over the
+   roof" rule is therefore defined on the **maximum** of an individual iceberg only; the
+   median curve keeps its own dot and number, and the min curve — which never overshoots the
+   roof by definition — is annotated by the same general rule.
 
 ![median overshoot: an isolated peak closes back down; the last object leaves open-ended](docs/figures/visual_v11_overshoot.svg)
 
@@ -268,15 +296,19 @@ show. The renderer SHALL mark it, and — new at v1.1 — **quantify** it.
 - **v1.1 additions:**
   1. A **numeric label** of the object's raw `max` above the roof, so the reader learns
      *how far* past the clip it goes, not merely *that* it does.
-  2. A **coloured stub** protruding a few pixels above the roof, filled with the colour of
-     the object's **topmost drawn band**. A column cut flat at the roof reads as "data ends
-     here"; the stub says "this column continues past the visible ceiling."
+  2. A **roof carpet** — a fixed-height cap protruding a few pixels above the roof. It is
+     the same population-encoded region as topping / seat pad (§6), just drawn above the
+     roof: its **width** is the share of samples in the region it represents (topping when
+     present, else the topmost occupied band) on the shared width scale, and its colour is
+     that region's colour. Only its height is fixed. A column cut flat at the roof reads as
+     "data ends here"; the roof carpet says "this column continues past the visible ceiling."
 
 The breach test SHALL be `max > sky` (with a small epsilon), evaluated against the current
 `clipMultiple`-derived sky, and SHALL be answered from the contract's `max` field (§2), not
-a recomputed extreme.
+a recomputed extreme. Because this numeric label is the single place the per-iceberg maximum
+is printed, the max overlay curve (§8 point 6) adds no number of its own.
 
-![roof-breach: caret, numeric max, and coloured stub](docs/figures/visual_v11_roof_breach.svg)
+![roof-breach: caret, numeric max, and roof carpet](docs/figures/visual_v11_roof_breach.svg)
 
 ---
 
@@ -332,8 +364,10 @@ the reference harness:
   pooled background stays complete.
 - **Cursor tooltip** that names the σ̂ zone under the pointer, that zone's sample count and
   share, the robust score `z = (value − median) / madn`, and the object's raw `min…max`.
-- **Overlay curves** (median / max / min) drawn through the visible objects, with the
-  open-ended overshoot behaviour of §8.
+- **Overlay curves** (median / max / min) drawn through the visible objects, each open-ended
+  so a value above the window leaves the roof open-ended rather than pinned flat. The median
+  and min curves mark an overshoot peak with a dot and its number; the max curve adds neither,
+  because the §9 roof marker already labels that per-iceberg maximum (§8 point 6).
 
 ---
 
@@ -360,12 +394,13 @@ the reference harness:
 | Body-band height | observed value range within that band |
 | Region width | fraction of the object's samples in that region |
 | Band colour | signed MADN region (position redundant) |
-| Bottoming / topping width | fraction beyond ∓3 MADN |
+| Seat-pad width | fraction of samples below −3 MADN |
+| Topping width | fraction of samples above +3 MADN |
 | Solid line | object median |
 | Dashed line | pooled median |
 | Faint background bands | pooled MADN context, bounded by the sky/ground clip |
 | Red border edge | pooled samples exceed the clip |
-| **Roof caret + numeric max + coloured stub** | **this object's raw max exceeds the clip, and by how much (v1.1)** |
+| **Roof caret + numeric max + roof carpet** | **this object's raw max exceeds the clip, and by how much (v1.1)** |
 | **Overshoot peak point (+ open end at the last object)** | **a connected median exceeds the visible window; the peak vertex is marked with a point (v1.1)** |
 | **Dashed placeholder box with `n`** | **object below the sample minimum (v1.1)** |
 
@@ -381,7 +416,8 @@ A conforming renderer satisfies:
 4. The visible axis is bounded by the pooled clip (with the active `clipMultiple`), never
    by a single object's extremes.
 5. A roof breach is flagged iff `max > sky`; its numeric label equals the contract `max`.
-6. A connected value above the window leaves the roof open-ended, never pinned flat.
+6. Every overlay curve is open-ended above the window; the median and min curves mark their
+   overshoot with a dot and number, while the max curve adds none (the §9 marker labels the max).
 7. Colour is never the sole carrier of meaning.
 8. No statistic is recomputed downstream that the payload already carries.
 
@@ -397,7 +433,7 @@ background, axis numbering, the complete encoding table.
 
 - Handoff contract gains `min` / `max` (§2).
 - Raisable roof clip `clipMultiple` 3→10 and signed-domain axis bounding (§7).
-- Roof breach **quantified**: numeric raw-max label + coloured continuation stub (§9).
+- Roof breach **quantified**: numeric raw-max label + roof carpet continuation (§9).
 - **Open-ended median overshoot** drawing rule (§8) — the explicit guidance requested.
 - Self-similar background drawn above marks, non-interactive (§10).
 - Sub-minimum placeholder (§11).
@@ -407,18 +443,54 @@ background, axis numbering, the complete encoding table.
 `IcebergGlyph` fields, the six-band partition, MADN, and population conservation are
 byte-identical to v1.0.
 
+### 16.1 Patch log v1.1 → v1.1.1 (display only, schema unchanged)
+
+This patch closes a spec ambiguity that produced a real rendering bug (the SCADA
+roof-breach label printing the per-iceberg maximum twice) and formalises a **second
+version axis** so display-rule edits cannot silently drift from a renderer.
+
+- **Two version axes** (§2): `spec_version` still guards the handoff *schema* and stays
+  `"1.1"`; a new `display_version` guards the *drawing rules* and starts at `"1.1.1"`.
+  A conforming renderer pins both and refuses or visibly warns on a `display_version`
+  mismatch. `src/swi_iceberg/render.py` exports `SPEC_VERSION` and `DISPLAY_VERSION` as
+  the source of truth; `to_json` emits `display_version` alongside `spec_version`.
+- **§6 terminology sweep**: `topping` = high tail beyond +3 MADN; **seat pad** = low tail
+  beyond −3 MADN (the payload field is still `bottoming`); **roof carpet** = the topping's
+  continuation drawn above the roof (§9). Field names stay frozen.
+- **§6 width rule**: width is the *one* shared population encoding across body bands,
+  topping, seat pad, and roof carpet. The only difference between a body band and a tail
+  / roof region is **height** — observed value range for the body, fixed symbolic for
+  the tails and roof carpet.
+- **§8 curve overshoot, corrected**: every overlay curve (median, max, min) is drawn
+  open-ended so a value above the window sends its line off the roof. The median and
+  min curves annotate an overshoot peak with a dot and number; **the max curve adds
+  neither** because the §9 marker already labels that per-iceberg maximum. §9 closes the
+  loop with the reciprocal statement ("the numeric label is the single place the
+  per-iceberg maximum is printed"). Earlier drafts contradicted each other here.
+- **§9 roof marker** wording now uses *roof carpet* and states the shared-width rule.
+- **§12 feature list and §14 invariant 6** reframed for the corrected curve rule.
+
+**Not changed:** `spec_version` stays `"1.1"`, the handoff schema is untouched, and the
+statistical core (median, MADN, bands, `topping`/`bottoming`, population conservation)
+is still byte-identical to v1.0. This is a display-model patch only.
+
 ---
 
 ## 17. Reference-implementation mapping
 
 - **Statistics:** `src/swi_iceberg/core.py` → `build_iceberg`, `IcebergGlyph` (frozen).
-- **Handoff:** `src/swi_iceberg/render.py` → `to_json` (gains `min`, `max`; `spec_version`
-  `"1.1"`).
-- **Fleet renderer:** `private/verify/src/devices-svg.ts` → `layoutOf`, `fullDomain`,
-  `renderDevices`, `RenderOptions` (gains `clipMultiple`; roof label/stub; open-ended
-  median curve).
-- **Live fleet view:** `SCADA/components/godview/iceberg-fleet.tsx` (the source of the v1.1
-  display improvements).
+- **Handoff and the two version axes:** `src/swi_iceberg/render.py` → `to_json` (gains
+  `min`, `max` at v1.1; gains `display_version` at v1.1.1), `SPEC_VERSION = "1.1"`,
+  `DISPLAY_VERSION = "1.1.1"`. `src/swi_iceberg/__init__.py` re-exports both constants
+  and sets `__version__ = "1.1.1"`.
+- **Fleet renderer (reference):** `private/verify/src/devices-svg.ts` → `layoutOf`,
+  `fullDomain`, `renderDevices`, `RenderOptions` (gains `clipMultiple`; roof carpet +
+  numeric raw-max label; open-ended overlay curves with median/min annotations and a
+  silent max curve). Exports `DISPLAY_VERSION = "1.1.1"`; `main.ts` reads the payload's
+  `display_version` and shows an amber banner on mismatch.
+- **Live fleet view:** `SCADA/components/godview/iceberg-fleet.tsx` and
+  `SCADA/services/godView/compute.py` (the source of the v1.1 display improvements; pins
+  both `PINNED_SPEC_VERSION` and `PINNED_DISPLAY_VERSION`).
 
 ---
 
@@ -429,6 +501,6 @@ code: **Apache-2.0** ([LICENSE-CODE](LICENSE-CODE)).
 
 > swi_iceberg Visual Specification — © 2026 Sven Pauline (copyright owner), associated with
 > Sheer Will Industry (SWI). Used under CC BY 4.0. Version 1.1 revises and extends version
-> 1.0; the statistical model is unchanged.
+> 1.0; version 1.1.1 is a display-only patch (schema and statistics unchanged).
 
-**End of visual specification v1.1**
+**End of visual specification v1.1.1**

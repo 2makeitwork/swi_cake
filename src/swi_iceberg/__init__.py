@@ -22,10 +22,10 @@ from .core import (
     build_iceberg,
     global_zone_index,
 )
-from .render import to_ascii, to_json, to_raster
+from .render import to_ascii, to_json, to_raster, SPEC_VERSION, DISPLAY_VERSION
 from .feed import IcebergFeed, IcebergPipeline
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 
 __all__ = [
     "build_iceberg",
@@ -37,6 +37,8 @@ __all__ = [
     "to_ascii",
     "to_json",
     "to_raster",
+    "SPEC_VERSION",
+    "DISPLAY_VERSION",
     "IcebergFeed",
     "IcebergPipeline",
     "__version__",

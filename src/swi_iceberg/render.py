@@ -18,7 +18,22 @@ import numpy as np
 
 from .core import IcebergGlyph
 
-__all__ = ["to_ascii", "to_json", "to_raster"]
+__all__ = ["to_ascii", "to_json", "to_raster", "SPEC_VERSION", "DISPLAY_VERSION"]
+
+# Two independent version axes travel with every payload, so a renderer can tell
+# *what the data means* apart from *how to draw it*:
+#   SPEC_VERSION    — the handoff-contract (schema) edition. Bumps only when a data
+#                     field is added/changed/removed, i.e. when reading the payload
+#                     itself would differ. A renderer pins this and refuses a payload
+#                     whose schema it does not understand.
+#   DISPLAY_VERSION — the display-model edition (specification_swi_iceberg_visual.md).
+#                     Bumps when a *rendering* rule changes (curve annotation, roof
+#                     marking, overshoot, colour, geometry). A renderer pins the display
+#                     edition it actually implements and refuses/warns on a payload tagged
+#                     for a different one, so a display-rule change cannot be silently
+#                     rendered by a stale interpretation.
+SPEC_VERSION = "1.1"
+DISPLAY_VERSION = "1.1.1"
 
 
 def _json_float(x: float) -> Any:
@@ -114,5 +129,7 @@ def to_json(
         # Raw sample extremes (v1.1 handoff contract): caller-supplied, null if unknown.
         "min": _json_float(data_min),
         "max": _json_float(data_max),
-        "spec_version": "1.1",
+        "spec_version": SPEC_VERSION,
+        # Display-model edition this payload is aligned with (see the two-axis note above).
+        "display_version": DISPLAY_VERSION,
     }

@@ -166,11 +166,15 @@
       <article class="readme">
         <h1>swi_iceberg</h1>
         <p><strong>Compare many distributions side by side — one swi_iceberg per object.</strong></p>
-        <p><img src="figures/swi_iceberg_example.svg" alt="swi_iceberg example: twelve objects"></p>
-        <p><em>Twelve example objects (simulated response latency, milliseconds). Each column is
-        one swi_iceberg; the faint shape behind them is every object pooled together.</em></p>
-        <p><strong>Same fleet, interactive:</strong> pan, vertical zoom, per-band tooltips, view toggles,
-        and a &quot;Random fleet&quot; button that swaps in another pre-computed fleet —
+        <p><img src="figures/swi_iceberg_example.svg" alt="swi_iceberg example: six objects"></p>
+        <p><em>Six example objects (simulated response latency, milliseconds), each a deliberately
+        extreme shape. Each column is one swi_iceberg; the faint shape behind them is every object
+        pooled together. The value axis is clipped to the pooled reference, so an object whose
+        samples run past the ceiling is marked at the roof with a caret and its raw maximum
+        (e.g. <code>1253</code>).</em></p>
+        <p><strong>Same fleet, interactive:</strong> pan, vertical zoom, per-band tooltips, median / max / min
+        overlay curves, a raisable roof clip, view toggles, and a &quot;Random fleet&quot; button that swaps
+        in another pre-computed fleet —
         <a href="https://swi-iceberg.swi-energy.com/fleet/">https://swi-iceberg.swi-energy.com/fleet/</a></p>
         <hr>
         <h2>Why swi_iceberg?</h2>
@@ -195,7 +199,7 @@
         </blockquote>
         <p>The design uses robust statistical coordinates based on the median and MADN, while preserving the observed distribution through separate visual encodings for population and occupied value range.</p>
         <h2>How to read the picture</h2>
-        <h3>(Using communication devices&#39; latency as an example)</h3>
+        <h3>(Using response latency as a running example — any measured quantity works)</h3>
         <table>
         <thead>
         <tr>
@@ -205,7 +209,7 @@
         </thead>
         <tbody><tr>
         <td>Vertical position</td>
-        <td>Absolute value (ms). Objects float at their own level.</td>
+        <td>The absolute measured value — any unit (ms in this example). Objects float at their own level.</td>
         </tr>
         <tr>
         <td>Band color (green → red)</td>
@@ -232,33 +236,52 @@
         <td>The pooled distribution, drawn with the same rules.</td>
         </tr>
         <tr>
-        <td>Dark green / dark red caps</td>
-        <td>Bottoming / topping — samples beyond ∓3 / +3 MADN.</td>
+        <td>Dark green cap below the body</td>
+        <td><strong>Seat pad</strong> — samples below −3 MADN (the low tail).</td>
+        </tr>
+        <tr>
+        <td>Dark red cap above the body</td>
+        <td><strong>Topping</strong> — samples above +3 MADN (the high tail).</td>
+        </tr>
+        <tr>
+        <td>Short dark red bar above the roof line</td>
+        <td><strong>Roof carpet</strong> — the topping&#39;s continuation, drawn when the object&#39;s raw maximum passes the pooled clip (§9).</td>
         </tr>
         <tr>
         <td>Red top or bottom border</td>
         <td>Some pooled samples lie beyond the global clip (&quot;shoot through the roof/floor&quot;).</td>
         </tr>
+        <tr>
+        <td>Red caret + number at the roof</td>
+        <td>That object&#39;s raw maximum exceeds the clip, and by how much.</td>
+        </tr>
+        <tr>
+        <td>Curve leaving the top edge</td>
+        <td>An overlay-curve value above the visible window — drawn open-ended, never pinned flat to the roof. The median curve labels its peak; the max curve does not (the row above already labels that maximum).</td>
+        </tr>
         </tbody></table>
         <p>An empty gap between bands means <em>no</em> samples there; a thin sliver means <em>a few</em>.
-        Two fat bands with a gap between them (see <code>bimodal</code>) is a two-mode distribution.</p>
+        Two fat blocks joined by a thin waist (see <code>bimodal</code>) is a two-mode distribution.</p>
         <h2>How a swi_iceberg relates to the underlying distribution</h2>
-        <p>Each panel below shows one of the twelve example objects twice, on the same value
+        <p>Each panel below shows one of the six example objects twice, on the same value
         axis: its <strong>sample histogram</strong> (left, count growing to the right) and its
-        <strong>swi_iceberg</strong> (right). The twelve objects deliberately cover different
+        <strong>swi_iceberg</strong> (right). The six objects deliberately cover different, extreme
         distribution shapes so you can see how each shape maps onto the swi_iceberg.</p>
-        <p><img src="figures/swi_iceberg_vs_distribution.svg" alt="swi_iceberg vs the underlying distribution for twelve example objects"></p>
+        <p><img src="figures/swi_iceberg_vs_distribution.svg" alt="swi_iceberg vs the underlying distribution for six example objects"></p>
         <p>Reading the pairs:</p>
         <ul>
-        <li><strong>Normal (tight / reference / wide)</strong> — a bell histogram becomes a symmetric swi_iceberg
-        whose middle bands are widest; a larger σ makes the swi_iceberg taller, not wider.</li>
+        <li><strong>Tight vs wide</strong> — both symmetric and unimodal, but the tight one is peaked and
+        light-tailed (a clean diamond: everything inside the envelope, no tail caps) while the
+        wide Gaussian spreads smooth tails that leak into the outer bands and the topping cap.
+        On the shared fleet axis the wide one also stands much taller: spread makes a
+        swi_iceberg taller, not wider.</li>
         <li><strong>Right skew</strong> — mass low with a tail upward: wide green/amber low bands plus a
         red topping cap.</li>
-        <li><strong>Left skew</strong> — the mirror image: wide upper bands plus a dark-green bottoming cap.</li>
-        <li><strong>Long tail</strong> — a tight bell with a thin far tail: a compact body plus a topping cap.</li>
-        <li><strong>Bimodal</strong> — two histogram clusters: two fat bands separated by an empty gap.</li>
-        <li><strong>Near-uniform (plateau)</strong> — a flat histogram: two similarly wide middle bands and
-        thin outer bands.</li>
+        <li><strong>Left skew</strong> — the mirror image: wide upper bands plus a dark-green seat pad.</li>
+        <li><strong>Bimodal</strong> — two histogram clusters: two fat blocks joined by a thin waist where the
+        band between the modes is nearly empty.</li>
+        <li><strong>Near-uniform (plateau)</strong> — a flat histogram with hard cliffs at both ends: evenly
+        sized bands and no tails, where the wide Gaussian tapers off smoothly.</li>
         </ul>
         <h2>Install and use</h2>
         <p>Requires Python 3.10+ and NumPy (the only runtime dependency; pandas is <strong>not</strong>
@@ -274,7 +297,7 @@
         g.median, g.madn          # robust center and scale
         g.population              # per-band sample counts (low -&gt; high), width encoding
         g.band_lo, g.band_hi      # observed value range inside each band, height encoding
-        g.topping, g.bottoming    # retained samples beyond +3 / -3 MADN
+        g.topping, g.bottoming    # topping / seat pad: samples retained beyond +3 / -3 MADN
         to_json(g)                # plain-JSON handoff payload for your own renderer
         </code></pre>
         <p>Fewer than 100 samples raises <code>InsufficientDataError</code>; if over half the samples are

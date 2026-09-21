@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "swi_iceberg"
-version = "1.1.0"
+version = "1.1.1"
 description = "swi_iceberg: a median-centered, MADN-scaled six-band robust distribution glyph for comparing distributions across categories."
 readme = "README.md"
 requires-python = ">=3.10"

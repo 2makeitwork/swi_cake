@@ -22,7 +22,7 @@
 
   <g>
     <!-- RIGHT: v1.1 -->
-    <text x="520" y="78" font-size="13" font-weight="600" fill="#0f172a" text-anchor="middle">v1.1 — caret + numeric max + coloured stub</text>
+    <text x="520" y="78" font-size="13" font-weight="600" fill="#0f172a" text-anchor="middle">v1.1 — caret + numeric max + roof carpet</text>
     <rect x="400" y="92" width="240" height="270" fill="none" stroke="#94a3b8"/>
     <!-- roof / sky clip line -->
     <line x1="400" y1="110" x2="640" y2="110" stroke="#dc2626" stroke-width="2.5"/>
@@ -31,7 +31,9 @@
     <rect x="490" y="150" width="60" height="150" fill="#ca8a04"/>
     <rect x="490" y="150" width="60" height="26" fill="#ea580c"/>
     <rect x="490" y="150" width="60" height="10" fill="#dc2626"/>
-    <!-- coloured continuation stub protruding ABOVE the roof, in the topmost band colour -->
+    <!-- roof carpet: the topping's continuation protruding ABOVE the roof, drawn in
+         the colour of the region it represents (topping colour when a topping cap is
+         present, else the topmost drawn band colour) -->
     <rect x="490" y="102" width="60" height="8" fill="#dc2626"/>
     <!-- caret -->
     <path d="M 520 112 l -5 9 l 10 0 z" fill="#dc2626"/>
@@ -45,7 +47,7 @@
     <line x1="556" y1="96" x2="600" y2="70" stroke="#cbd5e1"/>
     <text x="602" y="66">numeric max = contract field <tspan font-family="monospace">max</tspan></text>
     <line x1="556" y1="106" x2="612" y2="128" stroke="#cbd5e1"/>
-    <text x="614" y="132">stub colour = topmost drawn band</text>
+    <text x="614" y="132">roof carpet colour = region it denotes</text>
   </g>
-  <text x="20" y="410" font-size="10" fill="#94a3b8">swi_iceberg Visual Specification v1.1 · §9 Roof-breach marking · CC BY 4.0</text>
+  <text x="20" y="410" font-size="10" fill="#94a3b8">swi_iceberg Visual Specification v1.1.1 · §9 Roof-breach marking · CC BY 4.0</text>
 </svg>

@@ -16,7 +16,9 @@
 - *swi_iceberg User Manual* (`docs/swi_iceberg_User_Manual.md`) — software package usage
 **Document split:** this specification defines the **statistical model** — the numbers and the
 invariants that must hold. The visual specification defines how those numbers are **drawn**. The
-`to_json` payload is the handoff contract between them.
+`to_json` payload is the handoff contract between them. The handoff schema and the display
+model are versioned independently (`spec_version` and `display_version` in the payload; see
+visual spec §2), so a rendering-rule change never forces a schema or statistical bump.
 **DOI:** _reserved — the v1.1 version DOI is minted at the next Zenodo deposit (v1.0: 10.5281/zenodo.22736442)_
 
 ---
@@ -78,8 +80,8 @@ block.
 The six body bands cover the interval from \(-3\) to \(+3\) MADN about the median.
 Observations beyond that robust envelope do not stretch the swi_iceberg toward the raw
 minimum or maximum; their population is instead carried by two additional tail
-regions — **bottoming** (below \(-3\)) and **topping** (above \(+3\)) — drawn at a
-fixed symbolic height and encoded by width alone.
+regions — the **seat pad** (below \(-3\); the field is `bottoming`) and **topping**
+(above \(+3\)) — drawn at a fixed symbolic height and encoded by width alone.
 
 A self-similar background applies the identical construction to the pooled data,
 giving fleet-wide context without a foreground/context encoding asymmetry.
@@ -251,8 +253,8 @@ by boundary values — they remain in the distribution and are retained as the
 **bottoming** (\(z < -3\)) and **topping** (\(z > +3\)) counts, so population stays
 conserved (§12).
 
-How the retained tails are drawn — fixed symbolic-height stubs at the ∓3 boundaries,
-quantitative meaning carried by width alone — is the display model's rule,
+How the retained tails are drawn — fixed symbolic-height caps at the −3 and +3
+boundaries, quantitative meaning carried by width alone — is the display model's rule,
 [§6 of the visual specification](specification_swi_iceberg_visual.md).
 
 ---
@@ -460,13 +462,14 @@ formal literature and patent search should accompany any strong novelty claim.
 > **Figure X.** swi_iceberg comparison of latency distributions across \(K\)
 > categories. Each vertical stack is a six-band swi_iceberg centered on its category
 > median (solid black line). Bands are signed deviations in units of MADN
-> (\(\hat\sigma\)): **bottoming** (\(<-3\)), **lower outer / mid / inner**
-> (\(-3\) to \(0\)), **upper inner / mid / outer** (\(0\) to \(+3\)), **topping**
-> (\(>+3\)). A band's **horizontal width** is proportional to the percentage of the
+> (\(\hat\sigma\)): **seat pad** (the low tail, \(<-3\); field `bottoming`), **lower outer /
+> mid / inner** (\(-3\) to \(0\)), **upper inner / mid / outer** (\(0\) to \(+3\)), **topping**
+> (the high tail, \(>+3\)). A band's **horizontal width** is proportional to the percentage of the
 > category's samples in it (shared scale \(W_{\max}\)); its **vertical height** is
 > the observed value range those samples occupy. The body is clipped to \(\pm3\)
-> MADN so outliers cannot distort the silhouette; bottoming and topping carry the
-> clipped tail population as fixed-height, width-encoded stubs. The faint
+> MADN so outliers cannot distort the silhouette; the seat pad and topping carry the
+> clipped tail population as fixed-height, width-encoded caps on the same shared
+> width scale as the body bands. The faint
 > background is the iceberg fleet-wide distribution built from the same rules (dashed line
 > = global median), with its outer regions bounded by the global sky/ground
 > envelope (red border edge where pooled samples exceed it).

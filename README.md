@@ -2,13 +2,17 @@
 
 **Compare many distributions side by side — one swi_iceberg per object.**
 
-![swi_iceberg example: twelve objects](docs/figures/swi_iceberg_example.svg)
+![swi_iceberg example: six objects](docs/figures/swi_iceberg_example.svg)
 
-*Twelve example objects (simulated response latency, milliseconds). Each column is
-one swi_iceberg; the faint shape behind them is every object pooled together.*
+*Six example objects (simulated response latency, milliseconds), each a deliberately
+extreme shape. Each column is one swi_iceberg; the faint shape behind them is every object
+pooled together. The value axis is clipped to the pooled reference, so an object whose
+samples run past the ceiling is marked at the roof with a caret and its raw maximum
+(e.g. `1253`).*
 
-**Same fleet, interactive:** pan, vertical zoom, per-band tooltips, view toggles,
-and a "Random fleet" button that swaps in another pre-computed fleet —
+**Same fleet, interactive:** pan, vertical zoom, per-band tooltips, median / max / min
+overlay curves, a raisable roof clip, view toggles, and a "Random fleet" button that swaps
+in another pre-computed fleet —
 <https://swi-iceberg.swi-energy.com/fleet/>
 
 ---
@@ -44,43 +48,50 @@ The design uses robust statistical coordinates based on the median and MADN, whi
 
 ## How to read the picture
 
-### (Using communication devices' latency as an example)
+### (Using response latency as a running example — any measured quantity works)
 
 | What you see | What it means |
 |---|---|
-| Vertical position | Absolute value (ms). Objects float at their own level. |
+| Vertical position | The absolute measured value — any unit (ms in this example). Objects float at their own level. |
 | Band color (green → red) | Which MADN band: low → high. |
 | Band **width** | Share of that object's samples in the band. |
 | Band **height** | The value range those samples actually span. |
 | Solid black line | That object's median. |
 | Dashed line | Median of all objects pooled (the global reference). |
 | Faint background | The pooled distribution, drawn with the same rules. |
-| Dark green / dark red caps | Bottoming / topping — samples beyond ∓3 / +3 MADN. |
+| Dark green cap below the body | **Seat pad** — samples below −3 MADN (the low tail). |
+| Dark red cap above the body | **Topping** — samples above +3 MADN (the high tail). |
+| Short dark red bar above the roof line | **Roof carpet** — the topping's continuation, drawn when the object's raw maximum passes the pooled clip (§9). |
 | Red top or bottom border | Some pooled samples lie beyond the global clip ("shoot through the roof/floor"). |
+| Red caret + number at the roof | That object's raw maximum exceeds the clip, and by how much. |
+| Curve leaving the top edge | An overlay-curve value above the visible window — drawn open-ended, never pinned flat to the roof. The median curve labels its peak; the max curve does not (the row above already labels that maximum). |
 
 An empty gap between bands means *no* samples there; a thin sliver means *a few*.
-Two fat bands with a gap between them (see `bimodal`) is a two-mode distribution.
+Two fat blocks joined by a thin waist (see `bimodal`) is a two-mode distribution.
 
 ## How a swi_iceberg relates to the underlying distribution
 
-Each panel below shows one of the twelve example objects twice, on the same value
+Each panel below shows one of the six example objects twice, on the same value
 axis: its **sample histogram** (left, count growing to the right) and its
-**swi_iceberg** (right). The twelve objects deliberately cover different
+**swi_iceberg** (right). The six objects deliberately cover different, extreme
 distribution shapes so you can see how each shape maps onto the swi_iceberg.
 
-![swi_iceberg vs the underlying distribution for twelve example objects](docs/figures/swi_iceberg_vs_distribution.svg)
+![swi_iceberg vs the underlying distribution for six example objects](docs/figures/swi_iceberg_vs_distribution.svg)
 
 Reading the pairs:
 
-- **Normal (tight / reference / wide)** — a bell histogram becomes a symmetric swi_iceberg
-  whose middle bands are widest; a larger σ makes the swi_iceberg taller, not wider.
+- **Tight vs wide** — both symmetric and unimodal, but the tight one is peaked and
+  light-tailed (a clean diamond: everything inside the envelope, no tail caps) while the
+  wide Gaussian spreads smooth tails that leak into the outer bands and the topping cap.
+  On the shared fleet axis the wide one also stands much taller: spread makes a
+  swi_iceberg taller, not wider.
 - **Right skew** — mass low with a tail upward: wide green/amber low bands plus a
   red topping cap.
-- **Left skew** — the mirror image: wide upper bands plus a dark-green bottoming cap.
-- **Long tail** — a tight bell with a thin far tail: a compact body plus a topping cap.
-- **Bimodal** — two histogram clusters: two fat bands separated by an empty gap.
-- **Near-uniform (plateau)** — a flat histogram: two similarly wide middle bands and
-  thin outer bands.
+- **Left skew** — the mirror image: wide upper bands plus a dark-green seat pad.
+- **Bimodal** — two histogram clusters: two fat blocks joined by a thin waist where the
+  band between the modes is nearly empty.
+- **Near-uniform (plateau)** — a flat histogram with hard cliffs at both ends: evenly
+  sized bands and no tails, where the wide Gaussian tapers off smoothly.
 
 ## Install and use
 
@@ -101,7 +112,7 @@ g = build_iceberg(values)
 g.median, g.madn          # robust center and scale
 g.population              # per-band sample counts (low -> high), width encoding
 g.band_lo, g.band_hi      # observed value range inside each band, height encoding
-g.topping, g.bottoming    # retained samples beyond +3 / -3 MADN
+g.topping, g.bottoming    # topping / seat pad: samples retained beyond +3 / -3 MADN
 to_json(g)                # plain-JSON handoff payload for your own renderer
 ```
 

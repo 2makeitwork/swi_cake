@@ -1,153 +1,91 @@
-<svg width="752" height="504" viewBox="0 0 752 504" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif">
-<rect x="261.19829181494663" y="360.753866869339" width="273.6034163701068" height="47.24613313066101" fill="#15803d" opacity="0.13" />
-<rect x="88.88" y="309.61898188984543" width="618.24" height="51.12215425365963" fill="#65a30d" opacity="0.13" />
-<rect x="122.31430604982205" y="258.4842372717836" width="551.3713879003559" height="51.13236742137639" fill="#ca8a04" opacity="0.13" />
-<rect x="332.6243416370107" y="207.56255292770916" width="130.75131672597865" height="50.91080841207267" fill="#ea580c" opacity="0.13" />
-<rect x="352.46491103202845" y="156.28469520105844" width="91.07017793594305" height="50.922749769241136" fill="#dc2626" opacity="0.13" />
-<rect x="338.6747330960854" y="112.85337987450816" width="118.65053380782919" height="43.35773657902135" fill="#7f1d1d" opacity="0.10" />
-<line x1="62" y1="28" x2="734" y2="28" stroke="#94a3b8" stroke-width="1" />
-<text x="54" y="32" text-anchor="end" font-size="11" fill="#334155">312</text>
-<line x1="62" y1="408" x2="734" y2="408" stroke="#94a3b8" stroke-width="1" />
-<text x="54" y="412" text-anchor="end" font-size="11" fill="#334155">0</text>
-<line x1="62" y1="360.7533522374938" x2="734" y2="360.7533522374938" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="364.7533522374938" text-anchor="end" font-size="11" fill="#475569">39</text>
-<line x1="62" y1="309.6177932915027" x2="734" y2="309.6177932915027" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="313.6177932915027" text-anchor="end" font-size="11" fill="#475569">81</text>
-<line x1="62" y1="258.48223434551164" x2="734" y2="258.48223434551164" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="262.48223434551164" text-anchor="end" font-size="11" fill="#475569">123</text>
-<line x1="62" y1="207.3466753995206" x2="734" y2="207.3466753995206" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="211.3466753995206" text-anchor="end" font-size="11" fill="#475569">165</text>
-<line x1="62" y1="156.2111164535295" x2="734" y2="156.2111164535295" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="160.2111164535295" text-anchor="end" font-size="11" fill="#475569">207</text>
-<line x1="62" y1="112.85337987450816" x2="734" y2="112.85337987450816" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" />
-<text x="54" y="116.85337987450816" text-anchor="end" font-size="11" fill="#64748b">242</text>
-<text x="54" y="16" text-anchor="end" font-size="11" fill="#334155">ms</text>
-<line x1="62" y1="28" x2="62" y2="408" stroke="#94a3b8" stroke-width="1" />
-<rect x="62" y="28" width="672" height="380" fill="none" stroke="#94a3b8" stroke-width="1" />
-<line x1="62" y1="28" x2="734" y2="28" stroke="#dc2626" stroke-width="2.5" />
-<line x1="62" y1="408" x2="734" y2="408" stroke="#94a3b8" stroke-width="1" />
-<line x1="62" y1="309.6177932915027" x2="734" y2="309.6177932915027" stroke="#0f172a" stroke-width="1" stroke-dasharray="6 4" opacity="0.55" />
-<rect x="89" y="305.68408901839496" width="2" height="4" fill="#14532d"><title>normal-tight · &lt;-3σ̂ (bottoming) · 2 samples (0.1% of 2000)</title></rect>
-<rect x="88.925" y="298.6782128147466" width="2.15" height="5.3777091924000615" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>normal-tight · -3σ̂ · 43 samples (2.1% of 2000)</title></rect>
-<rect x="83.65" y="292.6097855076657" width="12.7" height="5.9801184819885975" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>normal-tight · -2σ̂ · 254 samples (12.7% of 2000)</title></rect>
-<rect x="72.475" y="286.56810191552444" width="35.05" height="5.991308852413965" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>normal-tight · -1σ̂ · 701 samples (35.0% of 2000)</title></rect>
-<rect x="73.3" y="280.53516210118636" width="33.4" height="6.030692902426665" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>normal-tight · +1σ̂ · 668 samples (33.4% of 2000)</title></rect>
-<rect x="82.775" y="274.4970830665845" width="14.45" height="6.006175324359447" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>normal-tight · +2σ̂ · 289 samples (14.4% of 2000)</title></rect>
-<rect x="89" y="268.744598344893" width="2" height="5.467142116361515" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>normal-tight · +3σ̂ · 39 samples (1.9% of 2000)</title></rect>
-<rect x="89" y="263.4498679007425" width="2" height="4" fill="#7f1d1d"><title>normal-tight · &gt;+3σ̂ (topping) · 4 samples (0.2% of 2000)</title></rect>
-<line x1="63" y1="286.56697845956876" x2="117" y2="286.56697845956876" stroke="#0f172a" stroke-width="1.4" />
-<text x="90" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 90 422)">normal-tight</text>
-<rect x="62" y="28" width="56" height="380" fill="transparent" data-obj="0" />
-<rect x="145" y="341.47683547914943" width="2" height="4" fill="#14532d"><title>normal-ref · &lt;-3σ̂ (bottoming) · 1 samples (0.1% of 800)</title></rect>
-<rect x="144.8125" y="322.52288809017205" width="2.375" height="16.35261028885577" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>normal-ref · -3σ̂ · 19 samples (2.4% of 800)</title></rect>
-<rect x="138.5625" y="304.22594382858483" width="14.875" height="17.977122846760494" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>normal-ref · -2σ̂ · 119 samples (14.9% of 800)</title></rect>
-<rect x="129.6875" y="285.91212309184084" width="32.625" height="18.05619202318087" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>normal-ref · -1σ̂ · 261 samples (32.6% of 800)</title></rect>
-<rect x="128.8125" y="267.73987033382423" width="34.375" height="18.07195086145032" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>normal-ref · +1σ̂ · 275 samples (34.4% of 800)</title></rect>
-<rect x="139.3125" y="249.54043735348785" width="13.375" height="18.053348229289668" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>normal-ref · +2σ̂ · 107 samples (13.4% of 800)</title></rect>
-<rect x="144.9375" y="234.75512537997264" width="2.125" height="13.333717472573966" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>normal-ref · +3σ̂ · 17 samples (2.1% of 800)</title></rect>
-<rect x="145" y="226.24710880796593" width="2" height="4" fill="#7f1d1d"><title>normal-ref · &gt;+3σ̂ (topping) · 1 samples (0.1% of 800)</title></rect>
-<line x1="119" y1="285.8619721435577" x2="173" y2="285.8619721435577" stroke="#0f172a" stroke-width="1.4" />
-<text x="146" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 146 422)">normal-ref</text>
-<rect x="118" y="28" width="56" height="380" fill="transparent" data-obj="1" />
-<rect x="201" y="396.7526647667773" width="2" height="4" fill="#14532d"><title>normal-wide · &lt;-3σ̂ (bottoming) · 8 samples (0.2% of 5000)</title></rect>
-<rect x="200.77" y="358.9633144396395" width="2.46" height="32.80526989267719" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>normal-wide · -3σ̂ · 123 samples (2.5% of 5000)</title></rect>
-<rect x="195" y="321.91288785568673" width="14.000000000000002" height="36.84399127476462" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>normal-wide · -2σ̂ · 700 samples (14.0% of 5000)</title></rect>
-<rect x="185.31" y="284.877409594667" width="33.379999999999995" height="36.912601884565674" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>normal-wide · -1σ̂ · 1669 samples (33.4% of 5000)</title></rect>
-<rect x="184.65" y="247.9742493029151" width="34.699999999999996" height="36.874321428696874" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>normal-wide · +1σ̂ · 1735 samples (34.7% of 5000)</title></rect>
-<rect x="195.23" y="211.0179781283577" width="13.54" height="36.873566164686935" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>normal-wide · +2σ̂ · 677 samples (13.5% of 5000)</title></rect>
-<rect x="201" y="175.76963126573716" width="2" height="34.972027964124635" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>normal-wide · +3σ̂ · 86 samples (1.7% of 5000)</title></rect>
-<rect x="201" y="168.97331555950166" width="2" height="4" fill="#7f1d1d"><title>normal-wide · &gt;+3σ̂ (topping) · 2 samples (0.0% of 5000)</title></rect>
-<line x1="175" y1="284.86299016313944" x2="229" y2="284.86299016313944" stroke="#0f172a" stroke-width="1.4" />
-<text x="202" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 202 422)">normal-wide</text>
-<rect x="174" y="28" width="56" height="380" fill="transparent" data-obj="2" />
-<rect x="253.91666666666666" y="378.4193178155282" width="8.166666666666666" height="13.325324475355501" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>right-skew · -2σ̂ · 98 samples (8.2% of 1200)</title></rect>
-<rect x="237.08333333333334" y="348.2384966882829" width="41.833333333333336" height="30.113256793645974" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>right-skew · -1σ̂ · 502 samples (41.8% of 1200)</title></rect>
-<rect x="244.33333333333334" y="318.10501376092304" width="27.333333333333332" height="30.114030899245734" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +1σ̂ · 328 samples (27.3% of 1200)</title></rect>
-<rect x="251.375" y="288.0048773257454" width="13.25" height="29.986219187128768" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +2σ̂ · 159 samples (13.3% of 1200)</title></rect>
-<rect x="256" y="258.6091054630301" width="4" height="28.61227887892875" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +3σ̂ · 48 samples (4.0% of 1200)</title></rect>
-<rect x="255.29166666666666" y="252.70375210868684" width="5.416666666666667" height="4" fill="#7f1d1d"><title>right-skew · &gt;+3σ̂ (topping) · 65 samples (5.4% of 1200)</title></rect>
-<line x1="231" y1="348.2287706742258" x2="285" y2="348.2287706742258" stroke="#0f172a" stroke-width="1.4" />
-<path d="M 258 30 l -4 7 l 8 0 z" fill="#dc2626"><title>right-skew shoots through the roof: max 325 &gt; sky 242</title></path>
-<text x="258" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 258 422)">right-skew</text>
-<rect x="230" y="28" width="56" height="380" fill="transparent" data-obj="3" />
-<rect x="313" y="267.57982925045593" width="2" height="4" fill="#14532d"><title>left-skew · &lt;-3σ̂ (bottoming) · 6 samples (2.0% of 300)</title></rect>
-<rect x="311.8333333333333" y="231.90149812868665" width="4.333333333333334" height="29.274744881510713" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -3σ̂ · 13 samples (4.3% of 300)</title></rect>
-<rect x="306.3333333333333" y="194.14363069060815" width="15.333333333333332" height="35.16987394911337" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -2σ̂ · 46 samples (15.3% of 300)</title></rect>
-<rect x="299.8333333333333" y="158.1557575800209" width="28.333333333333332" height="35.87926255544943" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -1σ̂ · 85 samples (28.3% of 300)</title></rect>
-<rect x="291.3333333333333" y="121.79700090047504" width="45.33333333333333" height="35.86391185916693" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>left-skew · +1σ̂ · 136 samples (45.3% of 300)</title></rect>
-<rect x="311.6666666666667" y="112.66860799668672" width="4.666666666666667" height="8.832367597554025" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>left-skew · +2σ̂ · 14 samples (4.7% of 300)</title></rect>
-<line x1="287" y1="157.90833516983142" x2="341" y2="157.90833516983142" stroke="#0f172a" stroke-width="1.4" />
-<path d="M 314 30 l -4 7 l 8 0 z" fill="#dc2626"><title>left-skew shoots through the roof: max 243 &gt; sky 242</title></path>
-<text x="314" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 314 422)">left-skew</text>
-<rect x="286" y="28" width="56" height="380" fill="transparent" data-obj="4" />
-<rect x="369" y="385.19773263750574" width="2" height="7.140331746355628" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>long-tail · -3σ̂ · 31 samples (1.2% of 2500)</title></rect>
-<rect x="363.66" y="378.00735647079176" width="12.68" height="7.106418445174597" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>long-tail · -2σ̂ · 317 samples (12.7% of 2500)</title></rect>
-<rect x="351.96" y="370.8162977589975" width="36.08" height="7.181604664069141" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>long-tail · -1σ̂ · 902 samples (36.1% of 2500)</title></rect>
-<rect x="354.98" y="363.63732732956413" width="30.04" height="7.177076603734065" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>long-tail · +1σ̂ · 751 samples (30.0% of 2500)</title></rect>
-<rect x="365.6" y="356.71988784681054" width="8.799999999999999" height="6.85742158648128" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>long-tail · +2σ̂ · 220 samples (8.8% of 2500)</title></rect>
-<rect x="369" y="350.3361408661468" width="2" height="5.836148780796975" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>long-tail · +3σ̂ · 21 samples (0.8% of 2500)</title></rect>
-<rect x="364.84" y="344.26408504516246" width="10.32" height="4" fill="#7f1d1d"><title>long-tail · &gt;+3σ̂ (topping) · 258 samples (10.3% of 2500)</title></rect>
-<line x1="343" y1="370.81535084614785" x2="397" y2="370.81535084614785" stroke="#0f172a" stroke-width="1.4" />
-<path d="M 370 30 l -4 7 l 8 0 z" fill="#dc2626"><title>long-tail shoots through the roof: max 1000 &gt; sky 242</title></path>
-<text x="370" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 370 422)">long-tail</text>
-<rect x="342" y="28" width="56" height="380" fill="transparent" data-obj="5" />
-<rect x="401" y="318.3493682302811" width="50" height="37.48087753523555" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>bimodal · -1σ̂ · 500 samples (50.0% of 1000)</title></rect>
-<rect x="425" y="311.2600367649644" width="2" height="6.39888347614135" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>bimodal · +1σ̂ · 5 samples (0.5% of 1000)</title></rect>
-<rect x="401.4" y="171.88854078308665" width="49.2" height="37.09094061841634" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>bimodal · +3σ̂ · 492 samples (49.2% of 1000)</title></rect>
-<rect x="425" y="166.11472106187426" width="2" height="4" fill="#7f1d1d"><title>bimodal · &gt;+3σ̂ (topping) · 3 samples (0.3% of 1000)</title></rect>
-<line x1="399" y1="318.0041442356934" x2="453" y2="318.0041442356934" stroke="#0f172a" stroke-width="1.4" />
-<text x="426" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 426 422)">bimodal</text>
-<rect x="398" y="28" width="56" height="380" fill="transparent" data-obj="6" />
-<rect x="481" y="233.89690614021598" width="2" height="4" fill="#14532d"><title>slow-device · &lt;-3σ̂ (bottoming) · 2 samples (0.1% of 1500)</title></rect>
-<rect x="481" y="202.63652190200264" width="2" height="23.03678163572053" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>slow-device · -3σ̂ · 25 samples (1.7% of 1500)</title></rect>
-<rect x="474.9" y="171.5671623035467" width="14.2" height="30.60513851379318" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>slow-device · -2σ̂ · 213 samples (14.2% of 1500)</title></rect>
-<rect x="465" y="140.91264991654975" width="34" height="30.55506129353668" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>slow-device · -1σ̂ · 510 samples (34.0% of 1500)</title></rect>
-<rect x="465.06666666666666" y="110.20331499123995" width="33.86666666666667" height="30.58539682335538" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>slow-device · +1σ̂ · 508 samples (33.9% of 1500)</title></rect>
-<rect x="475.1333333333333" y="79.73442319463214" width="13.733333333333334" height="30.407154474456377" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>slow-device · +2σ̂ · 206 samples (13.7% of 1500)</title></rect>
-<rect x="480.8333333333333" y="48.881989090252546" width="2.3333333333333335" height="30.01247918027906" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>slow-device · +3σ̂ · 35 samples (2.3% of 1500)</title></rect>
-<rect x="481" y="43.804455590929194" width="2" height="4" fill="#7f1d1d"><title>slow-device · &gt;+3σ̂ (topping) · 1 samples (0.1% of 1500)</title></rect>
-<line x1="455" y1="140.8506808655726" x2="509" y2="140.8506808655726" stroke="#0f172a" stroke-width="1.4" />
-<path d="M 482 30 l -4 7 l 8 0 z" fill="#dc2626"><title>slow-device shoots through the roof: max 298 &gt; sky 242</title></path>
-<text x="482" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 482 422)">slow-device</text>
-<rect x="454" y="28" width="56" height="380" fill="transparent" data-obj="7" />
-<rect x="537" y="315.6948198385445" width="2" height="1.871896266947715" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>very-stable · -3σ̂ · 48 samples (1.6% of 3000)</title></rect>
-<rect x="531.1833333333333" y="313.17908911727966" width="13.633333333333333" height="2.444253371263585" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>very-stable · -2σ̂ · 409 samples (13.6% of 3000)</title></rect>
-<rect x="520.6166666666667" y="310.667704364497" width="34.766666666666666" height="2.506742877266845" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>very-stable · -1σ̂ · 1043 samples (34.8% of 3000)</title></rect>
-<rect x="520.9333333333333" y="308.15723678534175" width="34.13333333333333" height="2.5076279424130803" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>very-stable · +1σ̂ · 1024 samples (34.1% of 3000)</title></rect>
-<rect x="531" y="305.64433625849335" width="14.000000000000002" height="2.506543624822939" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>very-stable · +2σ̂ · 420 samples (14.0% of 3000)</title></rect>
-<rect x="537" y="303.2274671010124" width="2" height="2.393275917027381" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>very-stable · +3σ̂ · 55 samples (1.8% of 3000)</title></rect>
-<rect x="537" y="298.13312347091335" width="2" height="4" fill="#7f1d1d"><title>very-stable · &gt;+3σ̂ (topping) · 1 samples (0.0% of 3000)</title></rect>
-<line x1="511" y1="310.6662845461259" x2="565" y2="310.6662845461259" stroke="#0f172a" stroke-width="1.4" />
-<text x="538" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 538 422)">very-stable</text>
-<rect x="510" y="28" width="56" height="380" fill="transparent" data-obj="8" />
-<rect x="593" y="355.81210521400516" width="2" height="8.091290949357585" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>moderate-tail · -3σ̂ · 20 samples (1.1% of 1800)</title></rect>
-<rect x="587.4722222222222" y="344.8604685832017" width="13.055555555555557" height="10.804181283028413" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>moderate-tail · -2σ̂ · 235 samples (13.1% of 1800)</title></rect>
-<rect x="576.0833333333334" y="334.01309687685614" width="35.833333333333336" height="10.804462763063384" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>moderate-tail · -1σ̂ · 645 samples (35.8% of 1800)</title></rect>
-<rect x="577.4722222222222" y="323.21549614115054" width="33.05555555555556" height="10.797521589559494" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>moderate-tail · +1σ̂ · 595 samples (33.1% of 1800)</title></rect>
-<rect x="588.4444444444445" y="312.4950249476245" width="11.11111111111111" height="10.621462300166456" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>moderate-tail · +2σ̂ · 200 samples (11.1% of 1800)</title></rect>
-<rect x="593" y="305.84837751934737" width="2" height="6.414642133344216" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>moderate-tail · +3σ̂ · 14 samples (0.8% of 1800)</title></rect>
-<rect x="591.4722222222222" y="296.5071705099724" width="5.055555555555555" height="4" fill="#7f1d1d"><title>moderate-tail · &gt;+3σ̂ (topping) · 91 samples (5.1% of 1800)</title></rect>
-<line x1="567" y1="334.01305730378306" x2="621" y2="334.01305730378306" stroke="#0f172a" stroke-width="1.4" />
-<path d="M 594 30 l -4 7 l 8 0 z" fill="#dc2626"><title>moderate-tail shoots through the roof: max 542 &gt; sky 242</title></path>
-<text x="594" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 594 422)">moderate-tail</text>
-<rect x="566" y="28" width="56" height="380" fill="transparent" data-obj="9" />
-<rect x="649" y="369.63026808794524" width="2" height="4.447047648663897" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>fast-spike · -3σ̂ · 32 samples (1.5% of 2200)</title></rect>
-<rect x="643.5" y="364.31982385848755" width="13" height="5.106753699262185" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>fast-spike · -2σ̂ · 286 samples (13.0% of 2200)</title></rect>
-<rect x="632.2272727272727" y="359.08420526326154" width="35.54545454545455" height="5.213148680220684" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>fast-spike · -1σ̂ · 782 samples (35.5% of 2200)</title></rect>
-<rect x="632.9090909090909" y="353.8708562164713" width="34.18181818181818" height="5.212392417553815" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>fast-spike · +1σ̂ · 752 samples (34.2% of 2200)</title></rect>
-<rect x="643.8409090909091" y="348.66755799995695" width="12.318181818181818" height="5.192031166030347" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>fast-spike · +2σ̂ · 271 samples (12.3% of 2200)</title></rect>
-<rect x="649" y="344.3134541234629" width="2" height="4.2005127455628894" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>fast-spike · +3σ̂ · 24 samples (1.1% of 2200)</title></rect>
-<rect x="648.7954545454545" y="338.419752902151" width="2.409090909090909" height="4" fill="#7f1d1d"><title>fast-spike · &gt;+3σ̂ (topping) · 53 samples (2.4% of 2200)</title></rect>
-<line x1="623" y1="359.0837269486433" x2="677" y2="359.0837269486433" stroke="#0f172a" stroke-width="1.4" />
-<path d="M 650 30 l -4 7 l 8 0 z" fill="#dc2626"><title>fast-spike shoots through the roof: max 838 &gt; sky 242</title></path>
-<text x="650" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 650 422)">fast-spike</text>
-<rect x="622" y="28" width="56" height="380" fill="transparent" data-obj="10" />
-<rect x="699.2857142857143" y="330.5726107500265" width="13.428571428571429" height="16.520446514504783" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>plateau · -2σ̂ · 188 samples (13.4% of 1400)</title></rect>
-<rect x="687.7142857142857" y="285.780030139479" width="36.57142857142857" height="44.6663806074572" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>plateau · -1σ̂ · 512 samples (36.6% of 1400)</title></rect>
-<rect x="687.3928571428571" y="240.97717869552287" width="37.214285714285715" height="44.78428462366912" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>plateau · +1σ̂ · 521 samples (37.2% of 1400)</title></rect>
-<rect x="699.6071428571429" y="225.44363265513894" width="12.785714285714286" height="15.435892073947599" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>plateau · +2σ̂ · 179 samples (12.8% of 1400)</title></rect>
-<line x1="679" y1="285.77074672933554" x2="733" y2="285.77074672933554" stroke="#0f172a" stroke-width="1.4" />
-<text x="706" y="422" text-anchor="end" font-size="11" fill="#334155" transform="rotate(-35 706 422)">plateau</text>
-<rect x="678" y="28" width="56" height="380" fill="transparent" data-obj="11" />
-<text x="734" y="20" text-anchor="end" font-size="9" fill="#94a3b8">swi_iceberg · © 2026 Sven Pauline · CC BY 4.0 (spec) / Apache-2.0 (code)</text>
+<svg width="416" height="560" viewBox="0 0 416 560" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif">
+<rect x="226.39114235500878" y="451.42270655569797" width="7.217715289982425" height="12.577293444302029" fill="#166534" opacity="0.13" />
+<rect x="190.26376098418277" y="402.08433722477895" width="79.47247803163445" height="49.08750298920478" fill="#15803d" opacity="0.13" />
+<rect x="75.44" y="352.89218972833595" width="309.12" height="49.07694802770709" fill="#65a30d" opacity="0.13" />
+<rect x="119.25075571177504" y="303.7150723661713" width="221.49848857644992" height="49.17051568327054" fill="#ca8a04" opacity="0.13" />
+<rect x="197.2486467486819" y="254.54412840989298" width="65.5027065026362" height="49.143722493675085" fill="#ea580c" opacity="0.13" />
+<rect x="215.40934973637962" y="205.71543721503826" width="29.181300527240776" height="48.75164407316262" fill="#dc2626" opacity="0.13" />
+<rect x="190.18615114235502" y="130.66666666666663" width="79.62769771528997" height="74.67659357023803" fill="#7f1d1d" opacity="0.10" />
+<line x1="62" y1="84" x2="398" y2="84" stroke="#94a3b8" stroke-width="1" />
+<text x="54" y="88" text-anchor="end" font-size="14" fill="#334155">349</text>
+<line x1="62" y1="464" x2="398" y2="464" stroke="#94a3b8" stroke-width="1" />
+<text x="54" y="468" text-anchor="end" font-size="14" fill="#334155">0</text>
+<line x1="62" y1="451.25264132354505" x2="398" y2="451.25264132354505" stroke="#e2e8f0" stroke-width="1" />
+<line x1="62" y1="402.070765106217" x2="398" y2="402.070765106217" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="406.070765106217" text-anchor="end" font-size="14" fill="#475569">57</text>
+<line x1="62" y1="352.8888888888889" x2="398" y2="352.8888888888889" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="356.8888888888889" text-anchor="end" font-size="14" fill="#475569">102</text>
+<line x1="62" y1="303.70701267156085" x2="398" y2="303.70701267156085" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="307.70701267156085" text-anchor="end" font-size="14" fill="#475569">147</text>
+<line x1="62" y1="254.52513645423272" x2="398" y2="254.52513645423272" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="258.5251364542327" text-anchor="end" font-size="14" fill="#475569">192</text>
+<line x1="62" y1="205.34326023690465" x2="398" y2="205.34326023690465" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="209.34326023690465" text-anchor="end" font-size="14" fill="#475569">238</text>
+<line x1="62" y1="130.66666666666663" x2="398" y2="130.66666666666663" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" />
+<text x="54" y="134.66666666666663" text-anchor="end" font-size="14" fill="#64748b">306</text>
+<line x1="62" y1="464" x2="398" y2="464" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" />
+<text x="54" y="72" text-anchor="end" font-size="14" fill="#334155">ms</text>
+<line x1="62" y1="84" x2="62" y2="464" stroke="#94a3b8" stroke-width="1" />
+<rect x="62" y="84" width="336" height="380" fill="none" stroke="#94a3b8" stroke-width="1" />
+<line x1="62" y1="84" x2="398" y2="84" stroke="#dc2626" stroke-width="2.5" />
+<line x1="62" y1="464" x2="398" y2="464" stroke="#94a3b8" stroke-width="1" />
+<line x1="62" y1="352.8888888888889" x2="398" y2="352.8888888888889" stroke="#0f172a" stroke-width="1" stroke-dasharray="6 4" opacity="0.55" />
+<defs><clipPath id="curve-clip"><rect x="62" y="-10000" width="336" height="10464" /></clipPath></defs>
+<rect x="89.5" y="363.0127127619288" width="1" height="1" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>tight · -3σ̂ · 14 samples (0.7% of 2000)</title></rect>
+<rect x="82.5" y="359.0719346048719" width="15" height="3.8373220203362735" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>tight · -2σ̂ · 300 samples (15.0% of 2000)</title></rect>
+<rect x="72.85" y="355.19530671456573" width="34.300000000000004" height="3.860173818735234" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>tight · -1σ̂ · 686 samples (34.3% of 2000)</title></rect>
+<rect x="72.825" y="351.3426733310049" width="34.35" height="3.8518682941228235" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>tight · +1σ̂ · 687 samples (34.4% of 2000)</title></rect>
+<rect x="82.5" y="347.55389526659434" width="15" height="3.7791469661507904" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>tight · +2σ̂ · 300 samples (15.0% of 2000)</title></rect>
+<rect x="89.5" y="346.7391824155503" width="1" height="1" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>tight · +3σ̂ · 13 samples (0.7% of 2000)</title></rect>
+<line x1="64" y1="355.19492416984673" x2="116" y2="355.19492416984673" stroke="#0f172a" stroke-width="1.4" />
+<text x="90" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 90 478)">tight</text>
+<rect x="62" y="84" width="56" height="380" fill="transparent" data-obj="0" />
+<rect x="144.875" y="452.29816034022593" width="2.25" height="11.701839659774066" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>wide · -3σ̂ · 45 samples (2.3% of 2000)</title></rect>
+<rect x="139.475" y="404.5639582404418" width="13.05" height="47.38161191813953" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>wide · -2σ̂ · 261 samples (13.1% of 2000)</title></rect>
+<rect x="128.65" y="356.71789215105764" width="34.699999999999996" height="47.48280841865636" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>wide · -1σ̂ · 694 samples (34.7% of 2000)</title></rect>
+<rect x="129.375" y="308.9627648393491" width="33.25" height="47.72248357719053" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>wide · +1σ̂ · 665 samples (33.3% of 2000)</title></rect>
+<rect x="139.525" y="261.56081060027793" width="12.950000000000001" height="47.23434480328058" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>wide · +2σ̂ · 259 samples (13.0% of 2000)</title></rect>
+<rect x="144.275" y="216.3404092588741" width="3.45" height="44.42209995914163" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>wide · +3σ̂ · 69 samples (3.5% of 2000)</title></rect>
+<rect x="145.5" y="208.45365175694866" width="1" height="4" fill="#7f1d1d"><title>wide · &gt;+3σ̂ (topping) · 7 samples (0.4% of 2000)</title></rect>
+<line x1="120" y1="356.7015702837987" x2="172" y2="356.7015702837987" stroke="#0f172a" stroke-width="1.4" />
+<text x="146" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 146 478)">wide</text>
+<rect x="118" y="84" width="56" height="380" fill="transparent" data-obj="1" />
+<path d="M 202 86 l -4 7 l 8 0 z" fill="#dc2626"><title>right-skew shoots through the roof: max 1253 &gt; sky 306</title></path>
+<text x="202" y="73" text-anchor="start" transform="rotate(-45 202 73)" font-size="14" fill="#dc2626">1253</text>
+<rect x="198.46666666666667" y="76" width="7.066666666666667" height="8" fill="#7f1d1d" />
+<rect x="199.76666666666668" y="438.8255974448493" width="4.466666666666667" height="14.560116329865366" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>right-skew · -2σ̂ · 67 samples (4.5% of 1500)</title></rect>
+<rect x="179.23333333333335" y="379.90814537573476" width="45.53333333333333" height="58.4350558436434" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>right-skew · -1σ̂ · 683 samples (45.5% of 1500)</title></rect>
+<rect x="188.83333333333334" y="320.96660567336824" width="26.333333333333332" height="58.5755559110475" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +1σ̂ · 395 samples (26.3% of 1500)</title></rect>
+<rect x="196.43333333333334" y="263.1605921336828" width="11.133333333333335" height="57.39931167277325" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +2σ̂ · 167 samples (11.1% of 1500)</title></rect>
+<rect x="199.26666666666668" y="204.4332368583585" width="5.466666666666667" height="56.006855291720456" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +3σ̂ · 82 samples (5.5% of 1500)</title></rect>
+<rect x="198.46666666666667" y="198.19572031124977" width="7.066666666666667" height="4" fill="#7f1d1d"><title>right-skew · &gt;+3σ̂ (topping) · 106 samples (7.1% of 1500)</title></rect>
+<line x1="176" y1="379.7251534800753" x2="228" y2="379.7251534800753" stroke="#0f172a" stroke-width="1.4" />
+<text x="202" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 202 478)">right-skew</text>
+<rect x="174" y="84" width="56" height="380" fill="transparent" data-obj="2" />
+<path d="M 258 86 l -4 7 l 8 0 z" fill="#dc2626"><title>left-skew shoots through the roof: max 314 &gt; sky 306</title></path>
+<text x="258" y="73" text-anchor="start" transform="rotate(-45 258 73)" font-size="14" fill="#dc2626">314</text>
+<rect x="255.6" y="76" width="4.8" height="8" fill="#ea580c" />
+<rect x="254.83333333333334" y="358.75618263432494" width="6.333333333333334" height="4" fill="#14532d"><title>left-skew · &lt;-3σ̂ (seat pad) · 95 samples (6.3% of 1500)</title></rect>
+<rect x="254.93333333333334" y="302.16807579360363" width="6.133333333333333" height="53.584303027938404" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -3σ̂ · 92 samples (6.1% of 1500)</title></rect>
+<rect x="252.13333333333333" y="246.53988528949472" width="11.733333333333333" height="53.45711797247836" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -2σ̂ · 176 samples (11.7% of 1500)</title></rect>
+<rect x="245.1" y="190.8108643000225" width="25.8" height="55.42586554888783" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -1σ̂ · 387 samples (25.8% of 1500)</title></rect>
+<rect x="235.4" y="135.21422703895308" width="45.2" height="55.55705058103092" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>left-skew · +1σ̂ · 678 samples (45.2% of 1500)</title></rect>
+<rect x="255.6" y="122.16559022869671" width="4.8" height="12.885836661256235" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>left-skew · +2σ̂ · 72 samples (4.8% of 1500)</title></rect>
+<line x1="232" y1="190.7910709600032" x2="284" y2="190.7910709600032" stroke="#0f172a" stroke-width="1.4" />
+<text x="258" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 258 478)">left-skew</text>
+<rect x="230" y="84" width="56" height="380" fill="transparent" data-obj="3" />
+<rect x="289" y="373.1738831418635" width="50" height="38.52532121839732" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>bimodal · -1σ̂ · 800 samples (50.0% of 1600)</title></rect>
+<rect x="311.75" y="330.1145673889671" width="4.5" height="42.87451669768086" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>bimodal · +1σ̂ · 72 samples (4.5% of 1600)</title></rect>
+<rect x="291.25" y="304.6569466882594" width="45.5" height="25.36159807891528" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>bimodal · +2σ̂ · 728 samples (45.5% of 1600)</title></rect>
+<line x1="288" y1="373.0814836142557" x2="340" y2="373.0814836142557" stroke="#0f172a" stroke-width="1.4" />
+<text x="314" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 314 478)">bimodal</text>
+<rect x="286" y="84" width="56" height="380" fill="transparent" data-obj="4" />
+<rect x="364.40625" y="402.43195632056097" width="11.1875" height="18.008269422497108" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>plateau · -2σ̂ · 179 samples (11.2% of 1600)</title></rect>
+<rect x="350.59375" y="346.0903656001819" width="38.8125" height="56.170854093539106" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>plateau · -1σ̂ · 621 samples (38.8% of 1600)</title></rect>
+<rect x="351.53125" y="289.7353687023407" width="36.9375" height="56.2909329606606" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>plateau · +1σ̂ · 591 samples (36.9% of 1600)</title></rect>
+<rect x="363.46875" y="268.1240142893721" width="13.0625" height="21.51497409076046" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>plateau · +2σ̂ · 209 samples (13.1% of 1600)</title></rect>
+<line x1="344" y1="346.0583336315916" x2="396" y2="346.0583336315916" stroke="#0f172a" stroke-width="1.4" />
+<text x="370" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 370 478)">plateau</text>
+<rect x="342" y="84" width="56" height="380" fill="transparent" data-obj="5" />
+<text x="62" y="16" text-anchor="start" font-size="14" fill="#94a3b8">swi_iceberg · © 2026 Sven Pauline · CC BY 4.0 (spec) / Apache-2.0 (code)</text>
 </svg>

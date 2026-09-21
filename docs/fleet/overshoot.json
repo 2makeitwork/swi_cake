@@ -3,6 +3,7 @@
   "resolution": 1.0,
   "z_min": -3.0,
   "z_max": 3.0,
+  "display_version": "1.1.1",
   "global": {
     "mode": "normal",
     "n": 13300,
@@ -59,7 +60,8 @@
     "value": null,
     "min": 35.757755972937844,
     "max": 9466.902823662449,
-    "spec_version": "1.1"
+    "spec_version": "1.1",
+    "display_version": "1.1.1"
   },
   "devices": [
     {
@@ -119,6 +121,7 @@
       "min": 69.98849267602769,
       "max": 116.57335106328235,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-a",
       "description": "normal \u00b7 tight"
     },
@@ -179,6 +182,7 @@
       "min": 61.541678135979865,
       "max": 143.15127685929053,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-b",
       "description": "normal \u00b7 \u03c3=14"
     },
@@ -239,6 +243,7 @@
       "min": 35.757755972937844,
       "max": 191.3286524856394,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-c",
       "description": "normal \u00b7 wide"
     },
@@ -299,6 +304,7 @@
       "min": 73.04790842331754,
       "max": 105.22263847249471,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-d",
       "description": "normal \u00b7 stable"
     },
@@ -359,6 +365,7 @@
       "min": 69.82758083809023,
       "max": 637.6074022803106,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-e",
       "description": "normal \u00b7 mild tail"
     },
@@ -419,6 +426,7 @@
       "min": 72.78881201386687,
       "max": 149.4283800867455,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-f",
       "description": "normal \u00b7 bimodal"
     },
@@ -479,6 +487,7 @@
       "min": 54.650686157845854,
       "max": 111.0997788832688,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-g",
       "description": "normal \u00b7 low"
     },
@@ -539,6 +548,7 @@
       "min": 85.70775594136266,
       "max": 203.04828749633924,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-h",
       "description": "normal \u00b7 high-ish"
     },
@@ -599,6 +609,7 @@
       "min": 70.0163411542398,
       "max": 149.97346441414393,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "normal-i",
       "description": "normal \u00b7 plateau"
     },
@@ -659,6 +670,7 @@
       "min": 338.47066720677293,
       "max": 596.6010965027983,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "overshoot-slow",
       "description": "elevated median \u00b7 above clip"
     },
@@ -719,6 +731,7 @@
       "min": 257.3395174311348,
       "max": 9466.902823662449,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "overshoot-tail",
       "description": "high median \u00b7 long tail"
     },
@@ -779,6 +792,7 @@
       "min": 450.1520071701988,
       "max": 795.9289157603821,
       "spec_version": "1.1",
+      "display_version": "1.1.1",
       "label": "overshoot-last",
       "description": "last object \u00b7 leaves roof open"
     }

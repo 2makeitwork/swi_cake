@@ -47,7 +47,7 @@ Returns an immutable `IcebergGlyph`:
 | `edges` | band edges in MADN units (len = bands + 1) |
 | `band_lo`, `band_hi` | observed value range inside each band (**height** encoding); NaN when a band is empty |
 | `lower`, `upper` | absolute ±3 MADN envelope |
-| `topping`, `bottoming` | retained counts beyond +3 / −3 MADN |
+| `topping`, `bottoming` | retained counts beyond +3 (topping) / −3 (seat pad) MADN |
 | `mode`, `value` | `"collapsed"` and the median when MADN = 0 |
 | `.normalized` | `population / n` |
 
@@ -68,8 +68,12 @@ array([  43,  291,  666,  675,  280,   42], dtype=uint32)
   run length ∝ population, observed range printed per band).
 - `to_json(glyph)` — the canonical handoff payload (statistics only, no pixels):
   `mode, n, median, madn, resolution, z_min, z_max, lower, upper, edges, population,
-  normalized, band_lo, band_hi, topping, bottoming, value, spec_version`.
-  NaN ranges serialize to `null`. This is what the browser harness consumes.
+  normalized, band_lo, band_hi, topping, bottoming, value, spec_version, display_version`.
+  NaN ranges serialize to `null`. This is what the browser harness consumes. The two
+  version fields travel on independent axes: `spec_version` guards the handoff schema
+  (which fields exist), `display_version` guards the drawing rules the renderer
+  implements (visual spec §2). The package exports both as `SPEC_VERSION` and
+  `DISPLAY_VERSION` constants from `swi_iceberg`.
 - `to_raster(glyph, height_px, width_px)` — optional 2D bitmap (a render artifact).
 
 ---
@@ -141,7 +145,7 @@ The commands below describe the maintainer steps; where they run and their exact
 paths are recorded in the harness's own (local) README.
 
 ```bash
-python <fleet-generator>                                   # default 12-object payload
+python <fleet-generator>                                   # default 6-object payload
 python <fleet-generator> --seed=1 --fleets=12              # payloads for the "Random fleet" pool
 python <fleet-generator> --seed=101 --count=48 --fleets=3  # larger synthetic fleets
 python <fleet-generator> --count=300 --out=<stress-payload>.json
@@ -172,7 +176,7 @@ verification step reads. The **Random fleet** button picks another payload from
 a static host cannot run it; each pooled fleet is real reference-implementation
 output, and its seed is shown next to the button.
 
-### 7.1 Default iceberg fleet (12 objects)
+### 7.1 Default iceberg fleet (6 objects)
 
 ![default iceberg fleet](figures/manual_fleet_default.png)
 
@@ -184,7 +188,7 @@ global median, faint bands = pooled reference clipped to the sky/ground envelope
 ### 7.2 Tooltips
 
 Hovering any object column shows object · zone (σ̂) · sample count · percentage of
-that object's total (topping/bottoming beyond ±3 σ̂). Hit-tested per column, so it
+that object's total (topping / seat pad beyond ±3 σ̂). Hit-tested per column, so it
 works at any density.
 
 ![tooltip](figures/manual_tooltip.png)
@@ -224,8 +228,8 @@ three objects whose medians sit above the pooled sky/ground clip. It exercises t
 v1.1 display rules together:
 
 - **Roof-breach (visual spec §9):** the red carets at the roof, each labelled with that
-  object's raw maximum (e.g. `9467`), mark objects whose samples pass the clip; the coloured
-  stub shows the column continues past the ceiling.
+  object's raw maximum (e.g. `9467`), mark objects whose samples pass the clip; the roof
+  carpet shows the column continues past the ceiling.
 - **Median overshoot (visual spec §8):** the blue median curve rises above the roof line at
   the overshooting objects. A run of consecutive overshoots stays above until it ends, and
   the final object leaves the top edge open-ended rather than pinning flat to the roof.
