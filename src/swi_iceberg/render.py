@@ -33,7 +33,7 @@ __all__ = ["to_ascii", "to_json", "to_raster", "SPEC_VERSION", "DISPLAY_VERSION"
 #                     for a different one, so a display-rule change cannot be silently
 #                     rendered by a stale interpretation.
 SPEC_VERSION = "1.1"
-DISPLAY_VERSION = "1.1.1"
+DISPLAY_VERSION = "1.2"
 
 
 def _json_float(x: float) -> Any:
@@ -102,7 +102,7 @@ def to_json(
     :class:`IcebergGlyph` because they change no statistic, but the display model needs
     them to flag a shoot-through the pooled summary cannot express, so the handoff
     contract carries them (visual specification §2, §9). When omitted they serialize to
-    ``null`` and the renderer simply has no roof marker to draw.
+    ``null`` and the renderer has no raw-extreme breach marker to draw.
     """
     population = [int(c) for c in glyph.population.tolist()]
     n = int(glyph.n)

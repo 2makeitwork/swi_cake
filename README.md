@@ -11,9 +11,23 @@ samples run past the ceiling is marked at the roof with a caret and its raw maxi
 (e.g. `1253`).*
 
 **Same fleet, interactive:** pan, vertical zoom, per-band tooltips, median / max / min
-overlay curves, a raisable roof clip, view toggles, and a "Random fleet" button that swaps
+overlay curves, a raisable roof/basement clip, view toggles, and a "Random fleet" button that swaps
 in another pre-computed fleet —
 <https://swi-iceberg.swi-energy.com/fleet/>
+
+### Second example: signed timing deviations
+
+![Six swi_icebergs with negative and positive timing deviations on one axis](docs/figures/swi_iceberg_signed_example.svg)
+
+*Six simulated deviations from an expected retransmission interval (milliseconds).
+Negative values mean earlier than expected; positive values mean later. The dashed
+`0.00` line is the pooled median. Because that median is zero, the display uses
+the pooled MADN to place the roof and basement at `+3.58` and `−3.58` ms. The
+raw `−8.50` and `+8.50` ms samples breach those limits and are labelled outside
+the axis rather than stretching it.*
+
+**Explore this signed fleet interactively:**
+<https://swi-iceberg.swi-energy.com/fleet/?data=signed.json>
 
 ---
 
@@ -48,11 +62,11 @@ The design uses robust statistical coordinates based on the median and MADN, whi
 
 ## How to read the picture
 
-### (Using response latency as a running example — any measured quantity works)
+### (Using response latency and signed timing deviations — any measured quantity works)
 
 | What you see | What it means |
 |---|---|
-| Vertical position | The absolute measured value — any unit (ms in this example). Objects float at their own level. |
+| Vertical position | The measured value — any unit (ms in these examples), including negative values. Objects float at their own level. |
 | Band color (green → red) | Which MADN band: low → high. |
 | Band **width** | Share of that object's samples in the band. |
 | Band **height** | The value range those samples actually span. |
@@ -62,9 +76,11 @@ The design uses robust statistical coordinates based on the median and MADN, whi
 | Dark green cap below the body | **Seat pad** — samples below −3 MADN (the low tail). |
 | Dark red cap above the body | **Topping** — samples above +3 MADN (the high tail). |
 | Short dark red bar above the roof line | **Roof carpet** — the topping's continuation, drawn when the object's raw maximum passes the pooled clip (§9). |
-| Red top or bottom border | Some pooled samples lie beyond the global clip ("shoot through the roof/floor"). |
+| Short dark green bar below the basement line | **Basement carpet** — the seat pad's continuation when the object's raw minimum passes the pooled clip. |
+| Red top or bottom border | Some pooled samples lie beyond the roof or basement clip. |
 | Red caret + number at the roof | That object's raw maximum exceeds the clip, and by how much. |
-| Curve leaving the top edge | An overlay-curve value above the visible window — drawn open-ended, never pinned flat to the roof. The median curve labels its peak; the max curve does not (the row above already labels that maximum). |
+| Red caret + number at the basement | That object's raw minimum passes the clip, and by how much. |
+| Curve leaving either value edge | An overlay value outside the visible window — drawn open-ended, never pinned flat to the roof or basement. The median curve marks its out-of-window vertex; raw extrema use the caret labels. |
 
 An empty gap between bands means *no* samples there; a thin sliver means *a few*.
 Two fat blocks joined by a thin waist (see `bimodal`) is a two-mode distribution.
@@ -113,7 +129,8 @@ g.median, g.madn          # robust center and scale
 g.population              # per-band sample counts (low -> high), width encoding
 g.band_lo, g.band_hi      # observed value range inside each band, height encoding
 g.topping, g.bottoming    # topping / seat pad: samples retained beyond +3 / -3 MADN
-to_json(g)                # plain-JSON handoff payload for your own renderer
+# Include raw extrema so the renderer can mark roof and basement breaches.
+to_json(g, data_min=float(values.min()), data_max=float(values.max()))
 ```
 
 Fewer than 100 samples raises `InsufficientDataError`; if over half the samples are
@@ -144,8 +161,9 @@ page they build is published, under [`docs/fleet/`](docs/fleet/).
 - License index (which file falls under which license): [LICENSE](LICENSE).
 - Suggested attribution: *swi_iceberg — © 2026 Sven Pauline (copyright owner),
   associated with Sheer Will Industry (SWI). Used under CC BY 4.0.*
-- Cite as: Pauline, Sven (2026). *swi_iceberg: A Robust Six-Band MADN Visualization
-  for the Iceberg Fleet*, v1.1 — see [CITATION.cff](CITATION.cff).
+- Cite the statistical design as: Pauline, Sven (2026). *swi_iceberg: A Robust
+  Six-Band MADN Visualization for the Iceberg Fleet*, v1.1 — see
+  [CITATION.cff](CITATION.cff). The visual specification and Python library are v1.2.
 
 Three documents, deliberately separate: the
 [statistical specification](specification_swi_iceberg.md) defines the numbers and

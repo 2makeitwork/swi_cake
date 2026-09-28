@@ -3,6 +3,7 @@
   "resolution": 1.0,
   "z_min": -3.0,
   "z_max": 3.0,
+  "display_version": "1.2",
   "global": {
     "mode": "normal",
     "n": 89624,
@@ -57,9 +58,10 @@
     "topping": 680,
     "bottoming": 0,
     "value": null,
-    "spec_version": "1.0",
     "min": 0.0,
-    "max": 2894.145339604244
+    "max": 2894.145339604244,
+    "spec_version": "1.1",
+    "display_version": "1.2"
   },
   "devices": [
     {
@@ -116,7 +118,10 @@
       "topping": 3,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 66.4512832750531,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-000",
       "description": "synthetic",
       "hist": {
@@ -160,9 +165,7 @@
         ],
         "min": -7.936169949863448,
         "max": 58.59743508621572
-      },
-      "min": 0.0,
-      "max": 66.4512832750531
+      }
     },
     {
       "mode": "normal",
@@ -218,7 +221,10 @@
       "topping": 4,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 174.28513639960028,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-001",
       "description": "synthetic",
       "hist": {
@@ -262,9 +268,7 @@
         ],
         "min": -38.98731208472515,
         "max": 151.54056550549407
-      },
-      "min": 0.0,
-      "max": 174.28513639960028
+      }
     },
     {
       "mode": "normal",
@@ -320,7 +324,10 @@
       "topping": 0,
       "bottoming": 2,
       "value": null,
-      "spec_version": "1.0",
+      "min": 200.4350294044723,
+      "max": 276.0489756704537,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-002",
       "description": "synthetic",
       "hist": {
@@ -364,9 +371,7 @@
         ],
         "min": 205.698559562028,
         "max": 278.09796051612886
-      },
-      "min": 200.4350294044723,
-      "max": 276.0489756704537
+      }
     },
     {
       "mode": "normal",
@@ -422,7 +427,10 @@
       "topping": 1,
       "bottoming": 3,
       "value": null,
-      "spec_version": "1.0",
+      "min": 166.7786794150798,
+      "max": 204.07383187541194,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-003",
       "description": "synthetic",
       "hist": {
@@ -466,9 +474,7 @@
         ],
         "min": 168.5407281205662,
         "max": 199.33860410403565
-      },
-      "min": 166.7786794150798,
-      "max": 204.07383187541194
+      }
     },
     {
       "mode": "normal",
@@ -524,7 +530,10 @@
       "topping": 127,
       "bottoming": 4,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 1458.8928808194032,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-004",
       "description": "synthetic",
       "hist": {
@@ -568,9 +577,7 @@
         ],
         "min": 4.764470924508217,
         "max": 188.18955372925268
-      },
-      "min": 0.0,
-      "max": 1458.8928808194032
+      }
     },
     {
       "mode": "normal",
@@ -626,7 +633,10 @@
       "topping": 23,
       "bottoming": 2,
       "value": null,
-      "spec_version": "1.0",
+      "min": 156.9009020886611,
+      "max": 1369.168443775611,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-005",
       "description": "synthetic",
       "hist": {
@@ -670,9 +680,7 @@
         ],
         "min": 171.0853969010401,
         "max": 217.7456807066951
-      },
-      "min": 156.9009020886611,
-      "max": 1369.168443775611
+      }
     },
     {
       "mode": "normal",
@@ -728,7 +736,10 @@
       "topping": 3,
       "bottoming": 2,
       "value": null,
-      "spec_version": "1.0",
+      "min": 226.87426443873952,
+      "max": 251.7084009064146,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-006",
       "description": "synthetic",
       "hist": {
@@ -772,9 +783,7 @@
         ],
         "min": 227.9385205871273,
         "max": 249.25099305565504
-      },
-      "min": 226.87426443873952,
-      "max": 251.7084009064146
+      }
     },
     {
       "mode": "normal",
@@ -830,7 +839,10 @@
       "topping": 144,
       "bottoming": 1,
       "value": null,
-      "spec_version": "1.0",
+      "min": 73.6174960651935,
+      "max": 2622.838156022032,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-007",
       "description": "synthetic",
       "hist": {
@@ -874,9 +886,7 @@
         ],
         "min": 99.55907434386154,
         "max": 265.7019459198573
-      },
-      "min": 73.6174960651935,
-      "max": 2622.838156022032
+      }
     },
     {
       "mode": "normal",
@@ -932,7 +942,10 @@
       "topping": 1,
       "bottoming": 2,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 135.90838965379027,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-008",
       "description": "synthetic",
       "hist": {
@@ -976,9 +989,7 @@
         ],
         "min": 4.491004062268146,
         "max": 131.7375327892418
-      },
-      "min": 0.0,
-      "max": 135.90838965379027
+      }
     },
     {
       "mode": "normal",
@@ -1034,7 +1045,10 @@
       "topping": 3,
       "bottoming": 4,
       "value": null,
-      "spec_version": "1.0",
+      "min": 93.24602949604096,
+      "max": 250.33320868458713,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-009",
       "description": "synthetic",
       "hist": {
@@ -1078,9 +1092,7 @@
         ],
         "min": 100.18093083799835,
         "max": 235.955223930591
-      },
-      "min": 93.24602949604096,
-      "max": 250.33320868458713
+      }
     },
     {
       "mode": "normal",
@@ -1136,7 +1148,10 @@
       "topping": 6,
       "bottoming": 5,
       "value": null,
-      "spec_version": "1.0",
+      "min": 145.99207468302384,
+      "max": 301.74034610337173,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-010",
       "description": "synthetic",
       "hist": {
@@ -1180,9 +1195,7 @@
         ],
         "min": 155.8916680686594,
         "max": 280.83914664054544
-      },
-      "min": 145.99207468302384,
-      "max": 301.74034610337173
+      }
     },
     {
       "mode": "normal",
@@ -1238,7 +1251,10 @@
       "topping": 11,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 884.7946580071656,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-011",
       "description": "synthetic",
       "hist": {
@@ -1282,9 +1298,7 @@
         ],
         "min": -38.03212544903721,
         "max": 195.17085911183125
-      },
-      "min": 0.0,
-      "max": 884.7946580071656
+      }
     },
     {
       "mode": "normal",
@@ -1340,7 +1354,10 @@
       "topping": 56,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 431.8445749314569,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-012",
       "description": "synthetic",
       "hist": {
@@ -1384,9 +1401,7 @@
         ],
         "min": -78.69469848634776,
         "max": 133.07364335835913
-      },
-      "min": 0.0,
-      "max": 431.8445749314569
+      }
     },
     {
       "mode": "normal",
@@ -1442,7 +1457,10 @@
       "topping": 0,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 182.44358233667947,
+      "max": 320.24259090022235,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-013",
       "description": "synthetic",
       "hist": {
@@ -1486,9 +1504,7 @@
         ],
         "min": 170.7096832246931,
         "max": 325.2482941534009
-      },
-      "min": 182.44358233667947,
-      "max": 320.24259090022235
+      }
     },
     {
       "mode": "normal",
@@ -1544,7 +1560,10 @@
       "topping": 2,
       "bottoming": 2,
       "value": null,
-      "spec_version": "1.0",
+      "min": 159.7825296413273,
+      "max": 204.7513425378704,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-014",
       "description": "synthetic",
       "hist": {
@@ -1588,9 +1607,7 @@
         ],
         "min": 161.12175209381695,
         "max": 202.8451117361085
-      },
-      "min": 159.7825296413273,
-      "max": 204.7513425378704
+      }
     },
     {
       "mode": "normal",
@@ -1646,7 +1663,10 @@
       "topping": 0,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 164.26021074512056,
+      "max": 267.13355189217276,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-015",
       "description": "synthetic",
       "hist": {
@@ -1690,9 +1710,7 @@
         ],
         "min": 158.90136452238977,
         "max": 269.6537034667536
-      },
-      "min": 164.26021074512056,
-      "max": 267.13355189217276
+      }
     },
     {
       "mode": "normal",
@@ -1748,7 +1766,10 @@
       "topping": 0,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 98.8940747870492,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-016",
       "description": "synthetic",
       "hist": {
@@ -1792,9 +1813,7 @@
         ],
         "min": -51.42365966205265,
         "max": 111.00542961143697
-      },
-      "min": 0.0,
-      "max": 98.8940747870492
+      }
     },
     {
       "mode": "normal",
@@ -1850,7 +1869,10 @@
       "topping": 125,
       "bottoming": 5,
       "value": null,
-      "spec_version": "1.0",
+      "min": 76.47160649385904,
+      "max": 2557.674735849663,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-017",
       "description": "synthetic",
       "hist": {
@@ -1894,9 +1916,7 @@
         ],
         "min": 96.62216797510193,
         "max": 280.85668290819905
-      },
-      "min": 76.47160649385904,
-      "max": 2557.674735849663
+      }
     },
     {
       "mode": "normal",
@@ -1952,7 +1972,10 @@
       "topping": 1,
       "bottoming": 1,
       "value": null,
-      "spec_version": "1.0",
+      "min": 128.92321338733382,
+      "max": 286.9320472959,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-018",
       "description": "synthetic",
       "hist": {
@@ -1996,9 +2019,7 @@
         ],
         "min": 137.91497697713768,
         "max": 276.19837193208025
-      },
-      "min": 128.92321338733382,
-      "max": 286.9320472959
+      }
     },
     {
       "mode": "normal",
@@ -2054,7 +2075,10 @@
       "topping": 53,
       "bottoming": 1,
       "value": null,
-      "spec_version": "1.0",
+      "min": 18.51213467323896,
+      "max": 724.3248485649644,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-019",
       "description": "synthetic",
       "hist": {
@@ -2098,9 +2122,7 @@
         ],
         "min": 23.633398662302888,
         "max": 79.23857875595317
-      },
-      "min": 18.51213467323896,
-      "max": 724.3248485649644
+      }
     },
     {
       "mode": "normal",
@@ -2156,7 +2178,10 @@
       "topping": 3,
       "bottoming": 4,
       "value": null,
-      "spec_version": "1.0",
+      "min": 91.24815354876077,
+      "max": 254.6985608043467,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-020",
       "description": "synthetic",
       "hist": {
@@ -2200,9 +2225,7 @@
         ],
         "min": 104.10663905505498,
         "max": 246.3216865702201
-      },
-      "min": 91.24815354876077,
-      "max": 254.6985608043467
+      }
     },
     {
       "mode": "normal",
@@ -2258,7 +2281,10 @@
       "topping": 102,
       "bottoming": 3,
       "value": null,
-      "spec_version": "1.0",
+      "min": 122.40268983679518,
+      "max": 2393.484943640009,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-021",
       "description": "synthetic",
       "hist": {
@@ -2302,9 +2328,7 @@
         ],
         "min": 151.32406085653966,
         "max": 317.29005522548437
-      },
-      "min": 122.40268983679518,
-      "max": 2393.484943640009
+      }
     },
     {
       "mode": "normal",
@@ -2360,7 +2384,10 @@
       "topping": 3,
       "bottoming": 2,
       "value": null,
-      "spec_version": "1.0",
+      "min": 53.59053345803764,
+      "max": 233.1915468112749,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-022",
       "description": "synthetic",
       "hist": {
@@ -2404,9 +2431,7 @@
         ],
         "min": 71.65746969857888,
         "max": 229.2380891017358
-      },
-      "min": 53.59053345803764,
-      "max": 233.1915468112749
+      }
     },
     {
       "mode": "normal",
@@ -2462,7 +2487,10 @@
       "topping": 0,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 153.01243663100186,
+      "max": 195.95623110366478,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-023",
       "description": "synthetic",
       "hist": {
@@ -2506,9 +2534,7 @@
         ],
         "min": 150.47939347372696,
         "max": 196.07099712770813
-      },
-      "min": 153.01243663100186,
-      "max": 195.95623110366478
+      }
     },
     {
       "mode": "normal",
@@ -2564,7 +2590,10 @@
       "topping": 0,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 167.40910957241255,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-024",
       "description": "synthetic",
       "hist": {
@@ -2608,9 +2637,7 @@
         ],
         "min": -56.09487794711172,
         "max": 173.81914019758491
-      },
-      "min": 0.0,
-      "max": 167.40910957241255
+      }
     },
     {
       "mode": "normal",
@@ -2666,7 +2693,10 @@
       "topping": 2,
       "bottoming": 3,
       "value": null,
-      "spec_version": "1.0",
+      "min": 63.19924344543169,
+      "max": 212.48920994273215,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-025",
       "description": "synthetic",
       "hist": {
@@ -2710,9 +2740,7 @@
         ],
         "min": 72.72419139437582,
         "max": 205.2195642286744
-      },
-      "min": 63.19924344543169,
-      "max": 212.48920994273215
+      }
     },
     {
       "mode": "normal",
@@ -2768,7 +2796,10 @@
       "topping": 84,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 231.5487082412909,
+      "max": 2376.2091988403163,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-026",
       "description": "synthetic",
       "hist": {
@@ -2812,9 +2843,7 @@
         ],
         "min": 230.61206271716642,
         "max": 251.3429701190653
-      },
-      "min": 231.5487082412909,
-      "max": 2376.2091988403163
+      }
     },
     {
       "mode": "normal",
@@ -2870,7 +2899,10 @@
       "topping": 86,
       "bottoming": 1,
       "value": null,
-      "spec_version": "1.0",
+      "min": 190.44086467880027,
+      "max": 2813.6146904084467,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-027",
       "description": "synthetic",
       "hist": {
@@ -2914,9 +2946,7 @@
         ],
         "min": 192.75186292025677,
         "max": 292.394363197984
-      },
-      "min": 190.44086467880027,
-      "max": 2813.6146904084467
+      }
     },
     {
       "mode": "normal",
@@ -2972,7 +3002,10 @@
       "topping": 4,
       "bottoming": 1,
       "value": null,
-      "spec_version": "1.0",
+      "min": 160.76962972344484,
+      "max": 220.04596146962643,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-028",
       "description": "synthetic",
       "hist": {
@@ -3016,9 +3049,7 @@
         ],
         "min": 163.5791017180598,
         "max": 216.14285433951022
-      },
-      "min": 160.76962972344484,
-      "max": 220.04596146962643
+      }
     },
     {
       "mode": "normal",
@@ -3074,7 +3105,10 @@
       "topping": 1,
       "bottoming": 3,
       "value": null,
-      "spec_version": "1.0",
+      "min": 103.89648175460482,
+      "max": 273.61743112013914,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-029",
       "description": "synthetic",
       "hist": {
@@ -3118,9 +3152,7 @@
         ],
         "min": 115.51370450958385,
         "max": 264.81343056729906
-      },
-      "min": 103.89648175460482,
-      "max": 273.61743112013914
+      }
     },
     {
       "mode": "normal",
@@ -3176,7 +3208,10 @@
       "topping": 3,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 155.89509869298803,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-030",
       "description": "synthetic",
       "hist": {
@@ -3220,9 +3255,7 @@
         ],
         "min": -48.37628804277395,
         "max": 134.06984042227006
-      },
-      "min": 0.0,
-      "max": 155.89509869298803
+      }
     },
     {
       "mode": "normal",
@@ -3278,7 +3311,10 @@
       "topping": 37,
       "bottoming": 1,
       "value": null,
-      "spec_version": "1.0",
+      "min": 135.370620858817,
+      "max": 2894.145339604244,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-031",
       "description": "synthetic",
       "hist": {
@@ -3322,9 +3358,7 @@
         ],
         "min": 135.73795907220634,
         "max": 293.65379892947965
-      },
-      "min": 135.370620858817,
-      "max": 2894.145339604244
+      }
     },
     {
       "mode": "normal",
@@ -3380,7 +3414,10 @@
       "topping": 12,
       "bottoming": 5,
       "value": null,
-      "spec_version": "1.0",
+      "min": 70.94984040864318,
+      "max": 288.4242490405053,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-032",
       "description": "synthetic",
       "hist": {
@@ -3424,9 +3461,7 @@
         ],
         "min": 97.16334299331407,
         "max": 270.20527442583904
-      },
-      "min": 70.94984040864318,
-      "max": 288.4242490405053
+      }
     },
     {
       "mode": "normal",
@@ -3482,7 +3517,10 @@
       "topping": 48,
       "bottoming": 3,
       "value": null,
-      "spec_version": "1.0",
+      "min": 31.36347132603256,
+      "max": 612.3373096259343,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-033",
       "description": "synthetic",
       "hist": {
@@ -3526,9 +3564,7 @@
         ],
         "min": 34.81055060759584,
         "max": 112.49698992900699
-      },
-      "min": 31.36347132603256,
-      "max": 612.3373096259343
+      }
     },
     {
       "mode": "normal",
@@ -3584,7 +3620,10 @@
       "topping": 74,
       "bottoming": 2,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 1257.800956934713,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-034",
       "description": "synthetic",
       "hist": {
@@ -3628,9 +3667,7 @@
         ],
         "min": 14.466272080791427,
         "max": 210.68580497726794
-      },
-      "min": 0.0,
-      "max": 1257.800956934713
+      }
     },
     {
       "mode": "normal",
@@ -3686,7 +3723,10 @@
       "topping": 0,
       "bottoming": 1,
       "value": null,
-      "spec_version": "1.0",
+      "min": 152.00832070436485,
+      "max": 181.4394073881982,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-035",
       "description": "synthetic",
       "hist": {
@@ -3730,9 +3770,7 @@
         ],
         "min": 152.3648891030979,
         "max": 181.93096061635154
-      },
-      "min": 152.00832070436485,
-      "max": 181.4394073881982
+      }
     },
     {
       "mode": "normal",
@@ -3788,7 +3826,10 @@
       "topping": 3,
       "bottoming": 3,
       "value": null,
-      "spec_version": "1.0",
+      "min": 108.32216720511731,
+      "max": 271.47167334603273,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-036",
       "description": "synthetic",
       "hist": {
@@ -3832,9 +3873,7 @@
         ],
         "min": 117.47349055636998,
         "max": 251.02778861300413
-      },
-      "min": 108.32216720511731,
-      "max": 271.47167334603273
+      }
     },
     {
       "mode": "normal",
@@ -3890,7 +3929,10 @@
       "topping": 10,
       "bottoming": 6,
       "value": null,
-      "spec_version": "1.0",
+      "min": 101.91599518918005,
+      "max": 130.73988550491555,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-037",
       "description": "synthetic",
       "hist": {
@@ -3934,9 +3976,7 @@
         ],
         "min": 103.66524208434573,
         "max": 128.55770584262893
-      },
-      "min": 101.91599518918005,
-      "max": 130.73988550491555
+      }
     },
     {
       "mode": "normal",
@@ -3992,7 +4032,10 @@
       "topping": 2,
       "bottoming": 5,
       "value": null,
-      "spec_version": "1.0",
+      "min": 191.3129390784754,
+      "max": 263.8808993299456,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-038",
       "description": "synthetic",
       "hist": {
@@ -4036,9 +4079,7 @@
         ],
         "min": 193.9426877247486,
         "max": 260.13890518705807
-      },
-      "min": 191.3129390784754,
-      "max": 263.8808993299456
+      }
     },
     {
       "mode": "normal",
@@ -4094,7 +4135,10 @@
       "topping": 1,
       "bottoming": 1,
       "value": null,
-      "spec_version": "1.0",
+      "min": 54.358111535794876,
+      "max": 185.1688872556687,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-039",
       "description": "synthetic",
       "hist": {
@@ -4138,9 +4182,7 @@
         ],
         "min": 64.05823514557028,
         "max": 183.67490150040044
-      },
-      "min": 54.358111535794876,
-      "max": 185.1688872556687
+      }
     },
     {
       "mode": "normal",
@@ -4196,7 +4238,10 @@
       "topping": 2,
       "bottoming": 6,
       "value": null,
-      "spec_version": "1.0",
+      "min": 103.56968596656034,
+      "max": 221.35893686264131,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-040",
       "description": "synthetic",
       "hist": {
@@ -4240,9 +4285,7 @@
         ],
         "min": 113.46931008607154,
         "max": 213.74920406450426
-      },
-      "min": 103.56968596656034,
-      "max": 221.35893686264131
+      }
     },
     {
       "mode": "normal",
@@ -4298,7 +4341,10 @@
       "topping": 40,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 167.68630127684492,
+      "max": 1848.044734011093,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-041",
       "description": "synthetic",
       "hist": {
@@ -4342,9 +4388,7 @@
         ],
         "min": 166.97334822061526,
         "max": 236.30870959217367
-      },
-      "min": 167.68630127684492,
-      "max": 1848.044734011093
+      }
     },
     {
       "mode": "normal",
@@ -4400,7 +4444,10 @@
       "topping": 3,
       "bottoming": 6,
       "value": null,
-      "spec_version": "1.0",
+      "min": 125.25866275092287,
+      "max": 372.38911064994545,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-042",
       "description": "synthetic",
       "hist": {
@@ -4444,9 +4491,7 @@
         ],
         "min": 149.3737264903755,
         "max": 365.0209118266648
-      },
-      "min": 125.25866275092287,
-      "max": 372.38911064994545
+      }
     },
     {
       "mode": "normal",
@@ -4502,7 +4547,10 @@
       "topping": 3,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 118.11875106478436,
+      "max": 158.45108451050868,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-043",
       "description": "synthetic",
       "hist": {
@@ -4546,9 +4594,7 @@
         ],
         "min": 117.75571958888473,
         "max": 157.14864064043735
-      },
-      "min": 118.11875106478436,
-      "max": 158.45108451050868
+      }
     },
     {
       "mode": "normal",
@@ -4604,7 +4650,10 @@
       "topping": 0,
       "bottoming": 2,
       "value": null,
-      "spec_version": "1.0",
+      "min": 67.66125363300796,
+      "max": 260.0863501568599,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-044",
       "description": "synthetic",
       "hist": {
@@ -4648,9 +4697,7 @@
         ],
         "min": 85.96441762102235,
         "max": 262.6053558607791
-      },
-      "min": 67.66125363300796,
-      "max": 260.0863501568599
+      }
     },
     {
       "mode": "normal",
@@ -4706,7 +4753,10 @@
       "topping": 2,
       "bottoming": 3,
       "value": null,
-      "spec_version": "1.0",
+      "min": 166.2856003964069,
+      "max": 262.7841625198297,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-045",
       "description": "synthetic",
       "hist": {
@@ -4750,9 +4800,7 @@
         ],
         "min": 170.4203037015547,
         "max": 261.7272575256292
-      },
-      "min": 166.2856003964069,
-      "max": 262.7841625198297
+      }
     },
     {
       "mode": "normal",
@@ -4808,7 +4856,10 @@
       "topping": 1,
       "bottoming": 6,
       "value": null,
-      "spec_version": "1.0",
+      "min": 0.0,
+      "max": 258.01278568229424,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-046",
       "description": "synthetic",
       "hist": {
@@ -4852,9 +4903,7 @@
         ],
         "min": 32.60042396153705,
         "max": 254.61710621891433
-      },
-      "min": 0.0,
-      "max": 258.01278568229424
+      }
     },
     {
       "mode": "normal",
@@ -4910,7 +4959,10 @@
       "topping": 1,
       "bottoming": 0,
       "value": null,
-      "spec_version": "1.0",
+      "min": 145.27448085618678,
+      "max": 177.03257371434276,
+      "spec_version": "1.1",
+      "display_version": "1.2",
       "label": "obj-047",
       "description": "synthetic",
       "hist": {
@@ -4954,9 +5006,7 @@
         ],
         "min": 145.15139228085212,
         "max": 176.7935022040819
-      },
-      "min": 145.27448085618678,
-      "max": 177.03257371434276
+      }
     }
   ]
 }

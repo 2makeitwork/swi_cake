@@ -1,91 +1,92 @@
-<svg width="416" height="560" viewBox="0 0 416 560" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif">
-<rect x="226.39114235500878" y="451.42270655569797" width="7.217715289982425" height="12.577293444302029" fill="#166534" opacity="0.13" />
-<rect x="190.26376098418277" y="402.08433722477895" width="79.47247803163445" height="49.08750298920478" fill="#15803d" opacity="0.13" />
-<rect x="75.44" y="352.89218972833595" width="309.12" height="49.07694802770709" fill="#65a30d" opacity="0.13" />
-<rect x="119.25075571177504" y="303.7150723661713" width="221.49848857644992" height="49.17051568327054" fill="#ca8a04" opacity="0.13" />
-<rect x="197.2486467486819" y="254.54412840989298" width="65.5027065026362" height="49.143722493675085" fill="#ea580c" opacity="0.13" />
-<rect x="215.40934973637962" y="205.71543721503826" width="29.181300527240776" height="48.75164407316262" fill="#dc2626" opacity="0.13" />
-<rect x="190.18615114235502" y="130.66666666666663" width="79.62769771528997" height="74.67659357023803" fill="#7f1d1d" opacity="0.10" />
-<line x1="62" y1="84" x2="398" y2="84" stroke="#94a3b8" stroke-width="1" />
-<text x="54" y="88" text-anchor="end" font-size="14" fill="#334155">349</text>
-<line x1="62" y1="464" x2="398" y2="464" stroke="#94a3b8" stroke-width="1" />
-<text x="54" y="468" text-anchor="end" font-size="14" fill="#334155">0</text>
-<line x1="62" y1="451.25264132354505" x2="398" y2="451.25264132354505" stroke="#e2e8f0" stroke-width="1" />
-<line x1="62" y1="402.070765106217" x2="398" y2="402.070765106217" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="406.070765106217" text-anchor="end" font-size="14" fill="#475569">57</text>
-<line x1="62" y1="352.8888888888889" x2="398" y2="352.8888888888889" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="356.8888888888889" text-anchor="end" font-size="14" fill="#475569">102</text>
-<line x1="62" y1="303.70701267156085" x2="398" y2="303.70701267156085" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="307.70701267156085" text-anchor="end" font-size="14" fill="#475569">147</text>
-<line x1="62" y1="254.52513645423272" x2="398" y2="254.52513645423272" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="258.5251364542327" text-anchor="end" font-size="14" fill="#475569">192</text>
-<line x1="62" y1="205.34326023690465" x2="398" y2="205.34326023690465" stroke="#e2e8f0" stroke-width="1" />
-<text x="54" y="209.34326023690465" text-anchor="end" font-size="14" fill="#475569">238</text>
-<line x1="62" y1="130.66666666666663" x2="398" y2="130.66666666666663" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" />
-<text x="54" y="134.66666666666663" text-anchor="end" font-size="14" fill="#64748b">306</text>
-<line x1="62" y1="464" x2="398" y2="464" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" />
-<text x="54" y="72" text-anchor="end" font-size="14" fill="#334155">ms</text>
-<line x1="62" y1="84" x2="62" y2="464" stroke="#94a3b8" stroke-width="1" />
-<rect x="62" y="84" width="336" height="380" fill="none" stroke="#94a3b8" stroke-width="1" />
-<line x1="62" y1="84" x2="398" y2="84" stroke="#dc2626" stroke-width="2.5" />
-<line x1="62" y1="464" x2="398" y2="464" stroke="#94a3b8" stroke-width="1" />
-<line x1="62" y1="352.8888888888889" x2="398" y2="352.8888888888889" stroke="#0f172a" stroke-width="1" stroke-dasharray="6 4" opacity="0.55" />
-<defs><clipPath id="curve-clip"><rect x="62" y="-10000" width="336" height="10464" /></clipPath></defs>
-<rect x="89.5" y="363.0127127619288" width="1" height="1" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>tight · -3σ̂ · 14 samples (0.7% of 2000)</title></rect>
-<rect x="82.5" y="359.0719346048719" width="15" height="3.8373220203362735" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>tight · -2σ̂ · 300 samples (15.0% of 2000)</title></rect>
-<rect x="72.85" y="355.19530671456573" width="34.300000000000004" height="3.860173818735234" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>tight · -1σ̂ · 686 samples (34.3% of 2000)</title></rect>
-<rect x="72.825" y="351.3426733310049" width="34.35" height="3.8518682941228235" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>tight · +1σ̂ · 687 samples (34.4% of 2000)</title></rect>
-<rect x="82.5" y="347.55389526659434" width="15" height="3.7791469661507904" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>tight · +2σ̂ · 300 samples (15.0% of 2000)</title></rect>
-<rect x="89.5" y="346.7391824155503" width="1" height="1" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>tight · +3σ̂ · 13 samples (0.7% of 2000)</title></rect>
-<line x1="64" y1="355.19492416984673" x2="116" y2="355.19492416984673" stroke="#0f172a" stroke-width="1.4" />
-<text x="90" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 90 478)">tight</text>
-<rect x="62" y="84" width="56" height="380" fill="transparent" data-obj="0" />
-<rect x="144.875" y="452.29816034022593" width="2.25" height="11.701839659774066" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>wide · -3σ̂ · 45 samples (2.3% of 2000)</title></rect>
-<rect x="139.475" y="404.5639582404418" width="13.05" height="47.38161191813953" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>wide · -2σ̂ · 261 samples (13.1% of 2000)</title></rect>
-<rect x="128.65" y="356.71789215105764" width="34.699999999999996" height="47.48280841865636" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>wide · -1σ̂ · 694 samples (34.7% of 2000)</title></rect>
-<rect x="129.375" y="308.9627648393491" width="33.25" height="47.72248357719053" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>wide · +1σ̂ · 665 samples (33.3% of 2000)</title></rect>
-<rect x="139.525" y="261.56081060027793" width="12.950000000000001" height="47.23434480328058" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>wide · +2σ̂ · 259 samples (13.0% of 2000)</title></rect>
-<rect x="144.275" y="216.3404092588741" width="3.45" height="44.42209995914163" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>wide · +3σ̂ · 69 samples (3.5% of 2000)</title></rect>
-<rect x="145.5" y="208.45365175694866" width="1" height="4" fill="#7f1d1d"><title>wide · &gt;+3σ̂ (topping) · 7 samples (0.4% of 2000)</title></rect>
-<line x1="120" y1="356.7015702837987" x2="172" y2="356.7015702837987" stroke="#0f172a" stroke-width="1.4" />
-<text x="146" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 146 478)">wide</text>
-<rect x="118" y="84" width="56" height="380" fill="transparent" data-obj="1" />
-<path d="M 202 86 l -4 7 l 8 0 z" fill="#dc2626"><title>right-skew shoots through the roof: max 1253 &gt; sky 306</title></path>
-<text x="202" y="73" text-anchor="start" transform="rotate(-45 202 73)" font-size="14" fill="#dc2626">1253</text>
-<rect x="198.46666666666667" y="76" width="7.066666666666667" height="8" fill="#7f1d1d" />
-<rect x="199.76666666666668" y="438.8255974448493" width="4.466666666666667" height="14.560116329865366" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>right-skew · -2σ̂ · 67 samples (4.5% of 1500)</title></rect>
-<rect x="179.23333333333335" y="379.90814537573476" width="45.53333333333333" height="58.4350558436434" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>right-skew · -1σ̂ · 683 samples (45.5% of 1500)</title></rect>
-<rect x="188.83333333333334" y="320.96660567336824" width="26.333333333333332" height="58.5755559110475" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +1σ̂ · 395 samples (26.3% of 1500)</title></rect>
-<rect x="196.43333333333334" y="263.1605921336828" width="11.133333333333335" height="57.39931167277325" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +2σ̂ · 167 samples (11.1% of 1500)</title></rect>
-<rect x="199.26666666666668" y="204.4332368583585" width="5.466666666666667" height="56.006855291720456" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +3σ̂ · 82 samples (5.5% of 1500)</title></rect>
-<rect x="198.46666666666667" y="198.19572031124977" width="7.066666666666667" height="4" fill="#7f1d1d"><title>right-skew · &gt;+3σ̂ (topping) · 106 samples (7.1% of 1500)</title></rect>
-<line x1="176" y1="379.7251534800753" x2="228" y2="379.7251534800753" stroke="#0f172a" stroke-width="1.4" />
-<text x="202" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 202 478)">right-skew</text>
-<rect x="174" y="84" width="56" height="380" fill="transparent" data-obj="2" />
-<path d="M 258 86 l -4 7 l 8 0 z" fill="#dc2626"><title>left-skew shoots through the roof: max 314 &gt; sky 306</title></path>
-<text x="258" y="73" text-anchor="start" transform="rotate(-45 258 73)" font-size="14" fill="#dc2626">314</text>
-<rect x="255.6" y="76" width="4.8" height="8" fill="#ea580c" />
-<rect x="254.83333333333334" y="358.75618263432494" width="6.333333333333334" height="4" fill="#14532d"><title>left-skew · &lt;-3σ̂ (seat pad) · 95 samples (6.3% of 1500)</title></rect>
-<rect x="254.93333333333334" y="302.16807579360363" width="6.133333333333333" height="53.584303027938404" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -3σ̂ · 92 samples (6.1% of 1500)</title></rect>
-<rect x="252.13333333333333" y="246.53988528949472" width="11.733333333333333" height="53.45711797247836" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -2σ̂ · 176 samples (11.7% of 1500)</title></rect>
-<rect x="245.1" y="190.8108643000225" width="25.8" height="55.42586554888783" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -1σ̂ · 387 samples (25.8% of 1500)</title></rect>
-<rect x="235.4" y="135.21422703895308" width="45.2" height="55.55705058103092" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>left-skew · +1σ̂ · 678 samples (45.2% of 1500)</title></rect>
-<rect x="255.6" y="122.16559022869671" width="4.8" height="12.885836661256235" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>left-skew · +2σ̂ · 72 samples (4.8% of 1500)</title></rect>
-<line x1="232" y1="190.7910709600032" x2="284" y2="190.7910709600032" stroke="#0f172a" stroke-width="1.4" />
-<text x="258" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 258 478)">left-skew</text>
-<rect x="230" y="84" width="56" height="380" fill="transparent" data-obj="3" />
-<rect x="289" y="373.1738831418635" width="50" height="38.52532121839732" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>bimodal · -1σ̂ · 800 samples (50.0% of 1600)</title></rect>
-<rect x="311.75" y="330.1145673889671" width="4.5" height="42.87451669768086" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>bimodal · +1σ̂ · 72 samples (4.5% of 1600)</title></rect>
-<rect x="291.25" y="304.6569466882594" width="45.5" height="25.36159807891528" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>bimodal · +2σ̂ · 728 samples (45.5% of 1600)</title></rect>
-<line x1="288" y1="373.0814836142557" x2="340" y2="373.0814836142557" stroke="#0f172a" stroke-width="1.4" />
-<text x="314" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 314 478)">bimodal</text>
-<rect x="286" y="84" width="56" height="380" fill="transparent" data-obj="4" />
-<rect x="364.40625" y="402.43195632056097" width="11.1875" height="18.008269422497108" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>plateau · -2σ̂ · 179 samples (11.2% of 1600)</title></rect>
-<rect x="350.59375" y="346.0903656001819" width="38.8125" height="56.170854093539106" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>plateau · -1σ̂ · 621 samples (38.8% of 1600)</title></rect>
-<rect x="351.53125" y="289.7353687023407" width="36.9375" height="56.2909329606606" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>plateau · +1σ̂ · 591 samples (36.9% of 1600)</title></rect>
-<rect x="363.46875" y="268.1240142893721" width="13.0625" height="21.51497409076046" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>plateau · +2σ̂ · 209 samples (13.1% of 1600)</title></rect>
-<line x1="344" y1="346.0583336315916" x2="396" y2="346.0583336315916" stroke="#0f172a" stroke-width="1.4" />
-<text x="370" y="478" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 370 478)">plateau</text>
-<rect x="342" y="84" width="56" height="380" fill="transparent" data-obj="5" />
-<text x="62" y="16" text-anchor="start" font-size="14" fill="#94a3b8">swi_iceberg · © 2026 Sven Pauline · CC BY 4.0 (spec) / Apache-2.0 (code)</text>
+<svg width="416" height="638" viewBox="0 0 416 638" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif">
+<rect x="226.39114235500878" y="469.66188547349566" width="7.217715289982425" height="14.338114526504341" fill="#166534" opacity="0.13" />
+<rect x="190.26376098418277" y="413.416144436248" width="79.47247803163445" height="55.95975340769348" fill="#15803d" opacity="0.13" />
+<rect x="75.44" y="357.33709629030295" width="309.12" height="55.94772075158613" fill="#65a30d" opacity="0.13" />
+<rect x="119.25075571177504" y="301.27518249743525" width="221.49848857644992" height="56.054387878928424" fill="#ca8a04" opacity="0.13" />
+<rect x="197.2486467486819" y="245.220306387278" width="65.5027065026362" height="56.02384364278967" fill="#ea580c" opacity="0.13" />
+<rect x="215.40934973637962" y="189.55559842514367" width="29.181300527240776" height="55.57687424340537" fill="#dc2626" opacity="0.13" />
+<rect x="190.18615114235502" y="104" width="79.62769771528997" height="85.13131667007133" fill="#7f1d1d" opacity="0.10" />
+<line x1="62" y1="104" x2="398" y2="104" stroke="#94a3b8" stroke-width="1" />
+<text x="54" y="108" text-anchor="end" font-size="14" fill="#334155">306.29</text>
+<line x1="62" y1="484" x2="398" y2="484" stroke="#94a3b8" stroke-width="1" />
+<text x="54" y="488" text-anchor="end" font-size="14" fill="#334155">0.00</text>
+<line x1="62" y1="469.4680111088414" x2="398" y2="469.4680111088414" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="473.4680111088414" text-anchor="end" font-size="14" fill="#475569">11.71</text>
+<line x1="62" y1="413.40067222108735" x2="398" y2="413.40067222108735" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="417.40067222108735" text-anchor="end" font-size="14" fill="#475569">56.90</text>
+<line x1="62" y1="357.33333333333337" x2="398" y2="357.33333333333337" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="361.33333333333337" text-anchor="end" font-size="14" fill="#475569">102.10</text>
+<line x1="62" y1="301.26599444557934" x2="398" y2="301.26599444557934" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="305.26599444557934" text-anchor="end" font-size="14" fill="#475569">147.29</text>
+<line x1="62" y1="245.1986555578253" x2="398" y2="245.1986555578253" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="249.1986555578253" text-anchor="end" font-size="14" fill="#475569">192.48</text>
+<line x1="62" y1="189.13131667007133" x2="398" y2="189.13131667007133" stroke="#e2e8f0" stroke-width="1" />
+<text x="54" y="193.13131667007133" text-anchor="end" font-size="14" fill="#475569">237.67</text>
+<line x1="62" y1="104" x2="398" y2="104" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" />
+<line x1="62" y1="484" x2="398" y2="484" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" />
+<text x="54" y="92" text-anchor="end" font-size="14" fill="#334155">ms</text>
+<line x1="62" y1="104" x2="62" y2="484" stroke="#94a3b8" stroke-width="1" />
+<rect x="62" y="104" width="336" height="380" fill="none" stroke="#94a3b8" stroke-width="1" />
+<line x1="62" y1="104" x2="398" y2="104" stroke="#dc2626" stroke-width="2.5" />
+<line x1="62" y1="484" x2="398" y2="484" stroke="#94a3b8" stroke-width="1" />
+<line x1="62" y1="357.33333333333337" x2="398" y2="357.33333333333337" stroke="#0f172a" stroke-width="1" stroke-dasharray="6 4" opacity="0.55" />
+<defs><clipPath id="curve-clip"><rect x="62" y="-10000" width="336" height="10544" /></clipPath></defs>
+<rect x="89.5" y="368.8744925485989" width="1" height="1" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>tight · -3σ̂ · 14 samples (0.7% of 2000)</title></rect>
+<rect x="82.5" y="364.38200544955396" width="15" height="4.3745471031833745" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>tight · -2σ̂ · 300 samples (15.0% of 2000)</title></rect>
+<rect x="72.85" y="359.96264965460495" width="34.300000000000004" height="4.400598153358203" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>tight · -1σ̂ · 686 samples (34.3% of 2000)</title></rect>
+<rect x="72.825" y="355.57064759734567" width="34.35" height="4.391129855299937" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>tight · +1σ̂ · 687 samples (34.4% of 2000)</title></rect>
+<rect x="82.5" y="351.25144060391756" width="15" height="4.308227541411952" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>tight · +2σ̂ · 300 samples (15.0% of 2000)</title></rect>
+<rect x="89.5" y="350.3226679537273" width="1" height="1" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>tight · +3σ̂ · 13 samples (0.7% of 2000)</title></rect>
+<line x1="64" y1="359.96221355362525" x2="116" y2="359.96221355362525" stroke="#0f172a" stroke-width="1.4" />
+<text x="90" y="546" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 90 546)">tight</text>
+<rect x="62" y="104" width="56" height="380" fill="transparent" data-obj="0" />
+<rect x="144.875" y="470.65990278785756" width="2.25" height="13.340097212142439" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>wide · -3σ̂ · 45 samples (2.3% of 2000)</title></rect>
+<rect x="139.475" y="416.24291239410366" width="13.05" height="54.015037586679114" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>wide · -2σ̂ · 261 samples (13.1% of 2000)</title></rect>
+<rect x="128.65" y="361.69839705220573" width="34.699999999999996" height="54.13040159726819" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>wide · -1σ̂ · 694 samples (34.7% of 2000)</title></rect>
+<rect x="129.375" y="307.257551916858" width="33.25" height="54.40363127799719" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>wide · +1σ̂ · 665 samples (33.3% of 2000)</title></rect>
+<rect x="139.525" y="253.21932408431687" width="12.950000000000001" height="53.84715307573984" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>wide · +2σ̂ · 259 samples (13.0% of 2000)</title></rect>
+<rect x="144.275" y="201.66806655511647" width="3.45" height="50.641193953421464" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>wide · +3σ̂ · 69 samples (3.5% of 2000)</title></rect>
+<rect x="145.5" y="193.37716300292146" width="1" height="4" fill="#7f1d1d"><title>wide · &gt;+3σ̂ (topping) · 7 samples (0.4% of 2000)</title></rect>
+<line x1="120" y1="361.67979012353044" x2="172" y2="361.67979012353044" stroke="#0f172a" stroke-width="1.4" />
+<text x="146" y="546" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 146 546)">wide</text>
+<rect x="118" y="104" width="56" height="380" fill="transparent" data-obj="1" />
+<path d="M 202 106 l -4 7 l 8 0 z" fill="#dc2626"><title>right-skew shoots through the roof: max 1253.00 &gt; roof 306.29</title></path>
+<text x="202" y="93" text-anchor="start" transform="rotate(-45 202 93)" font-size="14" fill="#dc2626">1253.00</text>
+<rect x="198.46666666666667" y="96" width="7.066666666666667" height="8" fill="#7f1d1d" />
+<rect x="199.76666666666668" y="455.3011810871282" width="4.466666666666667" height="16.598532616046498" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>right-skew · -2σ̂ · 67 samples (4.5% of 1500)</title></rect>
+<rect x="179.23333333333335" y="388.13528572833764" width="45.53333333333333" height="66.61596366175348" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>right-skew · -1σ̂ · 683 samples (45.5% of 1500)</title></rect>
+<rect x="188.83333333333334" y="320.94193046763985" width="26.333333333333332" height="66.77613373859413" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +1σ̂ · 395 samples (26.3% of 1500)</title></rect>
+<rect x="196.43333333333334" y="255.04307503239835" width="11.133333333333335" height="65.43521530696154" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +2σ̂ · 167 samples (11.1% of 1500)</title></rect>
+<rect x="199.26666666666668" y="188.09389001852873" width="5.466666666666667" height="63.8478150325613" fill="#dc2626" stroke="#ffffff" stroke-width="0.5"><title>right-skew · +3σ̂ · 82 samples (5.5% of 1500)</title></rect>
+<rect x="198.46666666666667" y="181.6831211548248" width="7.066666666666667" height="4" fill="#7f1d1d"><title>right-skew · &gt;+3σ̂ (topping) · 106 samples (7.1% of 1500)</title></rect>
+<line x1="176" y1="387.9266749672858" x2="228" y2="387.9266749672858" stroke="#0f172a" stroke-width="1.4" />
+<text x="202" y="546" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 202 546)">right-skew</text>
+<rect x="174" y="104" width="56" height="380" fill="transparent" data-obj="2" />
+<path d="M 258 106 l -4 7 l 8 0 z" fill="#dc2626"><title>left-skew shoots through the roof: max 314.10 &gt; roof 306.29</title></path>
+<text x="258" y="93" text-anchor="start" transform="rotate(-45 258 93)" font-size="14" fill="#dc2626">314.10</text>
+<rect x="255.6" y="96" width="4.8" height="8" fill="#ea580c" />
+<rect x="254.83333333333334" y="363.88204820313047" width="6.333333333333334" height="4" fill="#14532d"><title>left-skew · &lt;-3σ̂ (seat pad) · 95 samples (6.3% of 1500)</title></rect>
+<rect x="254.93333333333334" y="299.51160640470823" width="6.133333333333333" height="61.08610545184973" fill="#166534" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -3σ̂ · 92 samples (6.1% of 1500)</title></rect>
+<rect x="252.13333333333333" y="236.095469230024" width="11.733333333333333" height="60.941114488625345" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -2σ̂ · 176 samples (11.7% of 1500)</title></rect>
+<rect x="245.1" y="172.56438530202564" width="25.8" height="63.18548672573212" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>left-skew · -1σ̂ · 387 samples (25.8% of 1500)</title></rect>
+<rect x="235.4" y="109.18421882440657" width="45.2" height="63.33503766237516" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>left-skew · +1σ̂ · 678 samples (45.2% of 1500)</title></rect>
+<rect x="255.6" y="104" width="4.8" height="4.998626654546399" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>left-skew · +2σ̂ · 72 samples (4.8% of 1500)</title></rect>
+<line x1="232" y1="172.54182089440366" x2="284" y2="172.54182089440366" stroke="#0f172a" stroke-width="1.4" />
+<text x="258" y="546" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 258 546)">left-skew</text>
+<rect x="230" y="104" width="56" height="380" fill="transparent" data-obj="3" />
+<rect x="289" y="380.45822678172436" width="50" height="43.91886618897297" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>bimodal · -1σ̂ · 800 samples (50.0% of 1600)</title></rect>
+<rect x="311.75" y="331.37060682342246" width="4.5" height="48.876949035356176" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>bimodal · +1σ̂ · 72 samples (4.5% of 1600)</title></rect>
+<rect x="291.25" y="302.3489192246157" width="45.5" height="28.91222180996334" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>bimodal · +2σ̂ · 728 samples (45.5% of 1600)</title></rect>
+<line x1="288" y1="380.3528913202515" x2="340" y2="380.3528913202515" stroke="#0f172a" stroke-width="1.4" />
+<text x="314" y="546" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 314 546)">bimodal</text>
+<rect x="286" y="104" width="56" height="380" fill="transparent" data-obj="4" />
+<rect x="364.40625" y="413.81243020543957" width="11.1875" height="20.529427141646636" fill="#15803d" stroke="#ffffff" stroke-width="0.5"><title>plateau · -2σ̂ · 179 samples (11.2% of 1600)</title></rect>
+<rect x="350.59375" y="349.58301678420736" width="38.8125" height="64.03477366663458" fill="#65a30d" stroke="#ffffff" stroke-width="0.5"><title>plateau · -1σ̂ · 621 samples (38.8% of 1600)</title></rect>
+<rect x="351.53125" y="285.33832032066846" width="36.9375" height="64.17166357515305" fill="#ca8a04" stroke="#ffffff" stroke-width="0.5"><title>plateau · +1σ̂ · 591 samples (36.9% of 1600)</title></rect>
+<rect x="363.46875" y="260.70137628988425" width="13.0625" height="24.527070463466885" fill="#ea580c" stroke="#ffffff" stroke-width="0.5"><title>plateau · +2σ̂ · 209 samples (13.1% of 1600)</title></rect>
+<line x1="344" y1="349.5465003400144" x2="396" y2="349.5465003400144" stroke="#0f172a" stroke-width="1.4" />
+<text x="370" y="546" text-anchor="end" font-size="14" fill="#334155" transform="rotate(-35 370 546)">plateau</text>
+<rect x="342" y="104" width="56" height="380" fill="transparent" data-obj="5" />
+<text x="62" y="16" text-anchor="start" font-size="14" fill="#94a3b8">swi_iceberg · © 2026 Sven Pauline</text>
+<text x="62" y="35" text-anchor="start" font-size="14" fill="#94a3b8">CC BY 4.0 (spec) / Apache-2.0 (code)</text>
 </svg>

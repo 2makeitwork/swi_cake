@@ -1,6 +1,6 @@
 # swi_iceberg — User Manual
 
-**Software package usage · version 1.0**
+**Software package usage · library version 1.2 (handoff schema 1.1)**
 
 **Package:** `swi_iceberg` (Python 3.10+, NumPy; no other runtime dependency)
 **Code license:** Apache-2.0 ([LICENSE-CODE](../LICENSE-CODE))
@@ -66,9 +66,12 @@ array([  43,  291,  666,  675,  280,   42], dtype=uint32)
 
 - `to_ascii(glyph, width=40)` — dependency-free text rendering (bands high → low,
   run length ∝ population, observed range printed per band).
-- `to_json(glyph)` — the canonical handoff payload (statistics only, no pixels):
+- `to_json(glyph, data_min=..., data_max=...)` — the canonical handoff payload
+  (statistics only, no pixels). Supply the observed raw extremes when the display
+  needs roof and basement breach markers; omitted extremes serialize to `null`:
   `mode, n, median, madn, resolution, z_min, z_max, lower, upper, edges, population,
-  normalized, band_lo, band_hi, topping, bottoming, value, spec_version, display_version`.
+  normalized, band_lo, band_hi, topping, bottoming, value, min, max, spec_version,
+  display_version`.
   NaN ranges serialize to `null`. This is what the browser harness consumes. The two
   version fields travel on independent axes: `spec_version` guards the handoff schema
   (which fields exist), `display_version` guards the drawing rules the renderer
@@ -182,8 +185,9 @@ output, and its seed is shown next to the button.
 
 Each column is one swi_iceberg on a shared absolute axis: band **width** = population
 share, band **height** = observed value range, solid line = object median, dashed =
-global median, faint bands = pooled reference clipped to the sky/ground envelope
-(3 × global median), red carets at the roof = objects whose raw samples shoot through.
+global median, faint bands = pooled reference clipped to the paired roof/basement
+envelope (default 3 × the pooled median magnitude), red carets at either edge =
+objects whose raw samples pass that bound.
 
 ### 7.2 Tooltips
 
@@ -236,8 +240,10 @@ v1.1 display rules together:
 - **Pooled-clip axis (visual spec §7):** the vertical axis is bounded by the clip, so the
   normal cluster fills the frame instead of being squashed by the tall objects.
 
-The **roof clip** slider (3–10) raises the sky clip as a multiple of the pooled median; the
-**max curve** toggle overlays each object's raw maximum so the overshoot is easier to trace.
+The **roof/basement clip** slider (3–10) moves both bounds using the same multiple of the
+pooled median magnitude. At a zero median it uses pooled MADN, then the raw magnitude.
+Each side stops at its own observed extreme. The **max/min curves** overlay raw extremes;
+an object that passes either bound receives a caret, its raw value, and a continuation cap.
 
 ### 7.7 Exporting figures
 

@@ -173,9 +173,19 @@
         samples run past the ceiling is marked at the roof with a caret and its raw maximum
         (e.g. <code>1253</code>).</em></p>
         <p><strong>Same fleet, interactive:</strong> pan, vertical zoom, per-band tooltips, median / max / min
-        overlay curves, a raisable roof clip, view toggles, and a &quot;Random fleet&quot; button that swaps
+        overlay curves, a raisable roof/basement clip, view toggles, and a &quot;Random fleet&quot; button that swaps
         in another pre-computed fleet —
         <a href="https://swi-iceberg.swi-energy.com/fleet/">https://swi-iceberg.swi-energy.com/fleet/</a></p>
+        <h3>Second example: signed timing deviations</h3>
+        <p><img src="figures/swi_iceberg_signed_example.svg" alt="Six swi_icebergs with negative and positive timing deviations on one axis"></p>
+        <p><em>Six simulated deviations from an expected retransmission interval (milliseconds).
+        Negative values mean earlier than expected; positive values mean later. The dashed
+        <code>0.00</code> line is the pooled median. Because that median is zero, the display uses
+        the pooled MADN to place the roof and basement at <code>+3.58</code> and <code>−3.58</code> ms. The
+        raw <code>−8.50</code> and <code>+8.50</code> ms samples breach those limits and are labelled outside
+        the axis rather than stretching it.</em></p>
+        <p><strong>Explore this signed fleet interactively:</strong>
+        <a href="https://swi-iceberg.swi-energy.com/fleet/?data=signed.json">https://swi-iceberg.swi-energy.com/fleet/?data=signed.json</a></p>
         <hr>
         <h2>Why swi_iceberg?</h2>
         <p>A histogram is excellent for understanding the distribution of a single object. But when you need to compare many objects at once, the picture quickly becomes crowded: five histograms may still be manageable, but with dozens or hundreds of distributions, you lose the overview.</p>
@@ -199,7 +209,7 @@
         </blockquote>
         <p>The design uses robust statistical coordinates based on the median and MADN, while preserving the observed distribution through separate visual encodings for population and occupied value range.</p>
         <h2>How to read the picture</h2>
-        <h3>(Using response latency as a running example — any measured quantity works)</h3>
+        <h3>(Using response latency and signed timing deviations — any measured quantity works)</h3>
         <table>
         <thead>
         <tr>
@@ -209,7 +219,7 @@
         </thead>
         <tbody><tr>
         <td>Vertical position</td>
-        <td>The absolute measured value — any unit (ms in this example). Objects float at their own level.</td>
+        <td>The measured value — any unit (ms in these examples), including negative values. Objects float at their own level.</td>
         </tr>
         <tr>
         <td>Band color (green → red)</td>
@@ -248,16 +258,24 @@
         <td><strong>Roof carpet</strong> — the topping&#39;s continuation, drawn when the object&#39;s raw maximum passes the pooled clip (§9).</td>
         </tr>
         <tr>
+        <td>Short dark green bar below the basement line</td>
+        <td><strong>Basement carpet</strong> — the seat pad&#39;s continuation when the object&#39;s raw minimum passes the pooled clip.</td>
+        </tr>
+        <tr>
         <td>Red top or bottom border</td>
-        <td>Some pooled samples lie beyond the global clip (&quot;shoot through the roof/floor&quot;).</td>
+        <td>Some pooled samples lie beyond the roof or basement clip.</td>
         </tr>
         <tr>
         <td>Red caret + number at the roof</td>
         <td>That object&#39;s raw maximum exceeds the clip, and by how much.</td>
         </tr>
         <tr>
-        <td>Curve leaving the top edge</td>
-        <td>An overlay-curve value above the visible window — drawn open-ended, never pinned flat to the roof. The median curve labels its peak; the max curve does not (the row above already labels that maximum).</td>
+        <td>Red caret + number at the basement</td>
+        <td>That object&#39;s raw minimum passes the clip, and by how much.</td>
+        </tr>
+        <tr>
+        <td>Curve leaving either value edge</td>
+        <td>An overlay value outside the visible window — drawn open-ended, never pinned flat to the roof or basement. The median curve marks its out-of-window vertex; raw extrema use the caret labels.</td>
         </tr>
         </tbody></table>
         <p>An empty gap between bands means <em>no</em> samples there; a thin sliver means <em>a few</em>.
@@ -298,7 +316,8 @@
         g.population              # per-band sample counts (low -&gt; high), width encoding
         g.band_lo, g.band_hi      # observed value range inside each band, height encoding
         g.topping, g.bottoming    # topping / seat pad: samples retained beyond +3 / -3 MADN
-        to_json(g)                # plain-JSON handoff payload for your own renderer
+        # Include raw extrema so the renderer can mark roof and basement breaches.
+        to_json(g, data_min=float(values.min()), data_max=float(values.max()))
         </code></pre>
         <p>Fewer than 100 samples raises <code>InsufficientDataError</code>; if over half the samples are
         identical (MADN = 0) the swi_iceberg collapses to a single line at the median instead of
@@ -351,8 +370,9 @@
         <li>License index (which file falls under which license): <a href="https://github.com/2makeitwork/swi_cake/blob/main/LICENSE">LICENSE</a>.</li>
         <li>Suggested attribution: <em>swi_iceberg — © 2026 Sven Pauline (copyright owner),
         associated with Sheer Will Industry (SWI). Used under CC BY 4.0.</em></li>
-        <li>Cite as: Pauline, Sven (2026). <em>swi_iceberg: A Robust Six-Band MADN Visualization
-        for the Iceberg Fleet</em>, v1.1 — see <a href="https://github.com/2makeitwork/swi_cake/blob/main/CITATION.cff">CITATION.cff</a>.</li>
+        <li>Cite the statistical design as: Pauline, Sven (2026). <em>swi_iceberg: A Robust
+        Six-Band MADN Visualization for the Iceberg Fleet</em>, v1.1 — see
+        <a href="https://github.com/2makeitwork/swi_cake/blob/main/CITATION.cff">CITATION.cff</a>. The visual specification and Python library are v1.2.</li>
         </ul>
         <p>Three documents, deliberately separate: the
         <a href="https://github.com/2makeitwork/swi_cake/blob/main/specification_swi_iceberg.md">statistical specification</a> defines the numbers and
