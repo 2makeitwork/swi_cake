@@ -3,7 +3,7 @@
   "resolution": 1.0,
   "z_min": -3.0,
   "z_max": 3.0,
-  "display_version": "1.2",
+  "display_version": "1.2.1",
   "global": {
     "mode": "normal",
     "n": 10200,
@@ -61,7 +61,7 @@
     "min": 0.0,
     "max": 1058.0545602602892,
     "spec_version": "1.1",
-    "display_version": "1.2"
+    "display_version": "1.2.1"
   },
   "devices": [
     {
@@ -121,7 +121,7 @@
       "min": 92.28993976882741,
       "max": 107.73010827413863,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "tight",
       "description": "peaked, light-tailed",
       "hist": {
@@ -224,7 +224,7 @@
       "min": 0.0,
       "max": 265.4850658423883,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "wide",
       "description": "very broad",
       "hist": {
@@ -327,7 +327,7 @@
       "min": 10.892932635291242,
       "max": 1058.0545602602892,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "right-skew",
       "description": "strong right skew",
       "hist": {
@@ -430,7 +430,7 @@
       "min": 0.0,
       "max": 315.35328466799996,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "left-skew",
       "description": "strong left skew",
       "hist": {
@@ -533,7 +533,7 @@
       "min": 57.00343049590906,
       "max": 144.87519552249242,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "bimodal",
       "description": "two separated modes",
       "hist": {
@@ -636,7 +636,7 @@
       "min": 40.07098516406396,
       "max": 179.9829707298445,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "plateau",
       "description": "near-uniform",
       "hist": {

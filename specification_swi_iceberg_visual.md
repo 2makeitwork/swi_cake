@@ -2,7 +2,7 @@
 
 ## A Normative Rendering and Interaction Contract for the Iceberg Fleet
 
-**Design specification — version 1.2 (display model)**
+**Design specification — version 1.2.1 (display model)**
 
 **Introduced by:** Sven Pauline
 **Year:** 2026
@@ -89,7 +89,7 @@ Fields at v1.1:
 | `value` | collapsed-mode single value (equals `median`) |
 | **`min`, `max`** | **NEW v1.1** — the object's raw sample extremes, retained so the renderer can detect a shoot-through the pooled summary cannot express (§9) |
 | `spec_version` | the **handoff-contract (schema)** edition the payload conforms to (`"1.1"`) — bumps only when a data field changes |
-| `display_version` | the **display-model** edition the payload is tagged for (`"1.2"`) — bumps when a rendering rule changes; a renderer pins the edition it implements |
+| `display_version` | the **display-model** edition the payload is tagged for (`"1.2.1"`) — bumps when a rendering rule changes; a renderer pins the edition it implements |
 
 > **`mode: "normal"` is not the Gaussian normal distribution.** "Normal" here means only
 > the general case — a spread with a non-zero MADN — as opposed to `"collapsed"` (every
@@ -379,6 +379,20 @@ the reference harness:
 
 ---
 
+### 12.1 Horizontal measuring line (v1.2.1)
+
+An interactive fleet SHALL provide one horizontal measuring line across the plotting
+area and display its numeric value on the shared Y axis. The line is a measurement
+of position on that axis; it is not a sample, a MADN band edge, a median, or a change
+to the distribution. Its appearance SHALL distinguish it from the statistical grid.
+The user SHALL be able to drag it vertically, adjust it with a keyboard-accessible
+control, and show or hide it. The current value and visibility SHALL be preserved
+across refresh and view switches, with settings owned separately by each fleet view
+and measurement context. Zoom and pan SHALL preserve the numeric value, not the
+screen position. If the value is outside the visible window, do not clamp it to the
+window edge: retain the value and show that it is outside the visible window.
+Static report renderings MAY omit this interactive aid.
+
 ## 13. Axis ticks and label collision (relocated from statistical §10)
 
 - Value-axis ticks SHALL sit on the σ̂ band edges of the **complete fleet sample** (every
@@ -504,17 +518,23 @@ is still byte-identical to v1.0. This is a display-model patch only.
 
 ---
 
+### 16.3 Display release v1.2.1
+
+The interactive fleet adds the horizontal measuring line described in §12.1.
+The display version becomes `1.2.1`; handoff schema `1.1` and all statistics
+remain unchanged.
+
 ## 17. Reference-implementation mapping
 
 - **Statistics:** `src/swi_iceberg/core.py` → `build_iceberg`, `IcebergGlyph` (frozen).
 - **Handoff and the two version axes:** `src/swi_iceberg/render.py` → `to_json` (gains
   `min`, `max` at v1.1; gains `display_version` at v1.1.1), `SPEC_VERSION = "1.1"`,
-  `DISPLAY_VERSION = "1.2"`. `src/swi_iceberg/__init__.py` re-exports both constants
-  and sets `__version__ = "1.2"`.
+  `DISPLAY_VERSION = "1.2.1"`. `src/swi_iceberg/__init__.py` re-exports both constants
+  and sets `__version__ = "1.2.1"`.
 - **Fleet renderer (reference):** `private/verify/src/devices-svg.ts` → `layoutOf`,
   `fullDomain`, `renderDevices`, `RenderOptions` (paired clip, roof and basement carpets,
   numeric raw-extreme labels, open-ended overlay curves with median annotations and
-  silent max/min curves). Exports `DISPLAY_VERSION = "1.2"`; `main.ts` reads the payload's
+  silent max/min curves). Exports `DISPLAY_VERSION = "1.2.1"`; `main.ts` reads the payload's
   `display_version` and shows an amber banner on mismatch.
 - **Live fleet view:** `SCADA/components/swi_view/iceberg-fleet.tsx` and
   `SCADA/services/swi_view/analysis_queries.py` (pins both `PINNED_SPEC_VERSION` and
@@ -532,4 +552,4 @@ naming which path falls under which license.
 > Sheer Will Industry (SWI). Used under CC BY 4.0. Version 1.1 revises and extends version
 > 1.0; version 1.2 changes only the display model (schema and statistics unchanged).
 
-**End of visual specification v1.2**
+**End of visual specification v1.2.1**

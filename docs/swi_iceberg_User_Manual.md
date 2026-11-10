@@ -1,6 +1,6 @@
 # swi_iceberg — User Manual
 
-**Software package usage · library version 1.2 (handoff schema 1.1)**
+**Software package usage · library version 1.2.1 (handoff schema 1.1)**
 
 **Package:** `swi_iceberg` (Python 3.10+, NumPy; no other runtime dependency)
 **Code license:** Apache-2.0 ([LICENSE-CODE](../LICENSE-CODE))

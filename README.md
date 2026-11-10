@@ -163,7 +163,7 @@ page they build is published, under [`docs/fleet/`](docs/fleet/).
   associated with Sheer Will Industry (SWI). Used under CC BY 4.0.*
 - Cite the statistical design as: Pauline, Sven (2026). *swi_iceberg: A Robust
   Six-Band MADN Visualization for the Iceberg Fleet*, v1.1 — see
-  [CITATION.cff](CITATION.cff). The visual specification and Python library are v1.2.
+  [CITATION.cff](CITATION.cff). The visual specification and Python library are v1.2.1.
 
 Three documents, deliberately separate: the
 [statistical specification](specification_swi_iceberg.md) defines the numbers and

@@ -2,7 +2,7 @@
   "resolution": 0.01,
   "z_min": -3,
   "z_max": 3,
-  "display_version": "1.2",
+  "display_version": "1.2.1",
   "global": {
     "mode": "normal",
     "n": 1800,
@@ -60,7 +60,7 @@
     "min": -8.5,
     "max": 8.5,
     "spec_version": "1.1",
-    "display_version": "1.2"
+    "display_version": "1.2.1"
   },
   "devices": [
     {
@@ -120,7 +120,7 @@
       "min": -8.5,
       "max": -1.0434143832029374,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "early \u00b7 2.0",
       "description": "signed deviation from expected interval"
     },
@@ -181,7 +181,7 @@
       "min": -1.2998325940532027,
       "max": -0.2476062443383994,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "early \u00b7 0.8",
       "description": "signed deviation from expected interval"
     },
@@ -242,7 +242,7 @@
       "min": -0.48949145728001137,
       "max": 0.12562292275751585,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "near \u00b7 early",
       "description": "signed deviation from expected interval"
     },
@@ -303,7 +303,7 @@
       "min": -0.12562292275751585,
       "max": 0.48949145728001137,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "near \u00b7 late",
       "description": "signed deviation from expected interval"
     },
@@ -364,7 +364,7 @@
       "min": 0.2476062443383994,
       "max": 1.2998325940532027,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "late \u00b7 0.8",
       "description": "signed deviation from expected interval"
     },
@@ -425,7 +425,7 @@
       "min": 1.0434143832029374,
       "max": 8.5,
       "spec_version": "1.1",
-      "display_version": "1.2",
+      "display_version": "1.2.1",
       "label": "late \u00b7 2.0",
       "description": "signed deviation from expected interval"
     }
