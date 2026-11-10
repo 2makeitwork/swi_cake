@@ -11,7 +11,7 @@ samples run past the ceiling is marked at the roof with a caret and its raw maxi
 (e.g. `1253`).*
 
 **Same fleet, interactive:** pan, vertical zoom, per-band tooltips, median / max / min
-overlay curves, a raisable roof/basement clip, view toggles, and a "Random fleet" button that swaps
+step-after overlay curves, a raisable roof/basement clip, view toggles, and a "Random fleet" button that swaps
 in another pre-computed fleet —
 <https://swi-iceberg.swi-energy.com/fleet/>
 
@@ -163,7 +163,7 @@ page they build is published, under [`docs/fleet/`](docs/fleet/).
   associated with Sheer Will Industry (SWI). Used under CC BY 4.0.*
 - Cite the statistical design as: Pauline, Sven (2026). *swi_iceberg: A Robust
   Six-Band MADN Visualization for the Iceberg Fleet*, v1.1 — see
-  [CITATION.cff](CITATION.cff). The visual specification and Python library are v1.2.1.
+  [CITATION.cff](CITATION.cff). The visual specification and Python library are v1.2.2.
 
 Three documents, deliberately separate: the
 [statistical specification](specification_swi_iceberg.md) defines the numbers and

@@ -2,7 +2,7 @@
 
 ## A Normative Rendering and Interaction Contract for the Iceberg Fleet
 
-**Design specification — version 1.2.1 (display model)**
+**Design specification — version 1.2.2 (display model)**
 
 **Introduced by:** Sven Pauline
 **Year:** 2026
@@ -89,7 +89,7 @@ Fields at v1.1:
 | `value` | collapsed-mode single value (equals `median`) |
 | **`min`, `max`** | **NEW v1.1** — the object's raw sample extremes, retained so the renderer can detect a shoot-through the pooled summary cannot express (§9) |
 | `spec_version` | the **handoff-contract (schema)** edition the payload conforms to (`"1.1"`) — bumps only when a data field changes |
-| `display_version` | the **display-model** edition the payload is tagged for (`"1.2.1"`) — bumps when a rendering rule changes; a renderer pins the edition it implements |
+| `display_version` | the **display-model** edition the payload is tagged for (`"1.2.2"`) — bumps when a rendering rule changes; a renderer pins the edition it implements |
 
 > **`mode: "normal"` is not the Gaussian normal distribution.** "Normal" here means only
 > the general case — a spread with a non-zero MADN — as opposed to `"collapsed"` (every
@@ -245,44 +245,32 @@ basement = max(−clipMultiple × S, pooled_min )
 
 ---
 
-## 8. Median overshoot beyond the roof or basement (v1.2)
+## 8. Overlay curves and values beyond the visible range (v1.2.2)
 
-The median curve links each object's median to its neighbours' (statistical §8). Because it
-is one continuous **smoothed** line (Catmull-Rom through the medians, exactly as the
-reference draws it) over a shared axis, an object whose median sits **above the visible
-window's roof** does not float off on its own — the line rises past the roof at that object
-and **comes back down** toward the next median that lies below it. The honest drawing is
-therefore a **peak that pokes above the roof and closes back down**, never a flat top
-pinned along the roof (which would falsely claim the median equals the roof value).
+The optional median, maximum and minimum curves connect the respective statistics
+of the visible objects in display order. Each point belongs to one object; the
+space between objects is not a continuous time series and does not contain additional
+observations.
 
-Only two situations keep the line above the roof instead of closing it back down:
+1. Each curve SHALL use a **step-after** path. Starting at an object's actual
+   value, draw a horizontal segment to the next object's x-position, then a
+   vertical segment to that object's actual value. Equal adjacent values therefore
+   form a flat segment; a curve changes value only at an object position. No curve
+   SHALL add an interpolated peak or dip between objects.
+2. Each point SHALL use the **unclamped** value-to-y mapping. A value outside the
+   visible window takes the step beyond the roof or basement; the line SHALL NOT
+   be pinned to an axis edge. Clip horizontally to the object plotting extent while
+   leaving both value ends open.
+3. A median outside the visible window SHALL be marked with a dot at its true
+   position. A renderer MAY show its numeric value; labels that would overlap
+   SHOULD be staggered or deferred to a tooltip.
+4. The maximum and minimum curves SHALL NOT add duplicate breach values or dots:
+   the object's raw extrema are already marked and labelled under §9.
 
-- **a. a run of consecutive overshooting objects** — when the neighbour is also above the
-  roof, the segment between them stays above; the peak closes only where the run ends;
-- **b. the last object in the graph** — there is no following median to bring the line back,
-  so the final overshoot leaves the top edge open-ended.
-
-Normative points:
-
-1. The curve SHALL use the **unclamped** value→y mapping for its points (a median above the
-   window maps above the plot top), while the axis labels and ordinary in-range geometry use
-   the clamped mapping. The two mappings SHALL NOT be the same function.
-2. The curve SHALL be clipped by a region **open at both value ends**: a peak may pass
-   the roof and a trough may pass the basement. The plot remains clipped horizontally.
-3. Because the line returns below the roof on its own except in cases a/b, an isolated
-   overshoot reads as a **peak** — the eye sees it leave and re-enter the visible band, so it
-   is never mistaken for the roof value.
-4. **An out-of-window median vertex SHALL be marked with a point** above the roof or below
-   the basement. The dot pins the exact median location to its object. Ordinary in-range
-   medians need no such dot.
-5. The renderer **MAY** print the value beside the point; neighbouring labels that would
-   overprint SHOULD stagger or defer to an object tooltip.
-6. Every overlay curve (median / max / min) uses unclamped values and leaves either value
-   edge rather than pinning flat. The median curve marks an out-of-window peak or trough
-   with a dot and its value (points 4–5). The max and min curves add no numeric label at
-   their respective breached edge: the §9 markers already print those raw extrema.
-
-![median overshoot: an isolated peak closes back down; the last object leaves open-ended](docs/figures/visual_v11_overshoot.svg)
+A run of consecutive median values above the roof stays above the roof between
+those objects. When the next object's value is below the roof, the line returns at
+that object's position; if the last value is outside the window, the end remains
+open. The same rule applies at the basement and to maximum and minimum curves.
 
 ---
 
@@ -375,7 +363,7 @@ the reference harness:
 - **Overlay curves** (median / max / min) drawn through the visible objects, each open-ended
   at both value edges. A median beyond the roof or basement marks its vertex with a dot;
   the max and min curves add no duplicate raw-extreme labels because the §9 markers provide
-  those readings (§8 point 6).
+  those readings (§8 point 4).
 
 ---
 
@@ -426,7 +414,7 @@ Static report renderings MAY omit this interactive aid.
 | Red border edge | pooled samples exceed that edge's clip |
 | **Roof caret + numeric max + roof carpet** | **this object's raw max exceeds the roof, and by how much** |
 | **Basement caret + numeric min + basement carpet** | **this object's raw min passes the basement, and by how much (v1.2)** |
-| **Overshoot peak point (+ open end at the last object)** | **a connected median exceeds the visible window; the peak vertex is marked with a point (v1.1)** |
+| **Out-of-window median point** | **an object’s median exceeds the visible window; its actual value is marked with a point** |
 | **Dashed placeholder box with `n`** | **object below the sample minimum (v1.1)** |
 
 ---
@@ -444,8 +432,9 @@ A conforming renderer satisfies:
 5. A roof breach is flagged iff `max > roof`; its numeric label equals the contract `max`.
 6. A basement breach is flagged iff `min < basement`; its numeric label equals the contract
    `min`. Both tests allow a small numeric epsilon and use the contract's raw extrema.
-7. Every overlay curve is open-ended at both value ends; the median marks its out-of-window
-   vertex with a dot. Max and min curves add no duplicate raw-extreme labels.
+7. Every overlay curve uses step-after connections at object positions without invented
+   extrema and is open-ended at both value ends. The median marks each out-of-window
+   value with a dot. Max and min curves add no duplicate raw-extreme labels.
 8. Colour is never the sole carrier of meaning.
 9. No statistic is recomputed downstream that the payload already carries.
 10. A nonzero axis tick or breach value is never printed as `0.00` or `-0.00`.
@@ -524,17 +513,26 @@ The interactive fleet adds the horizontal measuring line described in §12.1.
 The display version becomes `1.2.1`; handoff schema `1.1` and all statistics
 remain unchanged.
 
+### 16.4 Display release v1.2.2
+
+All three optional curves use step-after connections between object positions (§8).
+The previous smooth interpolation could draw values beyond the neighbouring object
+statistics, creating a false peak or dip. The curves retain the actual unclamped
+median, minimum and maximum values, including departures beyond the visible range.
+The display version becomes `1.2.2`; the handoff schema remains `1.1` and the
+statistical calculations and payload fields are unchanged.
+
 ## 17. Reference-implementation mapping
 
 - **Statistics:** `src/swi_iceberg/core.py` → `build_iceberg`, `IcebergGlyph` (frozen).
 - **Handoff and the two version axes:** `src/swi_iceberg/render.py` → `to_json` (gains
   `min`, `max` at v1.1; gains `display_version` at v1.1.1), `SPEC_VERSION = "1.1"`,
-  `DISPLAY_VERSION = "1.2.1"`. `src/swi_iceberg/__init__.py` re-exports both constants
-  and sets `__version__ = "1.2.1"`.
+  `DISPLAY_VERSION = "1.2.2"`. `src/swi_iceberg/__init__.py` re-exports both constants
+  and sets `__version__ = "1.2.2"`.
 - **Fleet renderer (reference):** `private/verify/src/devices-svg.ts` → `layoutOf`,
   `fullDomain`, `renderDevices`, `RenderOptions` (paired clip, roof and basement carpets,
   numeric raw-extreme labels, open-ended overlay curves with median annotations and
-  silent max/min curves). Exports `DISPLAY_VERSION = "1.2.1"`; `main.ts` reads the payload's
+  silent max/min curves). Exports `DISPLAY_VERSION = "1.2.2"`; `main.ts` reads the payload's
   `display_version` and shows an amber banner on mismatch.
 - **Live fleet view:** `SCADA/components/swi_view/iceberg-fleet.tsx` and
   `SCADA/services/swi_view/analysis_queries.py` (pins both `PINNED_SPEC_VERSION` and
@@ -552,4 +550,4 @@ naming which path falls under which license.
 > Sheer Will Industry (SWI). Used under CC BY 4.0. Version 1.1 revises and extends version
 > 1.0; version 1.2 changes only the display model (schema and statistics unchanged).
 
-**End of visual specification v1.2.1**
+**End of visual specification v1.2.2**

@@ -25,7 +25,7 @@ from .core import (
 from .render import to_ascii, to_json, to_raster, SPEC_VERSION, DISPLAY_VERSION
 from .feed import IcebergFeed, IcebergPipeline
 
-__version__ = "1.2.1"
+__version__ = "1.2.2"
 
 __all__ = [
     "build_iceberg",

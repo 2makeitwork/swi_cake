@@ -1,6 +1,6 @@
 # swi_iceberg — User Manual
 
-**Software package usage · library version 1.2.1 (handoff schema 1.1)**
+**Software package usage · library version 1.2.2 (handoff schema 1.1)**
 
 **Package:** `swi_iceberg` (Python 3.10+, NumPy; no other runtime dependency)
 **Code license:** Apache-2.0 ([LICENSE-CODE](../LICENSE-CODE))
@@ -207,7 +207,7 @@ the zoomed window; roof/floor axis readings follow the visible window.
 ### 7.4 Curves only
 
 Toggle **median / max / min curves** independently, and **curves only** to hide the
-objects (slots preserved, never collapsed) leaving the waves, background, and roof
+objects (slots preserved, never collapsed) leaving the step curves, background, and roof
 markers.
 
 ![curves only](figures/manual_curves_only.png)
@@ -242,8 +242,11 @@ v1.1 display rules together:
 
 The **roof/basement clip** slider (3–10) moves both bounds using the same multiple of the
 pooled median magnitude. At a zero median it uses pooled MADN, then the raw magnitude.
-Each side stops at its own observed extreme. The **max/min curves** overlay raw extremes;
-an object that passes either bound receives a caret, its raw value, and a continuation cap.
+Each side stops at its own observed extreme. The median, max and min curves hold each
+object’s value until the next object position, where they step to that object’s value.
+They do not invent peaks or dips between objects. The **max/min curves** overlay raw
+extremes; an object that passes either bound receives a caret, its raw value, and a
+continuation cap.
 
 ### 7.7 Exporting figures
 

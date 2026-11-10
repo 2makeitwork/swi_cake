@@ -33,7 +33,7 @@ __all__ = ["to_ascii", "to_json", "to_raster", "SPEC_VERSION", "DISPLAY_VERSION"
 #                     for a different one, so a display-rule change cannot be silently
 #                     rendered by a stale interpretation.
 SPEC_VERSION = "1.1"
-DISPLAY_VERSION = "1.2.1"
+DISPLAY_VERSION = "1.2.2"
 
 
 def _json_float(x: float) -> Any:
